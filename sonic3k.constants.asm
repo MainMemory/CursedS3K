@@ -1035,21 +1035,6 @@ ArtTile_DashDust                      = $07E0
 ArtTile_DashDust_P2                   = $07F0
 
 ; ---------------------------------------------------------------------------
-; Sound commands list.
-
-	phase $E1
-mus__FirstCmd =			*		; ID of the first sound command
-mus_FadeOut			ds.b 1		; $E1 - fade out music
-mus_Stop			ds.b 1		; $E2 - stop music and sound effects
-mus_MutePSG			ds.b 1		; $E3 - mute all PSG channels
-mus_StopSFX			ds.b 1		; $E4 - stop all sound effects
-mus_FadeOut2			ds.b 1		; $E5 - fade out music (duplicate)
-Mus__EndCmd =			*		; next ID after last sound command
-
-mus_FA =			$FA		; $FA - ???
-mus_StopSEGA =			$FE		; $FE - Stop SEGA sound
-mus_SEGA =			$FF		; $FF - Play SEGA sound
-; ---------------------------------------------------------------------------
 ; Music ID's list. These do not affect the sound driver, be careful.
 
 	phase $01
@@ -1077,7 +1062,7 @@ mus_HPZ				ds.b 1		; $14
 mus_SSZ				ds.b 1		; $15
 mus_DEZ1			ds.b 1		; $16
 mus_DEZ2			ds.b 1		; $17
-mus_MinibossK			ds.b 1		; $18
+mus_SpecialStage2	ds.b 1		; $18
 mus_EndBoss			ds.b 1		; $19
 mus_DDZ				ds.b 1		; $1A
 mus_MagneticOrbs		ds.b 1		; $1B
@@ -1104,12 +1089,13 @@ mus_DataSelect			ds.b 1		; $2F
 mus_FinalBoss			ds.b 1		; $30
 mus_Drowning			ds.b 1		; $31
 mus_Ending			ds.b 1		; $32
+mus_CreditsK			ds.b 1		; $DC - Can also be treated as SFX?
 Mus__End =			*		; next ID after last music
 
 ; ---------------------------------------------------------------------------
 ; Sound effect ID's list. These do not affect the sound driver, be careful.
 
-	phase $33
+	;phase $33
 sfx_First =			*		; ID of the first sound effect
 sfx_RingRight			ds.b 1		; $33
 sfx_RingLeft			ds.b 1		; $34
@@ -1122,15 +1108,15 @@ sfx_Shield			ds.b 1		; $3A
 sfx_Drown			ds.b 1		; $3B
 sfx_Roll			ds.b 1		; $3C
 sfx_Break			ds.b 1		; $3D
-sfx_FireShield			ds.b 1		; $3E
-sfx_BubbleShield		ds.b 1		; $3F
-sfx_UnknownShield		ds.b 1		; $40
-sfx_ElectricShield		ds.b 1		; $41
-sfx_InstaAttack			ds.b 1		; $42
-sfx_FireAttack			ds.b 1		; $43
-sfx_BubbleAttack		ds.b 1		; $44
-sfx_ElectricAttack		ds.b 1		; $45
-sfx_SuperAlt			ds.b 1		; $46
+sfx_ElectricShield			ds.b 1		; $3E
+sfx_FireShield		ds.b 1		; $3F
+sfx_BubbleShield		ds.b 1		; $40
+sfx_UnknownShield		ds.b 1		; $41
+sfx_ElectricAttack			ds.b 1		; $42
+sfx_BubbleAttack			ds.b 1		; $43
+sfx_InstaAttack		ds.b 1		; $44
+sfx_FireAttack		ds.b 1		; $45
+sfx_SuperTransform			ds.b 1		; $46
 sfx_SandwallRise		ds.b 1		; $47
 sfx_Blast			ds.b 1		; $48
 sfx_Thump			ds.b 1		; $49
@@ -1219,7 +1205,7 @@ sfx_ThumpBoss			ds.b 1		; $9B
 sfx_SuperEmerald		ds.b 1		; $9C
 sfx_Targeting			ds.b 1		; $9D
 sfx_Clank			ds.b 1		; $9E
-sfx_SuperTransform		ds.b 1		; $9F
+sfx_SuperAlt		ds.b 1		; $9F
 sfx_MissileShoot		ds.b 1		; $A0
 sfx_UnknownOminous		ds.b 1		; $A1
 sfx_FloorLauncher		ds.b 1		; $A2
@@ -1281,9 +1267,21 @@ sfx_UnknownSaw			ds.b 1		; $D8
 sfx_MagneticSpike		ds.b 1		; $D9
 sfx_LeafBlower			ds.b 1		; $DA
 sfx_WaterSkid			ds.b 1		; $DB
-mus_CreditsK			ds.b 1		; $DC - Can also be treated as SFX?
-				ds.b 3		; unused SFX slots, the driver will happily play them though
 sfx__End =			*		; next ID after the last sound effect
+; ---------------------------------------------------------------------------
+; Sound commands list.
+
+	;phase $E1
+mus__FirstCmd =			*		; ID of the first sound command
+mus_FadeOut			ds.b 1		; $E1 - fade out music
+mus_Stop			ds.b 1		; $E2 - stop music and sound effects
+mus_MutePSG			ds.b 1		; $E3 - mute all PSG channels
+mus_StopSFX			ds.b 1		; $E4 - stop all sound effects
+mus_FadeOut2			ds.b 1		; $E5 - fade out music (duplicate)
+Mus__EndCmd =			*		; next ID after last sound command
+
+mus_StopSEGA =			$FE		; $FE - Stop SEGA sound
+mus_SEGA =			$FF		; $FF - Play SEGA sound
 
 	dephase
 	!org 0				; make sure we reset the ROM position to 0

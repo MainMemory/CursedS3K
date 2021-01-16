@@ -36,19 +36,19 @@
 		dc.l Pal_AIZFire
 		dc.w Normal_palette_line_2&$FFFF
 		dc.w $17
-		dc.l Pal_HCZ1
-		dc.w Normal_palette_line_2&$FFFF
-		dc.w $17
-		dc.l Pal_HCZ2
-		dc.w Normal_palette_line_2&$FFFF
-		dc.w $17
+		dc.l Pal_HCZ1_Water
+		dc.w Normal_palette&$FFFF
+		dc.w $1F
+		dc.l Pal_HCZ2_Water
+		dc.w Normal_palette&$FFFF
+		dc.w $1F
 		dc.l Pal_MGZ
 		dc.w Normal_palette_line_2&$FFFF
 		dc.w $17
 		dc.l Pal_MGZ
 		dc.w Normal_palette_line_2&$FFFF
 		dc.w $17
-		dc.l Pal_CNZ
+		dc.l Pal_LBZ2
 		dc.w Normal_palette_line_2&$FFFF
 		dc.w $17
 		dc.l Pal_CNZ
@@ -87,7 +87,7 @@
 		dc.l Pal_LRZ1
 		dc.w Normal_palette_line_2&$FFFF
 		dc.w $17
-		dc.l Pal_LRZ2
+		dc.l Pal_LRZBoss
 		dc.w Normal_palette_line_2&$FFFF
 		dc.w $17
 		dc.l Pal_SSZ1
@@ -147,10 +147,10 @@
 		dc.l Pal_AIZBoss
 		dc.w Normal_palette_line_2&$FFFF
 		dc.w $17
-		dc.l Pal_HCZ1_Water
+		dc.l Pal_HCZ1
 		dc.w Normal_palette&$FFFF
 		dc.w $1F
-		dc.l Pal_HCZ2_Water
+		dc.l Pal_HCZ2
 		dc.w Normal_palette&$FFFF
 		dc.w $1F
 		dc.l Pal_Gumball_Special

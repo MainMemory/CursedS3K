@@ -1,1086 +1,985 @@
-; Tails mappings
-Map_148EB8:		dc.w word_1490AE-Map_148EB8; 0
-		dc.w word_1490B0-Map_148EB8; 1
-		dc.w word_1490CA-Map_148EB8; 2
-		dc.w word_1490E4-Map_148EB8; 3
-		dc.w word_1490F8-Map_148EB8; 4
-		dc.w word_149112-Map_148EB8; 5
-		dc.w word_14912C-Map_148EB8; 6
-		dc.w word_149146-Map_148EB8; 7
-		dc.w word_14915A-Map_148EB8; 8
-		dc.w word_149174-Map_148EB8; 9
-		dc.w word_14918E-Map_148EB8; 10
-		dc.w word_1491A2-Map_148EB8; 11
-		dc.w word_1491BC-Map_148EB8; 12
-		dc.w word_1491D0-Map_148EB8; 13
-		dc.w word_1491E4-Map_148EB8; 14
-		dc.w word_1491F8-Map_148EB8; 15
-		dc.w word_14920C-Map_148EB8; 16
-		dc.w word_149226-Map_148EB8; 17
-		dc.w word_14923A-Map_148EB8; 18
-		dc.w word_14924E-Map_148EB8; 19
-		dc.w word_149262-Map_148EB8; 20
-		dc.w word_149270-Map_148EB8; 21
-		dc.w word_149284-Map_148EB8; 22
-		dc.w word_149292-Map_148EB8; 23
-		dc.w word_1492A6-Map_148EB8; 24
-		dc.w word_1492B4-Map_148EB8; 25
-		dc.w word_1492C8-Map_148EB8; 26
-		dc.w word_1492E2-Map_148EB8; 27
-		dc.w word_1492FC-Map_148EB8; 28
-		dc.w word_149310-Map_148EB8; 29
-		dc.w word_149324-Map_148EB8; 30
-		dc.w word_14933E-Map_148EB8; 31
-		dc.w word_149352-Map_148EB8; 32
-		dc.w word_14936C-Map_148EB8; 33
-		dc.w word_149386-Map_148EB8; 34
-		dc.w word_1493A0-Map_148EB8; 35
-		dc.w word_1493BA-Map_148EB8; 36
-		dc.w word_1493D4-Map_148EB8; 37
-		dc.w word_1493EE-Map_148EB8; 38
-		dc.w word_149408-Map_148EB8; 39
-		dc.w word_149422-Map_148EB8; 40
-		dc.w word_14943C-Map_148EB8; 41
-		dc.w word_149456-Map_148EB8; 42
-		dc.w word_149470-Map_148EB8; 43
-		dc.w word_14948A-Map_148EB8; 44
-		dc.w word_1494A4-Map_148EB8; 45
-		dc.w word_1494BE-Map_148EB8; 46
-		dc.w word_1494D8-Map_148EB8; 47
-		dc.w word_1494F2-Map_148EB8; 48
-		dc.w word_14950C-Map_148EB8; 49
-		dc.w word_149514-Map_148EB8; 50
-		dc.w word_149522-Map_148EB8; 51
-		dc.w word_14952A-Map_148EB8; 52
-		dc.w word_149532-Map_148EB8; 53
-		dc.w word_149540-Map_148EB8; 54
-		dc.w word_14954E-Map_148EB8; 55
-		dc.w word_14955C-Map_148EB8; 56
-		dc.w word_14956A-Map_148EB8; 57
-		dc.w word_149578-Map_148EB8; 58
-		dc.w word_149586-Map_148EB8; 59
-		dc.w word_149594-Map_148EB8; 60
-		dc.w word_1495A2-Map_148EB8; 61
-		dc.w word_1495B0-Map_148EB8; 62
-		dc.w word_1495BE-Map_148EB8; 63
-		dc.w word_1495C6-Map_148EB8; 64
-		dc.w word_1495DA-Map_148EB8; 65
-		dc.w word_1495E2-Map_148EB8; 66
-		dc.w word_1495EA-Map_148EB8; 67
-		dc.w word_1495FE-Map_148EB8; 68
-		dc.w word_14960C-Map_148EB8; 69
-		dc.w word_14961A-Map_148EB8; 70
-		dc.w word_149628-Map_148EB8; 71
-		dc.w word_14963C-Map_148EB8; 72
-		dc.w word_14964A-Map_148EB8; 73
-		dc.w word_14965E-Map_148EB8; 74
-		dc.w word_14966C-Map_148EB8; 75
-		dc.w word_149680-Map_148EB8; 76
-		dc.w word_14968E-Map_148EB8; 77
-		dc.w word_1496A2-Map_148EB8; 78
-		dc.w word_1496BC-Map_148EB8; 79
-		dc.w word_1496D6-Map_148EB8; 80
-		dc.w word_1496F0-Map_148EB8; 81
-		dc.w word_149704-Map_148EB8; 82
-		dc.w word_149718-Map_148EB8; 83
-		dc.w word_149726-Map_148EB8; 84
-		dc.w word_149734-Map_148EB8; 85
-		dc.w word_149748-Map_148EB8; 86
-		dc.w word_149750-Map_148EB8; 87
-		dc.w word_149764-Map_148EB8; 88
-		dc.w word_14976C-Map_148EB8; 89
-		dc.w word_149774-Map_148EB8; 90
-		dc.w word_149788-Map_148EB8; 91
-		dc.w word_149790-Map_148EB8; 92
-		dc.w word_1497AA-Map_148EB8; 93
-		dc.w word_1497B2-Map_148EB8; 94
-		dc.w word_1497C6-Map_148EB8; 95
-		dc.w word_1497D4-Map_148EB8; 96
-		dc.w word_1497DC-Map_148EB8; 97
-		dc.w word_1497E4-Map_148EB8; 98
-		dc.w word_1497F8-Map_148EB8; 99
-		dc.w word_149812-Map_148EB8; 100
-		dc.w word_14981A-Map_148EB8; 101
-		dc.w word_149828-Map_148EB8; 102
-		dc.w word_149836-Map_148EB8; 103
-		dc.w word_14983E-Map_148EB8; 104
-		dc.w word_149846-Map_148EB8; 105
-		dc.w word_14985A-Map_148EB8; 106
-		dc.w word_14986E-Map_148EB8; 107
-		dc.w word_14987C-Map_148EB8; 108
-		dc.w word_14988A-Map_148EB8; 109
-		dc.w word_149898-Map_148EB8; 110
-		dc.w word_1498A6-Map_148EB8; 111
-		dc.w word_1498B4-Map_148EB8; 112
-		dc.w word_1498C2-Map_148EB8; 113
-		dc.w word_1498D0-Map_148EB8; 114
-		dc.w word_1498D8-Map_148EB8; 115
-		dc.w word_1498E6-Map_148EB8; 116
-		dc.w word_1498EE-Map_148EB8; 117
-		dc.w word_1498F6-Map_148EB8; 118
-		dc.w word_149904-Map_148EB8; 119
-		dc.w word_149912-Map_148EB8; 120
-		dc.w word_14992C-Map_148EB8; 121
-		dc.w word_149946-Map_148EB8; 122
-		dc.w word_149960-Map_148EB8; 123
-		dc.w word_14997A-Map_148EB8; 124
-		dc.w word_149994-Map_148EB8; 125
-		dc.w word_1499AE-Map_148EB8; 126
-		dc.w word_1499C8-Map_148EB8; 127
-		dc.w word_1499E2-Map_148EB8; 128
-		dc.w word_1499F0-Map_148EB8; 129
-		dc.w word_149A0A-Map_148EB8; 130
-		dc.w word_149A24-Map_148EB8; 131
-		dc.w word_149A38-Map_148EB8; 132
-		dc.w word_149A4C-Map_148EB8; 133
-		dc.w word_149A66-Map_148EB8; 134
-		dc.w word_149A74-Map_148EB8; 135
-		dc.w word_149A82-Map_148EB8; 136
-		dc.w word_149A90-Map_148EB8; 137
-		dc.w word_149A98-Map_148EB8; 138
-		dc.w word_149AA0-Map_148EB8; 139
-		dc.w word_149AAE-Map_148EB8; 140
-		dc.w word_149ABC-Map_148EB8; 141
-		dc.w word_149ACA-Map_148EB8; 142
-		dc.w word_149ADE-Map_148EB8; 143
-		dc.w word_149AF2-Map_148EB8; 144
-		dc.w word_149B00-Map_148EB8; 145
-		dc.w word_149B0E-Map_148EB8; 146
-		dc.w word_149B1C-Map_148EB8; 147
-		dc.w word_149B24-Map_148EB8; 148
-		dc.w word_149B38-Map_148EB8; 149
-		dc.w word_149B4C-Map_148EB8; 150
-		dc.w word_149B54-Map_148EB8; 151
-		dc.w word_149B5C-Map_148EB8; 152
-		dc.w word_149B64-Map_148EB8; 153
-		dc.w word_149B6C-Map_148EB8; 154
-		dc.w word_149B80-Map_148EB8; 155
-		dc.w word_149B94-Map_148EB8; 156
-		dc.w word_149B9C-Map_148EB8; 157
-		dc.w word_149BAA-Map_148EB8; 158
-		dc.w word_149BBE-Map_148EB8; 159
-		dc.w word_149BD2-Map_148EB8; 160
-		dc.w word_149BE0-Map_148EB8; 161
-		dc.w word_149BEE-Map_148EB8; 162
-		dc.w word_149BFC-Map_148EB8; 163
-		dc.w word_149C0A-Map_148EB8; 164
-		dc.w word_149C18-Map_148EB8; 165
-		dc.w word_149C20-Map_148EB8; 166
-		dc.w word_149C3A-Map_148EB8; 167
-		dc.w word_149C48-Map_148EB8; 168
-		dc.w word_149C5C-Map_148EB8; 169
-		dc.w word_149C6A-Map_148EB8; 170
-		dc.w word_149C72-Map_148EB8; 171
-		dc.w word_149C7A-Map_148EB8; 172
-		dc.w word_149C82-Map_148EB8; 173
-		dc.w word_149C8A-Map_148EB8; 174
-		dc.w word_149C92-Map_148EB8; 175
-		dc.w word_149C9A-Map_148EB8; 176
-		dc.w word_149CA2-Map_148EB8; 177
-		dc.w word_149CAA-Map_148EB8; 178
-		dc.w word_149CB2-Map_148EB8; 179
-		dc.w word_149CBA-Map_148EB8; 180
-		dc.w word_149CC2-Map_148EB8; 181
-		dc.w word_149CD6-Map_148EB8; 182
-		dc.w word_149CE4-Map_148EB8; 183
-		dc.w word_149CEC-Map_148EB8; 184
-		dc.w word_149CFA-Map_148EB8; 185
-		dc.w word_149D0E-Map_148EB8; 186
-		dc.w word_149D22-Map_148EB8; 187
-		dc.w word_149D30-Map_148EB8; 188
-		dc.w word_149D44-Map_148EB8; 189
-		dc.w word_149D58-Map_148EB8; 190
-		dc.w word_149D6C-Map_148EB8; 191
-		dc.w word_149D7A-Map_148EB8; 192
-		dc.w word_149D94-Map_148EB8; 193
-		dc.w word_149DA2-Map_148EB8; 194
-		dc.w word_149DB6-Map_148EB8; 195
-		dc.w word_149DD0-Map_148EB8; 196
-		dc.w word_149DEA-Map_148EB8; 197
-		dc.w word_149E04-Map_148EB8; 198
-		dc.w word_149E1E-Map_148EB8; 199
-		dc.w word_149E38-Map_148EB8; 200
-		dc.w word_149E52-Map_148EB8; 201
-		dc.w word_149E6C-Map_148EB8; 202
-		dc.w word_149E86-Map_148EB8; 203
-		dc.w word_149E8E-Map_148EB8; 204
-		dc.w word_149E96-Map_148EB8; 205
-		dc.w word_149EAA-Map_148EB8; 206
-		dc.w word_149EBE-Map_148EB8; 207
-		dc.w word_149ECC-Map_148EB8; 208
-		dc.w word_149EDA-Map_148EB8; 209
-		dc.w word_149EDA-Map_148EB8; 210
-		dc.w word_149EDA-Map_148EB8; 211
-		dc.w word_149EDA-Map_148EB8; 212
-		dc.w word_149EDA-Map_148EB8; 213
-		dc.w word_149EDA-Map_148EB8; 214
-		dc.w word_149EDA-Map_148EB8; 215
-		dc.w word_149EDA-Map_148EB8; 216
-		dc.w word_149EDA-Map_148EB8; 217
-		dc.w word_149EDA-Map_148EB8; 218
-		dc.w word_149EDA-Map_148EB8; 219
-		dc.w word_149EDA-Map_148EB8; 220
-		dc.w word_149EDA-Map_148EB8; 221
-		dc.w word_149EDA-Map_148EB8; 222
-		dc.w word_149EDA-Map_148EB8; 223
-		dc.w word_149EEE-Map_148EB8; 224
-		dc.w word_149EFC-Map_148EB8; 225
-		dc.w word_149F10-Map_148EB8; 226
-		dc.w word_149F1E-Map_148EB8; 227
-		dc.w word_149F38-Map_148EB8; 228
-		dc.w word_149F52-Map_148EB8; 229
-		dc.w word_149F66-Map_148EB8; 230
-		dc.w word_149F74-Map_148EB8; 231
-		dc.w word_149F88-Map_148EB8; 232
-		dc.w word_149F96-Map_148EB8; 233
-		dc.w word_149FAA-Map_148EB8; 234
-		dc.w word_149FBE-Map_148EB8; 235
-		dc.w word_149FC6-Map_148EB8; 236
-		dc.w word_149FDA-Map_148EB8; 237
-		dc.w word_149FDA-Map_148EB8; 238
-		dc.w word_149FEE-Map_148EB8; 239
-		dc.w word_149FFC-Map_148EB8; 240
-		dc.w word_14A00A-Map_148EB8; 241
-		dc.w word_14A018-Map_148EB8; 242
-		dc.w word_14A020-Map_148EB8; 243
-		dc.w word_14A02E-Map_148EB8; 244
-		dc.w word_14A03C-Map_148EB8; 245
-		dc.w word_14A04A-Map_148EB8; 246
-		dc.w word_14A058-Map_148EB8; 247
-		dc.w word_14A066-Map_148EB8; 248
-		dc.w word_14A06E-Map_148EB8; 249
-		dc.w word_14A07C-Map_148EB8; 250
-word_1490AE:	dc.w 0			; DATA XREF: ROM:00148EB8o
-word_1490B0:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b	0,   9,	  0,   0, $FF, $E4
-		dc.b  $EC,   4,	  0,   6, $FF, $F9
-		dc.b  $F4,   9,	  0,   8, $FF, $F1
-		dc.b	4,  $D,	  0,  $E, $FF, $F1
-word_1490CA:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b	0,   9,	  0,   0, $FF, $E2
-		dc.b  $F0,  $D,	  0,   6, $FF, $ED
-		dc.b	0,   8,	  0,  $E, $FF, $ED
-		dc.b	8,  $C,	  0, $11, $FF, $ED
-word_1490E4:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $FC,   9,	  0,   0, $FF, $E6
-		dc.b  $F0,  $A,	  0,   6, $FF, $FB
-		dc.b	8,   8,	  0,  $F, $FF, $F3
-word_1490F8:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $FE,   9,	  0,   0, $FF, $E4
-		dc.b  $F0,  $D,	  0,   6, $FF, $F0
-		dc.b	0,   8,	  0,  $E, $FF, $F0
-		dc.b	8,  $C,	  0, $11, $FF, $F0
-word_149112:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b	0,   9,	  0,   0, $FF, $E4
-		dc.b  $EC,   4,	  0,   6, $FF, $F8
-		dc.b  $F4,   9,	  0,   8, $FF, $F0
-		dc.b	4,  $D,	  0,  $E, $FF, $F0
-word_14912C:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b	0,   9,	  0,   0, $FF, $E4
-		dc.b  $F0,  $D,	  0,   6, $FF, $F0
-		dc.b	0,   8,	  0,  $E, $FF, $F0
-		dc.b	8,  $C,	  0, $11, $FF, $F0
-word_149146:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $FE,   9,	  0,   0, $FF, $E4
-		dc.b  $F0,  $A,	  0,   6, $FF, $F8
-		dc.b	8,   8,	  0,  $F, $FF, $F0
-word_14915A:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $FE,   9,	  0,   0, $FF, $E4
-		dc.b  $F0,  $D,	  0,   6, $FF, $F0
-		dc.b	0,   8,	  0,  $E, $FF, $F0
-		dc.b	8,  $C,	  0, $11, $FF, $F0
-word_149174:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $EE,   4,	  0,   0, $FF, $F2
-		dc.b  $F6,  $D,	  0,   2, $FF, $F2
-		dc.b	6,   8,	  0,  $A, $FF, $FA
-		dc.b   $E,   8,	  0,  $D, $FF, $F2
-word_14918E:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F1
-		dc.b  $F8,   6,	  0,  $C,   0,	 9
-		dc.b  $10,   8,	  0, $12, $FF, $F1
-word_1491A2:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $EA,   4,	  0,   0, $FF, $F8
-		dc.b  $F2,  $D,	  0,   2, $FF, $F0
-		dc.b	2,   8,	  0,  $A, $FF, $F8
-		dc.b   $A,  $D,	  0,  $D, $FF, $F0
-word_1491BC:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EF,   4,	  0,   0, $FF, $F6
-		dc.b  $F7,  $F,	  0,   2, $FF, $EE
-		dc.b  $FF,   0,	  0, $12,   0,	$E
-word_1491D0:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,   8,	  0,   0, $FF, $F2
-		dc.b  $F5,  $D,	  0,   3, $FF, $F2
-		dc.b	5,   9,	  0,  $B, $FF, $F2
-word_1491E4:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F2,   4,	  0,   0, $FF, $F7
-		dc.b  $FA,  $B,	  0,   2, $FF, $EF
-		dc.b	2,   5,	  0,  $E,   0,	 7
-word_1491F8:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   4,	  0,   0, $FF, $F7
-		dc.b  $F8,   8,	  0,   2, $FF, $EF
-		dc.b	0,  $E,	  0,   5, $FF, $EF
-word_14920C:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,   0,	  0,   0, $FF, $FC
-		dc.b  $F4,   9,	  0,   1, $FF, $F4
-		dc.b	4,  $C,	  0,   7, $FF, $F4
-		dc.b   $C,  $C,	  0,  $B, $FF, $EC
-word_149226:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b	6,   6,	  0,   0, $FF, $FC
-		dc.b  $EE,   4,	  0,   6,   0,	 0
-		dc.b  $F6,  $E,	  0,   8, $FF, $F0
-word_14923A:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b	4,   6,	  0,   0, $FF, $FC
-		dc.b  $F2,  $E,	  0,   6, $FF, $F0
-		dc.b   $A,   0,	  0, $12,   0,	 8
-word_14924E:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b	4,   6,	  0,   0, $FF, $FC
-		dc.b  $F2,   8,	  0,   6, $FF, $F0
-		dc.b  $FA,  $D,	  0,   9, $FF, $F0
-word_149262:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b	6,   6,	  0,   0, $FF, $FC
-		dc.b  $F4,  $E,	  0,   6, $FF, $F0
-word_149270:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b	4,   6,	  0,   0, $FF, $FC
-		dc.b  $ED,   4,	  0,   6,   0,	 0
-		dc.b  $F5,  $E,	  0,   8, $FF, $F0
-word_149284:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b	6,   6,	  0,   0, $FF, $FC
-		dc.b  $F4,  $E,	  0,   6, $FF, $F0
-word_149292:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b	4,   6,	  0,   0, $FF, $FC
-		dc.b  $F1,   8,	  0,   6, $FF, $F0
-		dc.b  $F9,  $D,	  0,   9, $FF, $F0
-word_1492A6:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b	2,   6,	  0,   0, $FF, $FC
-		dc.b  $F4,  $E,	  0,   6, $FF, $F0
-word_1492B4:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EF,   8,	  0,   0, $FF, $F5
-		dc.b  $F7,  $E,	  0,   3, $FF, $F5
-		dc.b  $FF,   1,	  0,  $F, $FF, $ED
-word_1492C8:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $E8,   4,	  0,   0, $FF, $F8
-		dc.b  $F0,   8,	  0,   2, $FF, $F8
-		dc.b  $F8,  $E,	  0,   5, $FF, $F0
-		dc.b  $F8,   2,	  0, $11,   0, $10
-word_1492E2:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $C,	  0,   0, $FF, $F1
-		dc.b  $F8,  $C,	  0,   4, $FF, $E9
-		dc.b	0,   9,	  0,   8, $FF, $F1
-		dc.b  $F8,   6,	  0,  $E,   0,	 9
-word_1492FC:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EA,   0,	  0,   0, $FF, $FE
-		dc.b  $F2,  $F,	  0,   1, $FF, $F6
-		dc.b  $FA,   1,	  0, $11, $FF, $EE
-word_149310:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EF,   4,	  0,   0, $FF, $F7
-		dc.b  $F7,  $E,	  0,   2, $FF, $EF
-		dc.b  $F7,   2,	  0,  $E,   0,	$F
-word_149324:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $E9,   0,	  0,   0,   0,	 0
-		dc.b  $F1,   4,	  0,   1,   0,	 0
-		dc.b  $F9,  $E,	  0,   3, $FF, $F8
-		dc.b  $F9,   1,	  0,  $F, $FF, $F0
-word_14933E:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F1,   8,	  0,   0,   0,	 0
-		dc.b  $F9,  $E,	  0,   3, $FF, $F8
-		dc.b  $F9,   1,	  0,  $F, $FF, $F0
-word_149352:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,   0,	  0,   0,   0,	 4
-		dc.b  $F4,  $E,	  0,   1, $FF, $F4
-		dc.b  $FC,   0,	  0,  $D, $FF, $EC
-		dc.b   $C,   0,	  0,  $E,   0,	$C
-word_14936C:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   7,	  0,   0, $FF, $EA
-		dc.b  $F0,   9,	  0,   8, $FF, $F8
-		dc.b	0,  $C,	  0,  $E, $FF, $F0
-		dc.b	8,   4,	  0, $12, $FF, $F0
-word_149386:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $FC,   4,	  0,   0, $FF, $EA
-		dc.b  $F0,   9,	  0,   2, $FF, $F8
-		dc.b	0,  $C,	  0,   8, $FF, $F0
-		dc.b	8,   4,	  0,  $C, $FF, $F0
-word_1493A0:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $F8,   5,	  0,   0, $FF, $EA
-		dc.b  $F0,   9,	  0,   4, $FF, $F8
-		dc.b	0,  $C,	  0,  $A, $FF, $F0
-		dc.b	8,   4,	  0,  $E, $FF, $F0
-word_1493BA:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   7,	  0,   0, $FF, $EA
-		dc.b  $F0,   9,	  0,   8, $FF, $F8
-		dc.b	0,  $C,	  0,  $E, $FF, $F0
-		dc.b	8,   4,	  0, $12, $FF, $F0
-word_1493D4:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $FC,  $B,	  0,   0, $FF, $E8
-		dc.b  $EC,   4,	  0,  $C, $FF, $F8
-		dc.b  $F4,   9,	  0,  $E, $FF, $F0
-		dc.b	4,   5,	  0, $14, $FF, $F8
-word_1493EE:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b	0,   9,	  0,   0, $FF, $E4
-		dc.b  $ED,   4,	  0,   6, $FF, $F8
-		dc.b  $F5,   9,	  0,   8, $FF, $F0
-		dc.b	5,   5,	  0,  $E, $FF, $F8
-word_149408:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b	0,   5,	  0,   0, $FF, $F0
-		dc.b  $EC,   4,	  0,   4, $FF, $F8
-		dc.b  $F4,   9,	  0,   6, $FF, $F0
-		dc.b	4,   5,	  0,  $C, $FF, $F8
-word_149422:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b	0,   6,	  0,   0, $FF, $EF
-		dc.b  $ED,   4,	  0,   6, $FF, $F8
-		dc.b  $F5,   9,	  0,   8, $FF, $F0
-		dc.b	5,   5,	  0,  $E, $FF, $F8
-word_14943C:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b	6,  $D,	  0,   0, $FF, $F0
-		dc.b  $F0,   9,	  0,   8, $FF, $F0
-		dc.b	0,  $C,	  0,  $E, $FF, $F0
-		dc.b	8,   4,	  0, $12,   0,	 0
-word_149456:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b	6,   1,	  0,   0, $FF, $FC
-		dc.b  $F0,   9,	  0,   2, $FF, $F0
-		dc.b	0,  $C,	  0,   8, $FF, $F0
-		dc.b	8,   4,	  0,  $C,   0,	 0
-word_149470:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b	6,   5,	  0,   0, $FF, $F8
-		dc.b  $F0,   9,	  0,   4, $FF, $F0
-		dc.b	0,  $C,	  0,  $A, $FF, $F0
-		dc.b	8,   4,	  0,  $E,   0,	 0
-word_14948A:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b	6,  $D,	  0,   0, $FF, $F0
-		dc.b  $F0,   9,	  0,   8, $FF, $F0
-		dc.b	0,  $C,	  0,  $E, $FF, $F0
-		dc.b	8,   4,	  0, $12,   0,	 0
-word_1494A4:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $FC,  $E,	  0,   0, $FF, $F7
-		dc.b  $F8,  $D,	  0,  $C, $FF, $EC
-		dc.b  $F8,   1,	  0, $14,   0,	$C
-		dc.b	8,   4,	  0, $16, $FF, $F4
-word_1494BE:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $FE,   6,	  0,   0, $FF, $FC
-		dc.b  $F8,  $D,	  0,   6, $FF, $EB
-		dc.b  $F8,   1,	  0,  $E,   0,	$B
-		dc.b	8,   4,	  0, $10, $FF, $F3
-word_1494D8:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $FD,   5,	  0,   0, $FF, $FB
-		dc.b  $F8,  $D,	  0,   4, $FF, $EC
-		dc.b  $F8,   1,	  0,  $C,   0,	$C
-		dc.b	8,   4,	  0,  $E, $FF, $F4
-word_1494F2:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $FC,   9,	  0,   0, $FF, $FA
-		dc.b  $F8,  $D,	  0,   6, $FF, $EB
-		dc.b  $F8,   1,	  0,  $E,   0,	$B
-		dc.b	8,   4,	  0, $10, $FF, $F3
-word_14950C:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F1
-word_149514:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,  $B,	  0,   0, $FF, $F1
-		dc.b   $C,   4,	  0,  $C, $FF, $F1
-word_149522:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,  $B,	  0,   0, $FF, $F3
-word_14952A:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F8,  $A,	  0,   0, $FF, $F3
-word_149532:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F3,  $A,	  0,   0, $FF, $F3
-		dc.b   $B,   0,	  0,   9,   0,	 3
-word_149540:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $EF,   4,	  0,   0, $FF, $F2
-		dc.b  $F7,  $A,	  0,   2, $FF, $F2
-word_14954E:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F2,   4,	  0,   0, $FF, $F2
-		dc.b  $FA,  $A,	  0,   2, $FF, $F2
-word_14955C:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   4,	  0,   0, $FF, $F4
-		dc.b  $F8,  $A,	  0,   2, $FF, $F4
-word_14956A:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $EE,   4,	  0,   0, $FF, $F4
-		dc.b  $F6,  $A,	  0,   2, $FF, $F4
-word_149578:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,   9,	  0,   0, $FF, $F1
-		dc.b	4,   4,	  0,   6, $FF, $F9
-word_149586:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,  $A,	  0,   0, $FF, $F1
-		dc.b   $C,   0,	  0,   9, $FF, $F1
-word_149594:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F1,   9,	  0,   0, $FF, $F4
-		dc.b	1,   5,	  0,   6, $FF, $F4
-word_1495A2:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F1,  $A,	  0,   0, $FF, $F2
-		dc.b	9,   4,	  0,   9, $FF, $FA
-word_1495B0:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,   0,	  0,   0,   0,	 1
-		dc.b  $F5,  $A,	  0,   1, $FF, $F1
-word_1495BE:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F3,  $A,	  0,   0, $FF, $F3
-word_1495C6:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EE,   4,	  0,   0, $FF, $F2
-		dc.b  $F6,   9,	  0,   2, $FF, $F2
-		dc.b	6,   4,	  0,   8, $FF, $FA
-word_1495DA:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F1
-word_1495E2:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F1,  $B,	  0,   0, $FF, $F0
-word_1495EA:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   8,	  0,   0, $FF, $F4
-		dc.b  $F8,   4,	  0,   3, $FF, $F4
-		dc.b	0,   9,	  0,   5, $FF, $F4
-word_1495FE:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,   0,	  0,   0, $FF, $F9
-		dc.b  $F4,  $A,	  0,   1, $FF, $F1
-word_14960C:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,   9,	  0,   0, $FF, $F1
-		dc.b	4,   0,	  0,   6, $FF, $F1
-word_14961A:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F2,   4,	  0,   0, $FF, $F7
-		dc.b  $FA,   9,	  0,   2, $FF, $EF
-word_149628:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,   4,	  0,   0, $FF, $F5
-		dc.b  $F5,   9,	  0,   2, $FF, $F5
-		dc.b	5,   4,	  0,   8, $FF, $F5
-word_14963C:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $EF,  $A,	  0,   0, $FF, $F1
-		dc.b	7,   4,	  0,   9, $FF, $F9
-word_14964A:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F2,   8,	  0,   0, $FF, $F5
-		dc.b  $FA,  $D,	  0,   3, $FF, $ED
-		dc.b  $FA,   0,	  0,  $B,   0,	$D
-word_14965E:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F2,   8,	  0,   0, $FF, $F8
-		dc.b  $FA,  $D,	  0,   3, $FF, $F0
-word_14966C:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F2,   4,	  0,   0, $FF, $F7
-		dc.b  $FA,   8,	  0,   2, $FF, $F7
-		dc.b	2,  $C,	  0,   5, $FF, $EF
-word_149680:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   4,	  0,   0, $FF, $FC
-		dc.b  $F8,  $A,	  0,   2, $FF, $F4
-word_14968E:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   4,	  0,   0, $FF, $FC
-		dc.b  $F8,   9,	  0,   2, $FF, $F4
-		dc.b	8,   4,	  0,   8, $FF, $F4
-word_1496A2:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $EA,   0,	  0,   0,   0,	 0
-		dc.b  $F2,   4,	  0,   1,   0,	 0
-		dc.b  $FA,  $C,	  0,   3, $FF, $F0
-		dc.b	2,   9,	  0,   7, $FF, $F0
-word_1496BC:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,   4,	  0,   0,   0,	 0
-		dc.b  $F5,  $C,	  0,   2, $FF, $F0
-		dc.b  $FD,   9,	  0,   6, $FF, $F0
-		dc.b   $D,   4,	  0,  $C, $FF, $F8
-word_1496D6:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $EB,   4,	  0,   0, $FF, $F9
-		dc.b  $F3,  $C,	  0,   2, $FF, $F1
-		dc.b  $FB,   9,	  0,   6, $FF, $F1
-		dc.b   $B,   0,	  0,  $C, $FF, $F9
-word_1496F0:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EF,   4,	  0,   0, $FF, $FA
-		dc.b  $F7,   9,	  0,   2, $FF, $F2
-		dc.b	7,   4,	  0,   8, $FF, $FA
-word_149704:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,   4,	  0,   0, $FF, $F8
-		dc.b  $FC,  $C,	  0,   2, $FF, $F0
-		dc.b	4,   4,	  0,   6, $FF, $F8
-word_149718:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,  $D,	  0,   0, $FF, $F0
-		dc.b	4,   8,	  0,   8, $FF, $F0
-word_149726:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F3,   8,	  0,   0, $FF, $F6
-		dc.b  $FB,  $D,	  0,   3, $FF, $EE
-word_149734:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   8,	  0,   0, $FF, $F8
-		dc.b  $F8,  $C,	  0,   3, $FF, $F0
-		dc.b	0,   9,	  0,   7, $FF, $F0
-word_149748:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F3
-word_149750:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   8,	  0,   0, $FF, $F7
-		dc.b  $F8,   5,	  0,   3, $FF, $F7
-		dc.b	8,   8,	  0,   7, $FF, $F7
-word_149764:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F3
-word_14976C:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F3
-word_149774:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   4,	  0,   0, $FF, $F7
-		dc.b  $F8,   9,	  0,   2, $FF, $F7
-		dc.b	8,   4,	  0,   8, $FF, $F7
-word_149788:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F4
-word_149790:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,   8,	  0,   0, $FF, $F0
-		dc.b  $F4,   4,	  0,   3,   0, $10
-		dc.b  $FC,  $D,	  0,   5, $FF, $F0
-		dc.b  $FC,   5,	  0,  $D,   0, $10
-word_1497AA:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,  $E,	  0,   0, $FF, $FD
-word_1497B2:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,  $E,	  0,   0, $FF, $F1
-		dc.b  $F4,   0,	  0,  $C, $FF, $E9
-		dc.b	4,   0,	  0,  $D, $FF, $E9
-word_1497C6:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,  $E,	  0,   0, $FF, $F1
-		dc.b  $F4,   6,	  0,  $C, $FF, $E1
-word_1497D4:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,  $E,	  0,   0, $FF, $F4
-word_1497DC:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,  $E,	  0,   0, $FF, $E6
-word_1497E4:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,   8,	  0,   0, $FF, $F4
-		dc.b  $FC,  $D,	  0,   3, $FF, $EC
-		dc.b  $FC,   1,	  0,  $B,   0,	$C
-word_1497F8:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $E8,  $A,	  0,   0, $FF, $F5
-		dc.b	0,   4,	  0,   9, $FF, $F5
-		dc.b	8,   8,	  0,  $B, $FF, $F5
-		dc.b  $10,   8,	  0,  $E, $FF, $F5
-word_149812:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F1,  $B,	  0,   0, $FF, $F4
-word_14981A:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $E9,  $B,	  0,   0, $FF, $F4
-		dc.b	9,   8,	  0,  $C, $FF, $F4
-word_149828:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $E7,  $B,	  0,   0, $FF, $F4
-		dc.b	7,   9,	  0,  $C, $FF, $F4
-word_149836:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F4
-word_14983E:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F4
-word_149846:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EF,   8,	  0,   0, $FF, $F7
-		dc.b  $F7,  $E,	  0,   3, $FF, $EF
-		dc.b	7,   0,	  0,  $F,   0,	$F
-word_14985A:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EE,   4,	  0,   0, $FF, $F7
-		dc.b  $F6,  $D,	  0,   2, $FF, $EF
-		dc.b	6,   8,	  0,  $A, $FF, $F7
-word_14986E:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $EE,   4,	  0,   0, $FF, $F3
-		dc.b  $F6,  $A,	  0,   2, $FF, $F3
-word_14987C:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F1,   8,	  0,   0, $FF, $EE
-		dc.b  $F9,  $D,	  0,   3, $FF, $EE
-word_14988A:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F3,   8,	  0,   0, $FF, $EF
-		dc.b  $FB,  $D,	  0,   3, $FF, $EF
-word_149898:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F8,  $D,	  0,   0, $FF, $F1
-		dc.b	8,   8,	  0,   8, $FF, $F9
-word_1498A6:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F6,   9,	  0,   0, $FF, $F4
-		dc.b	6,   4,	  0,   6, $FF, $FC
-word_1498B4:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F6,   9,	  0,   0, $FF, $F4
-		dc.b	6,  $C,	  0,   6, $FF, $EC
-word_1498C2:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F7,  $D,	  0,   0, $FF, $EF
-		dc.b	7,   8,	  0,   8, $FF, $EF
-word_1498D0:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F6,  $E,	  0,   0, $FF, $EF
-word_1498D8:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F6,  $E,	  0,   0, $FF, $F7
-		dc.b  $FE,   1,	  0,  $C, $FF, $EF
-word_1498E6:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F5,  $E,	  0,   0, $FF, $F2
-word_1498EE:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F7,  $A,	  0,   0, $FF, $F2
-word_1498F6:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,   8,	  0,   0, $FF, $F2
-		dc.b  $FC,  $D,	  0,   3, $FF, $F2
-word_149904:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F3,   8,	  0,   0, $FF, $F0
-		dc.b  $FB,  $D,	  0,   3, $FF, $F0
-word_149912:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $E6,  $C,	  0,   0, $FF, $F2
-		dc.b  $EE,   9,	  0,   4, $FF, $F2
-		dc.b  $FE,  $C,	  0,  $A, $FF, $F2
-		dc.b	6,   8,	  0,  $E, $FF, $FA
-word_14992C:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $E2,   4,	  0,   0, $FF, $EE
-		dc.b  $EA,   9,	  0,   2, $FF, $E6
-		dc.b  $F2,   1,	  0,   8,   0,	 6
-		dc.b  $FA,   9,	  0,  $A, $FF, $EE
-word_149946:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $EE,   0,	  0,   0, $FF, $E4
-		dc.b  $EE,   6,	  0,   1, $FF, $FC
-		dc.b  $F6,   9,	  0,   7, $FF, $E4
-		dc.b	6,  $C,	  0,  $D, $FF, $E4
-word_149960:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,   4,	  0,   0, $FF, $F1
-		dc.b  $FC,   6,	  0,   2, $FF, $F9
-		dc.b	4,   9,	  0,   8, $FF, $E1
-		dc.b  $14,   4,	  0,  $E, $FF, $E9
-word_14997A:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $14,  $C,	$18,   0, $FF, $EE
-		dc.b	4,   9,	$18,   4, $FF, $F6
-		dc.b  $FC,  $C,	$18,  $A, $FF, $EE
-		dc.b  $F4,   8,	$18,  $E, $FF, $EE
-word_149994:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $16,   4,	$18,   0,   0,	 3
-		dc.b	6,   9,	$18,   2,   0,	 3
-		dc.b  $FE,   1,	$18,   8, $FF, $F3
-		dc.b  $F6,   9,	$18,  $A, $FF, $FB
-word_1499AE:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b   $A,   0,	$18,   0,   0, $15
-		dc.b  $FA,   6,	$18,   1, $FF, $F5
-		dc.b  $FA,   9,	  0,   7,   0,	 5
-		dc.b  $F2,  $C,	$18,  $D, $FF, $FD
-word_1499C8:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b	5,   4,	$18,   0,   0,	 1
-		dc.b  $ED,   6,	$18,   2, $FF, $F9
-		dc.b  $ED,   9,	$18,   8,   0,	 9
-		dc.b  $E5,   4,	$18,  $E,   0,	 9
-word_1499E2:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $E8,  $D,	  0,   0, $FF, $EF
-		dc.b  $F8,  $A,	  0,   8, $FF, $EF
-word_1499F0:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $E9,  $C,	  0,   0, $FF, $EE
-		dc.b  $F1,   8,	  0,   4, $FF, $EE
-		dc.b  $F9,  $E,	  0,   7, $FF, $E6
-		dc.b  $11,   4,	  0, $13, $FF, $EE
-word_149A0A:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $E9,  $A,	  0,   0, $FF, $F6
-		dc.b  $F9,   4,	  0,   9, $FF, $E6
-		dc.b	1,  $C,	  0,  $B, $FF, $E6
-		dc.b	9,   5,	  0,  $F, $FF, $F6
-word_149A24:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $E8,  $F,	  0,   0, $FF, $EC
-		dc.b  $E8,   0,	  0, $10,   0,	$C
-		dc.b	8,   8,	  0, $11, $FF, $F4
-word_149A38:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $E9,   9,	  0,   0, $FF, $F6
-		dc.b  $F9,  $D,	  0,   6, $FF, $E6
-		dc.b	9,   5,	  0,  $E, $FF, $F6
-word_149A4C:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $E9,   9,	  0,   0, $FF, $F5
-		dc.b  $F9,  $C,	  0,   6, $FF, $ED
-		dc.b	1,   8,	  0,  $A, $FF, $ED
-		dc.b	9,   5,	  0,  $D, $FF, $F5
-word_149A66:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F8,  $C,	  0,   0, $FF, $F8
-		dc.b	0,   9,	  0,   4, $FF, $F8
-word_149A74:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F8,  $D,	  0,   0, $FF, $F8
-		dc.b	8,   8,	  0,   8, $FF, $F8
-word_149A82:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F8,  $C,	  0,   0, $FF, $F8
-		dc.b	0,   9,	  0,   4, $FF, $F8
-word_149A90:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $F,	  0,   0, $FF, $F0
-word_149A98:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $F,	  0,   0, $FF, $F0
-word_149AA0:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $E9,   5,	  0,   0, $FF, $F9
-		dc.b  $F9,  $B,	  0,   4, $FF, $F1
-word_149AAE:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $E9,   5,	  0,   0, $FF, $F9
-		dc.b  $F9,  $B,	  0,   4, $FF, $F1
-word_149ABC:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $EE,   4,	  0,   0, $FF, $F6
-		dc.b  $F6,  $E,	  0,   2, $FF, $EE
-word_149ACA:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   9,	  0,   0, $FF, $F0
-		dc.b	0,  $C,	  0,   6, $FF, $F0
-		dc.b	8,   8,	  0,  $A, $FF, $F8
-word_149ADE:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   9,	  0,   0, $FF, $F0
-		dc.b	0,  $C,	  0,   6, $FF, $F0
-		dc.b	8,   8,	  0,  $A, $FF, $F8
-word_149AF2:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $E9,  $B,	  0,   0, $FF, $F5
-		dc.b	7,   4,	  0,  $C, $FF, $FD
-word_149B00:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $E9,   9,	  0,   0, $FF, $F5
-		dc.b  $F9,  $D,	  0,   6, $FF, $F5
-word_149B0E:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $E9,   9,	  0,   0, $FF, $F5
-		dc.b  $F9,  $D,	  0,   6, $FF, $F5
-word_149B1C:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $E9,  $A,	  0,   0, $FF, $F5
-word_149B24:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $E9,  $D,	  0,   0, $FF, $F1
-		dc.b  $EC,  $B,	  0,   8, $FF, $F4
-		dc.b   $C,   8,	  0, $14, $FF, $F4
-word_149B38:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $E8,   9,	  0,   0, $FF, $F5
-		dc.b  $EC,  $B,	  0,   6, $FF, $F4
-		dc.b   $C,   8,	  0, $12, $FF, $F4
-word_149B4C:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $F,	  0,   0, $FF, $F0
-word_149B54:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $F,	  0,   0, $FF, $F0
-word_149B5C:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $F,	  0,   0, $FF, $F0
-word_149B64:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F8,  $A,	  0,   0, $FF, $FA
-word_149B6C:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   8,	  0,   0, $FF, $F2
-		dc.b  $F8,  $D,	  0,   3, $FF, $EA
-		dc.b	8,   4,	  0,  $B, $FF, $F2
-word_149B80:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   9,	  0,   0, $FF, $F1
-		dc.b	0,  $C,	  0,   6, $FF, $E9
-		dc.b	8,   8,	  0,  $A, $FF, $E9
-word_149B94:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $F,	  0,   0, $FF, $F1
-word_149B9C:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $EE,   7,	  0,   0, $FF, $E6
-		dc.b  $F6,  $A,	  0,   8, $FF, $F6
-word_149BAA:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EE,   4,	  0,   0, $FF, $EE
-		dc.b  $F6,  $E,	  0,   2, $FF, $E6
-		dc.b  $F6,   2,	  0,  $E,   0,	 6
-word_149BBE:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F1,   8,	  0,   0, $FF, $F6
-		dc.b  $F9,  $D,	  0,   3, $FF, $EE
-		dc.b	9,   8,	  0,  $B, $FF, $EE
-word_149BD2:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,   8,	  0,   0, $FF, $F3
-		dc.b  $F5,  $E,	  0,   3, $FF, $EB
-word_149BE0:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,   8,	  0,   0, $FF, $F3
-		dc.b  $F5,  $E,	  0,   3, $FF, $EB
-word_149BEE:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,   8,	  0,   0, $FF, $F3
-		dc.b  $F5,  $E,	  0,   3, $FF, $EB
-word_149BFC:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,   8,	  0,   0, $FF, $F3
-		dc.b  $F5,  $E,	  0,   3, $FF, $EB
-word_149C0A:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,   8,	  0,   0, $FF, $F3
-		dc.b  $F5,  $E,	  0,   3, $FF, $EB
-word_149C18:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F4
-word_149C20:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $E8,   0,	  0,   0, $FF, $FE
-		dc.b  $F0,  $D,	  0,   1, $FF, $EE
-		dc.b	0,  $D,	  0,   9, $FF, $E6
-		dc.b	8,   0,	  0, $11,   0,	 6
-word_149C3A:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,  $D,	  0,   0, $FF, $F2
-		dc.b  $FD,  $A,	  0,   8, $FF, $F2
-word_149C48:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,   8,	  0,   0, $FF, $F2
-		dc.b  $F5,  $D,	  0,   3, $FF, $F2
-		dc.b	5,   9,	  0,  $B, $FF, $F2
-word_149C5C:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $A,	  0,   0, $FF, $F6
-		dc.b	8,  $C,	  0,   9, $FF, $EE
-word_149C6A:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F6
-word_149C72:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F6
-word_149C7A:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F6
-word_149C82:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F4
-word_149C8A:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F4
-word_149C92:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F4
-word_149C9A:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F4
-word_149CA2:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F4
-word_149CAA:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F4
-word_149CB2:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F4
-word_149CBA:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $B,	  0,   0, $FF, $F4
-word_149CC2:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   0,	  0,   0,   0,	 0
-		dc.b  $F8,  $D,	  0,   1, $FF, $E8
-		dc.b  $F8,   5,	  0,   9,   0,	 8
-word_149CD6:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $A,	  0,   0, $FF, $FC
-		dc.b  $F8,   5,	  0,   9, $FF, $EC
-word_149CE4:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $E,	  0,   0, $FF, $F0
-word_149CEC:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $A,	  8,   0, $FF, $EC
-		dc.b  $F8,   5,	  8,   9,   0,	 4
-word_149CFA:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   0,	  8,   0, $FF, $F8
-		dc.b  $F8,  $D,	  8,   1, $FF, $F8
-		dc.b  $F8,   5,	  8,   9, $FF, $E8
-word_149D0E:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   4,	  0,   0, $FF, $F4
-		dc.b  $F8,  $D,	  0,   2, $FF, $EC
-		dc.b  $F8,   1,	  0,  $A,   0,	$C
-word_149D22:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   9,	  0,   0, $FF, $F0
-		dc.b	0,  $C,	  0,   6, $FF, $F0
-word_149D30:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   4,	  8,   0, $FF, $FC
-		dc.b  $F8,  $D,	  8,   2, $FF, $F4
-		dc.b  $F8,   1,	  8,  $A, $FF, $EC
-word_149D44:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F2,   1,	  0,   0, $FF, $EA
-		dc.b  $F2,  $E,	  0,   2, $FF, $F2
-		dc.b   $A,   8,	  0,  $E, $FF, $F2
-word_149D58:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F2,  $E,	  0,   0, $FF, $F4
-		dc.b  $F2,   1,	  0,  $C, $FF, $EC
-		dc.b   $A,   8,	  0,  $E, $FF, $F4
-word_149D6C:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F2,  $F,	  0,   0, $FF, $EE
-		dc.b	2,   0,	  0, $10,   0,	$E
-word_149D7A:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $F2,  $D,	  0,   0, $FF, $F2
-		dc.b  $F2,   0,	  0,   8, $FF, $EA
-		dc.b	2,  $D,	  0,   9, $FF, $EA
-		dc.b	2,   0,	  0, $11,   0,	$A
-word_149D94:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F2,  $F,	  0,   0, $FF, $ED
-		dc.b  $F2,   1,	  0, $10,   0,	$D
-word_149DA2:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $F5,  $E,	  0,   0, $FF, $F3
-		dc.b  $F5,   2,	  0,  $C, $FF, $EB
-		dc.b  $ED,   4,	  0,  $F, $FF, $EB
-word_149DB6:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   9,	  0,   8, $FF, $F8
-		dc.b	0,  $C,	  0,  $E, $FF, $F0
-		dc.b	8,   4,	  0, $12, $FF, $F0
-		dc.b  $F0,   7,	  0,   0, $FF, $EB
-word_149DD0:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   9,	  0,   8, $FF, $F8
-		dc.b	0,  $C,	  0,  $E, $FF, $F0
-		dc.b	8,   4,	  0, $12, $FF, $F0
-		dc.b  $F0,   7,	  8,   0, $FF, $EB
-word_149DEA:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,   4,	  0,   9, $FF, $F8
-		dc.b  $F4,   9,	  0,  $B, $FF, $F0
-		dc.b	4,   5,	  0, $11, $FF, $F8
-		dc.b  $F8,  $A,	  0,   0, $FF, $E9
-word_149E04:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,   4,	  0,   9, $FF, $F8
-		dc.b  $F4,   9,	  0,  $B, $FF, $F0
-		dc.b	4,   5,	  0, $11, $FF, $F8
-		dc.b  $F8,  $A,	  0,   0, $FF, $E9
-word_149E1E:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   9,	  0,   8, $FF, $F0
-		dc.b	0,  $C,	  0,  $E, $FF, $F0
-		dc.b	8,   4,	  0, $12,   0,	 0
-		dc.b	5,  $D,	  0,   0, $FF, $F0
-word_149E38:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,   9,	  0,   8, $FF, $F0
-		dc.b	0,  $C,	  0,  $E, $FF, $F0
-		dc.b	8,   4,	  0, $12,   0,	 0
-		dc.b	5,  $D,	  8,   0, $FF, $F0
-word_149E52:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $F8,  $D,	  0,   9, $FF, $EC
-		dc.b  $F8,   1,	  0, $11,   0,	$C
-		dc.b	8,   4,	  0, $13, $FF, $F4
-		dc.b  $FF,  $A,	  8,   0, $FF, $F9
-word_149E6C:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $F8,  $D,	  0,   9, $FF, $EC
-		dc.b  $F8,   1,	  0, $11,   0,	$C
-		dc.b	8,   4,	  0, $13, $FF, $F4
-		dc.b  $FF,  $A,	  8,   0, $FF, $F9
-word_149E86:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F8,  $F,	  0,   0, $FF, $F0
-word_149E8E:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F8,  $F,	  0,   0, $FF, $F0
-word_149E96:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,   4,	  0,   0, $FF, $EB
-		dc.b  $F5,  $E,	  0,   2, $FF, $F3
-		dc.b	5,   0,	  0,  $E, $FF, $EB
-word_149EAA:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $ED,   4,	  0,   0, $FF, $F3
-		dc.b  $F5,  $E,	  0,   2, $FF, $F3
-		dc.b	5,   0,	  0,  $E, $FF, $EB
-word_149EBE:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $E6,   4,	  0,   0, $FF, $F4
-		dc.b  $EE,  $B,	  0,   2, $FF, $F4
-word_149ECC:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $E6,   4,	  0,   0, $FF, $F4
-		dc.b  $EE,  $B,	  0,   2, $FF, $F4
-word_149EDA:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,   9,	  0,   0, $FF, $F0
-		dc.b  $FC,  $C,	  0,   6, $FF, $F0
-		dc.b	4,   1,	  0,  $A,   0,	 0
-word_149EEE:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $EF,   4,	  0,   0, $FF, $F4
-		dc.b  $F7,  $A,	  0,   2, $FF, $F4
-word_149EFC:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,   4,	  0,   0, $FF, $F6
-		dc.b  $F4,  $A,	  0,   2, $FF, $F6
-		dc.b   $C,   4,	  0,  $B, $FF, $FE
-word_149F10:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,  $B,	  0,   0, $FF, $F4
-		dc.b   $C,   0,	  0,  $C, $FF, $FC
-word_149F1E:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,   8,	  0,   0, $FF, $F2
-		dc.b  $F4,  $D,	  0,   3, $FF, $F2
-		dc.b	4,   8,	  0,  $B, $FF, $FA
-		dc.b   $C,   0,	  0,  $E, $FF, $FA
-word_149F38:	dc.w 4			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,   8,	  0,   0, $FF, $F6
-		dc.b  $F4,  $D,	  0,   3, $FF, $EE
-		dc.b	4,   8,	  0,  $B, $FF, $F6
-		dc.b   $C,   4,	  0,  $E, $FF, $FE
-word_149F52:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,  $A,	  0,   0, $FF, $F4
-		dc.b	4,  $C,	  0,   9, $FF, $F4
-		dc.b   $C,   8,	  0,  $D, $FF, $FC
-word_149F66:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,  $A,	  0,   0, $FF, $F4
-		dc.b	4,   5,	  0,   9, $FF, $FC
-word_149F74:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,  $A,	  0,   0, $FF, $F5
-		dc.b	4,   0,	  0,   9, $FF, $FD
-		dc.b   $C,   4,	  0,  $A, $FF, $FD
-word_149F88:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,  $B,	  0,   0, $FF, $F4
-		dc.b   $C,   4,	  0,  $C, $FF, $F4
-word_149F96:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,   9,	  0,   0, $FF, $F2
-		dc.b  $FC,   5,	  0,   6, $FF, $FA
-		dc.b   $C,   8,	  0,  $A, $FF, $F2
-word_149FAA:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,  $A,	  0,   0, $FF, $F5
-		dc.b	4,   0,	  0,   9, $FF, $FD
-		dc.b   $C,   4,	  0,  $A, $FF, $FD
-word_149FBE:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F4,  $A,	  0,   0, $FF, $F4
-word_149FC6:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,   8,	  0,   0, $FF, $F0
-		dc.b  $F4,  $D,	  0,   3, $FF, $F0
-		dc.b	4,   9,	  0,  $B, $FF, $F0
-word_149FDA:	dc.w 3			; DATA XREF: ROM:00148EB8o
-		dc.b  $EC,   8,	  0,   0, $FF, $F0
-		dc.b  $F4,  $D,	  0,   3, $FF, $F0
-		dc.b	4,   9,	  0,  $B, $FF, $F0
-word_149FEE:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $E,	  0,   0, $FF, $F0
-		dc.b	8,   4,	  0,  $C, $FF, $F0
-word_149FFC:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $E,	  0,   0, $FF, $F0
-		dc.b	8,   8,	  0,  $C, $FF, $F0
-word_14A00A:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $E,	  0,   0, $FF, $F0
-		dc.b	8,   8,	  0,  $C, $FF, $F0
-word_14A018:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $F,	  0,   0, $FF, $F0
-word_14A020:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $E,	  8,   0, $FF, $F0
-		dc.b	8,   8,	  8,  $C, $FF, $F8
-word_14A02E:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $E,	  8,   0, $FF, $F0
-		dc.b	8,   8,	  8,  $C, $FF, $F8
-word_14A03C:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $E,	  8,   0, $FF, $F0
-		dc.b	8,   4,	  8,  $C,   0,	 0
-word_14A04A:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $E,	  0,   0, $FF, $F0
-		dc.b	8,   4,	  0,  $C,   0,	 0
-word_14A058:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $E,	  0,   0, $FF, $F0
-		dc.b	8,   8,	  0,  $C, $FF, $F8
-word_14A066:	dc.w 1			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $F,	  0,   0, $FF, $F0
-word_14A06E:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $E,	  8,   0, $FF, $F0
-		dc.b	8,   8,	  8,  $C, $FF, $F0
-word_14A07C:	dc.w 2			; DATA XREF: ROM:00148EB8o
-		dc.b  $F0,  $E,	  8,   0, $FF, $F0
-		dc.b	8,   4,	  8,  $C, $FF, $F0
+; ================================================================================
+; Sprite Mappings - generated by Flex 2 Wed Jan 13 2021 00:35:02 GMT-0600 (Central Standard Time)
+; ================================================================================
+
+DATA9WL3YBYKQV:
+	dc.w $0, DATA9WL3YBYKQV_1-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_2-DATA9WL3YBYKQV, DATA9WL3YBYKQV_3-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_4-DATA9WL3YBYKQV, DATA9WL3YBYKQV_5-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_6-DATA9WL3YBYKQV, DATA9WL3YBYKQV_7-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_8-DATA9WL3YBYKQV, DATA9WL3YBYKQV_9-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_A-DATA9WL3YBYKQV, DATA9WL3YBYKQV_B-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_C-DATA9WL3YBYKQV, DATA9WL3YBYKQV_D-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_E-DATA9WL3YBYKQV, DATA9WL3YBYKQV_F-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_10-DATA9WL3YBYKQV, DATA9WL3YBYKQV_11-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_12-DATA9WL3YBYKQV, DATA9WL3YBYKQV_13-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_14-DATA9WL3YBYKQV, DATA9WL3YBYKQV_15-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_16-DATA9WL3YBYKQV, DATA9WL3YBYKQV_17-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_18-DATA9WL3YBYKQV, DATA9WL3YBYKQV_19-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_1A-DATA9WL3YBYKQV, DATA9WL3YBYKQV_1B-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_1C-DATA9WL3YBYKQV, DATA9WL3YBYKQV_1D-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_1E-DATA9WL3YBYKQV, DATA9WL3YBYKQV_1F-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_20-DATA9WL3YBYKQV, DATA9WL3YBYKQV_21-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_22-DATA9WL3YBYKQV, DATA9WL3YBYKQV_23-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_24-DATA9WL3YBYKQV, DATA9WL3YBYKQV_25-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_26-DATA9WL3YBYKQV, DATA9WL3YBYKQV_27-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_28-DATA9WL3YBYKQV, DATA9WL3YBYKQV_29-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_2A-DATA9WL3YBYKQV, DATA9WL3YBYKQV_2B-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_2C-DATA9WL3YBYKQV, DATA9WL3YBYKQV_2D-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_2E-DATA9WL3YBYKQV, DATA9WL3YBYKQV_2F-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_30-DATA9WL3YBYKQV, DATA9WL3YBYKQV_31-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_32-DATA9WL3YBYKQV, DATA9WL3YBYKQV_33-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_34-DATA9WL3YBYKQV, DATA9WL3YBYKQV_35-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_36-DATA9WL3YBYKQV, DATA9WL3YBYKQV_37-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_38-DATA9WL3YBYKQV, DATA9WL3YBYKQV_39-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_3A-DATA9WL3YBYKQV, DATA9WL3YBYKQV_3B-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_3C-DATA9WL3YBYKQV, DATA9WL3YBYKQV_3D-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_3E-DATA9WL3YBYKQV, DATA9WL3YBYKQV_3F-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_40-DATA9WL3YBYKQV, DATA9WL3YBYKQV_41-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_42-DATA9WL3YBYKQV, DATA9WL3YBYKQV_43-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_44-DATA9WL3YBYKQV, DATA9WL3YBYKQV_45-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_46-DATA9WL3YBYKQV, DATA9WL3YBYKQV_47-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_48-DATA9WL3YBYKQV, DATA9WL3YBYKQV_49-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_4A-DATA9WL3YBYKQV, DATA9WL3YBYKQV_4B-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_4C-DATA9WL3YBYKQV, DATA9WL3YBYKQV_4D-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_4E-DATA9WL3YBYKQV, DATA9WL3YBYKQV_4F-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_50-DATA9WL3YBYKQV, DATA9WL3YBYKQV_51-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_52-DATA9WL3YBYKQV, DATA9WL3YBYKQV_53-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_54-DATA9WL3YBYKQV, DATA9WL3YBYKQV_55-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_56-DATA9WL3YBYKQV, DATA9WL3YBYKQV_57-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_58-DATA9WL3YBYKQV, DATA9WL3YBYKQV_59-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_5A-DATA9WL3YBYKQV, DATA9WL3YBYKQV_5B-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_5C-DATA9WL3YBYKQV, DATA9WL3YBYKQV_5D-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_5E-DATA9WL3YBYKQV, DATA9WL3YBYKQV_5F-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_60-DATA9WL3YBYKQV, DATA9WL3YBYKQV_61-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_62-DATA9WL3YBYKQV, DATA9WL3YBYKQV_63-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_64-DATA9WL3YBYKQV, DATA9WL3YBYKQV_65-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_66-DATA9WL3YBYKQV, DATA9WL3YBYKQV_67-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_68-DATA9WL3YBYKQV, DATA9WL3YBYKQV_69-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_6A-DATA9WL3YBYKQV, DATA9WL3YBYKQV_6B-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_6C-DATA9WL3YBYKQV, DATA9WL3YBYKQV_6D-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_6E-DATA9WL3YBYKQV, DATA9WL3YBYKQV_6F-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_70-DATA9WL3YBYKQV, DATA9WL3YBYKQV_71-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_72-DATA9WL3YBYKQV, DATA9WL3YBYKQV_73-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_74-DATA9WL3YBYKQV, DATA9WL3YBYKQV_75-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_76-DATA9WL3YBYKQV, DATA9WL3YBYKQV_77-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_78-DATA9WL3YBYKQV, DATA9WL3YBYKQV_79-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_7A-DATA9WL3YBYKQV, DATA9WL3YBYKQV_7B-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_7C-DATA9WL3YBYKQV, DATA9WL3YBYKQV_7D-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_7E-DATA9WL3YBYKQV, DATA9WL3YBYKQV_7F-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_80-DATA9WL3YBYKQV, DATA9WL3YBYKQV_81-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_82-DATA9WL3YBYKQV, DATA9WL3YBYKQV_83-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_84-DATA9WL3YBYKQV, DATA9WL3YBYKQV_85-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_86-DATA9WL3YBYKQV, DATA9WL3YBYKQV_87-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_88-DATA9WL3YBYKQV, DATA9WL3YBYKQV_89-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_8A-DATA9WL3YBYKQV, DATA9WL3YBYKQV_8B-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_8C-DATA9WL3YBYKQV, DATA9WL3YBYKQV_8D-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_8E-DATA9WL3YBYKQV, DATA9WL3YBYKQV_8F-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_90-DATA9WL3YBYKQV, DATA9WL3YBYKQV_91-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_92-DATA9WL3YBYKQV, DATA9WL3YBYKQV_93-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_94-DATA9WL3YBYKQV, DATA9WL3YBYKQV_95-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_96-DATA9WL3YBYKQV, DATA9WL3YBYKQV_97-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_98-DATA9WL3YBYKQV, DATA9WL3YBYKQV_99-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_9A-DATA9WL3YBYKQV, DATA9WL3YBYKQV_9B-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_9C-DATA9WL3YBYKQV, DATA9WL3YBYKQV_9D-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_9E-DATA9WL3YBYKQV, DATA9WL3YBYKQV_9F-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_A0-DATA9WL3YBYKQV, DATA9WL3YBYKQV_A1-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_A2-DATA9WL3YBYKQV, DATA9WL3YBYKQV_A3-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_A4-DATA9WL3YBYKQV, DATA9WL3YBYKQV_A5-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_A6-DATA9WL3YBYKQV, DATA9WL3YBYKQV_A7-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_A8-DATA9WL3YBYKQV, DATA9WL3YBYKQV_A9-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_AA-DATA9WL3YBYKQV, DATA9WL3YBYKQV_AB-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_AC-DATA9WL3YBYKQV, DATA9WL3YBYKQV_AD-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_AE-DATA9WL3YBYKQV, DATA9WL3YBYKQV_AF-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_B0-DATA9WL3YBYKQV, DATA9WL3YBYKQV_B1-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_B2-DATA9WL3YBYKQV, DATA9WL3YBYKQV_B3-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_B4-DATA9WL3YBYKQV, DATA9WL3YBYKQV_B5-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_B6-DATA9WL3YBYKQV, DATA9WL3YBYKQV_B7-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_B8-DATA9WL3YBYKQV, DATA9WL3YBYKQV_B9-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_BA-DATA9WL3YBYKQV, DATA9WL3YBYKQV_BB-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_BC-DATA9WL3YBYKQV, DATA9WL3YBYKQV_BD-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_BE-DATA9WL3YBYKQV, DATA9WL3YBYKQV_BF-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_C0-DATA9WL3YBYKQV, DATA9WL3YBYKQV_C1-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_C2-DATA9WL3YBYKQV, DATA9WL3YBYKQV_C3-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_C4-DATA9WL3YBYKQV, DATA9WL3YBYKQV_C5-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_C6-DATA9WL3YBYKQV, DATA9WL3YBYKQV_C7-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_C8-DATA9WL3YBYKQV, DATA9WL3YBYKQV_C9-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_CA-DATA9WL3YBYKQV, DATA9WL3YBYKQV_CB-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_CC-DATA9WL3YBYKQV, DATA9WL3YBYKQV_CD-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_CE-DATA9WL3YBYKQV, DATA9WL3YBYKQV_CF-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_D0-DATA9WL3YBYKQV, DATA9WL3YBYKQV_D1-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_D2-DATA9WL3YBYKQV, DATA9WL3YBYKQV_D3-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_D4-DATA9WL3YBYKQV, DATA9WL3YBYKQV_D5-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_D6-DATA9WL3YBYKQV, DATA9WL3YBYKQV_D7-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_D8-DATA9WL3YBYKQV, DATA9WL3YBYKQV_D9-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_DA-DATA9WL3YBYKQV, DATA9WL3YBYKQV_DB-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_DC-DATA9WL3YBYKQV, DATA9WL3YBYKQV_DD-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_DE-DATA9WL3YBYKQV, DATA9WL3YBYKQV_DF-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_E0-DATA9WL3YBYKQV, DATA9WL3YBYKQV_E1-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_E2-DATA9WL3YBYKQV, DATA9WL3YBYKQV_E3-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_E4-DATA9WL3YBYKQV, DATA9WL3YBYKQV_E5-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_E6-DATA9WL3YBYKQV, DATA9WL3YBYKQV_E7-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_E8-DATA9WL3YBYKQV, DATA9WL3YBYKQV_E9-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_EA-DATA9WL3YBYKQV, DATA9WL3YBYKQV_EB-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_EC-DATA9WL3YBYKQV, DATA9WL3YBYKQV_ED-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_EE-DATA9WL3YBYKQV, DATA9WL3YBYKQV_EF-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_F0-DATA9WL3YBYKQV, DATA9WL3YBYKQV_F1-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_F2-DATA9WL3YBYKQV, DATA9WL3YBYKQV_F3-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_F4-DATA9WL3YBYKQV, DATA9WL3YBYKQV_F5-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_F6-DATA9WL3YBYKQV, DATA9WL3YBYKQV_F7-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_F8-DATA9WL3YBYKQV, DATA9WL3YBYKQV_F9-DATA9WL3YBYKQV
+	dc.w DATA9WL3YBYKQV_FA-DATA9WL3YBYKQV
+DATA9WL3YBYKQV_1: dc.b $0, $3
+	dc.b $EC, $4, $0, $0, $FF, $F9
+	dc.b $F4, $9, $0, $2, $FF, $F1
+	dc.b $4, $D, $0, $8, $FF, $F1
+DATA9WL3YBYKQV_2: dc.b $0, $3
+	dc.b $F0, $D, $0, $0, $FF, $ED
+	dc.b $0, $8, $0, $8, $FF, $ED
+	dc.b $8, $C, $0, $B, $FF, $ED
+DATA9WL3YBYKQV_3: dc.b $0, $2
+	dc.b $F0, $A, $0, $0, $FF, $FB
+	dc.b $8, $8, $0, $9, $FF, $F3
+DATA9WL3YBYKQV_4: dc.b $0, $3
+	dc.b $F0, $D, $0, $0, $FF, $F0
+	dc.b $0, $8, $0, $8, $FF, $F0
+	dc.b $8, $C, $0, $B, $FF, $F0
+DATA9WL3YBYKQV_5: dc.b $0, $3
+	dc.b $EC, $4, $0, $0, $FF, $F8
+	dc.b $F4, $9, $0, $2, $FF, $F0
+	dc.b $4, $D, $0, $8, $FF, $F0
+DATA9WL3YBYKQV_6: dc.b $0, $3
+	dc.b $F0, $D, $0, $0, $FF, $F0
+	dc.b $0, $8, $0, $8, $FF, $F0
+	dc.b $8, $C, $0, $B, $FF, $F0
+DATA9WL3YBYKQV_7: dc.b $0, $2
+	dc.b $F0, $A, $0, $0, $FF, $F8
+	dc.b $8, $8, $0, $9, $FF, $F0
+DATA9WL3YBYKQV_8: dc.b $0, $3
+	dc.b $F0, $D, $0, $0, $FF, $F0
+	dc.b $0, $8, $0, $8, $FF, $F0
+	dc.b $8, $C, $0, $B, $FF, $F0
+DATA9WL3YBYKQV_9: dc.b $0, $4
+	dc.b $EE, $4, $0, $0, $FF, $F2
+	dc.b $F6, $D, $0, $2, $FF, $F2
+	dc.b $6, $8, $0, $A, $FF, $FA
+	dc.b $E, $8, $0, $D, $FF, $F2
+DATA9WL3YBYKQV_A: dc.b $0, $3
+	dc.b $F0, $B, $0, $0, $FF, $F1
+	dc.b $F8, $6, $0, $C, $0, $9
+	dc.b $10, $8, $0, $12, $FF, $F1
+DATA9WL3YBYKQV_B: dc.b $0, $4
+	dc.b $EA, $4, $0, $0, $FF, $F8
+	dc.b $F2, $D, $0, $2, $FF, $F0
+	dc.b $2, $8, $0, $A, $FF, $F8
+	dc.b $A, $D, $0, $D, $FF, $F0
+DATA9WL3YBYKQV_C: dc.b $0, $3
+	dc.b $EF, $4, $0, $0, $FF, $F6
+	dc.b $F7, $F, $0, $2, $FF, $EE
+	dc.b $FF, $0, $0, $12, $0, $E
+DATA9WL3YBYKQV_D: dc.b $0, $3
+	dc.b $ED, $8, $0, $0, $FF, $F2
+	dc.b $F5, $D, $0, $3, $FF, $F2
+	dc.b $5, $9, $0, $B, $FF, $F2
+DATA9WL3YBYKQV_E: dc.b $0, $3
+	dc.b $F2, $4, $0, $0, $FF, $F7
+	dc.b $FA, $B, $0, $2, $FF, $EF
+	dc.b $2, $5, $0, $E, $0, $7
+DATA9WL3YBYKQV_F: dc.b $0, $3
+	dc.b $F0, $4, $0, $0, $FF, $F7
+	dc.b $F8, $8, $0, $2, $FF, $EF
+	dc.b $0, $E, $0, $5, $FF, $EF
+DATA9WL3YBYKQV_10: dc.b $0, $4
+	dc.b $EC, $0, $0, $0, $FF, $FC
+	dc.b $F4, $9, $0, $1, $FF, $F4
+	dc.b $4, $C, $0, $7, $FF, $F4
+	dc.b $C, $C, $0, $B, $FF, $EC
+DATA9WL3YBYKQV_11: dc.b $0, $2
+	dc.b $EE, $4, $0, $0, $0, $0
+	dc.b $F6, $E, $0, $2, $FF, $F0
+DATA9WL3YBYKQV_12: dc.b $0, $2
+	dc.b $F2, $E, $0, $0, $FF, $F0
+	dc.b $A, $0, $0, $C, $0, $8
+DATA9WL3YBYKQV_13: dc.b $0, $2
+	dc.b $F2, $8, $0, $0, $FF, $F0
+	dc.b $FA, $D, $0, $3, $FF, $F0
+DATA9WL3YBYKQV_14: dc.b $0, $1
+	dc.b $F4, $E, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_15: dc.b $0, $2
+	dc.b $ED, $4, $0, $0, $0, $0
+	dc.b $F5, $E, $0, $2, $FF, $F0
+DATA9WL3YBYKQV_16: dc.b $0, $1
+	dc.b $F4, $E, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_17: dc.b $0, $2
+	dc.b $F1, $8, $0, $0, $FF, $F0
+	dc.b $F9, $D, $0, $3, $FF, $F0
+DATA9WL3YBYKQV_18: dc.b $0, $1
+	dc.b $F4, $E, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_19: dc.b $0, $3
+	dc.b $EF, $8, $0, $0, $FF, $F5
+	dc.b $F7, $E, $0, $3, $FF, $F5
+	dc.b $FF, $1, $0, $F, $FF, $ED
+DATA9WL3YBYKQV_1A: dc.b $0, $4
+	dc.b $E8, $4, $0, $0, $FF, $F8
+	dc.b $F0, $8, $0, $2, $FF, $F8
+	dc.b $F8, $E, $0, $5, $FF, $F0
+	dc.b $F8, $2, $0, $11, $0, $10
+DATA9WL3YBYKQV_1B: dc.b $0, $4
+	dc.b $F0, $C, $0, $0, $FF, $F1
+	dc.b $F8, $C, $0, $4, $FF, $E9
+	dc.b $0, $9, $0, $8, $FF, $F1
+	dc.b $F8, $6, $0, $E, $0, $9
+DATA9WL3YBYKQV_1C: dc.b $0, $3
+	dc.b $EA, $0, $0, $0, $FF, $FE
+	dc.b $F2, $F, $0, $1, $FF, $F6
+	dc.b $FA, $1, $0, $11, $FF, $EE
+DATA9WL3YBYKQV_1D: dc.b $0, $3
+	dc.b $EF, $4, $0, $0, $FF, $F7
+	dc.b $F7, $E, $0, $2, $FF, $EF
+	dc.b $F7, $2, $0, $E, $0, $F
+DATA9WL3YBYKQV_1E: dc.b $0, $4
+	dc.b $E9, $0, $0, $0, $0, $0
+	dc.b $F1, $4, $0, $1, $0, $0
+	dc.b $F9, $E, $0, $3, $FF, $F8
+	dc.b $F9, $1, $0, $F, $FF, $F0
+DATA9WL3YBYKQV_1F: dc.b $0, $3
+	dc.b $F1, $8, $0, $0, $0, $0
+	dc.b $F9, $E, $0, $3, $FF, $F8
+	dc.b $F9, $1, $0, $F, $FF, $F0
+DATA9WL3YBYKQV_20: dc.b $0, $4
+	dc.b $EC, $0, $0, $0, $0, $4
+	dc.b $F4, $E, $0, $1, $FF, $F4
+	dc.b $FC, $0, $0, $D, $FF, $EC
+	dc.b $C, $0, $0, $E, $0, $C
+DATA9WL3YBYKQV_21: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F8
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $4, $0, $A, $FF, $F0
+DATA9WL3YBYKQV_22: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F8
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $4, $0, $A, $FF, $F0
+DATA9WL3YBYKQV_23: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F8
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $4, $0, $A, $FF, $F0
+DATA9WL3YBYKQV_24: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F8
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $4, $0, $A, $FF, $F0
+DATA9WL3YBYKQV_25: dc.b $0, $3
+	dc.b $EC, $4, $0, $0, $FF, $F8
+	dc.b $F4, $9, $0, $2, $FF, $F0
+	dc.b $4, $5, $0, $8, $FF, $F8
+DATA9WL3YBYKQV_26: dc.b $0, $3
+	dc.b $ED, $4, $0, $0, $FF, $F8
+	dc.b $F5, $9, $0, $2, $FF, $F0
+	dc.b $5, $5, $0, $8, $FF, $F8
+DATA9WL3YBYKQV_27: dc.b $0, $3
+	dc.b $EC, $4, $0, $0, $FF, $F8
+	dc.b $F4, $9, $0, $2, $FF, $F0
+	dc.b $4, $5, $0, $8, $FF, $F8
+DATA9WL3YBYKQV_28: dc.b $0, $3
+	dc.b $ED, $4, $0, $0, $FF, $F8
+	dc.b $F5, $9, $0, $2, $FF, $F0
+	dc.b $5, $5, $0, $8, $FF, $F8
+DATA9WL3YBYKQV_29: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F0
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $4, $0, $A, $0, $0
+DATA9WL3YBYKQV_2A: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F0
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $4, $0, $A, $0, $0
+DATA9WL3YBYKQV_2B: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F0
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $4, $0, $A, $0, $0
+DATA9WL3YBYKQV_2C: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F0
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $4, $0, $A, $0, $0
+DATA9WL3YBYKQV_2D: dc.b $0, $3
+	dc.b $F8, $D, $0, $0, $FF, $EC
+	dc.b $F8, $1, $0, $8, $0, $C
+	dc.b $8, $4, $0, $A, $FF, $F4
+DATA9WL3YBYKQV_2E: dc.b $0, $3
+	dc.b $F8, $D, $0, $0, $FF, $EB
+	dc.b $F8, $1, $0, $8, $0, $B
+	dc.b $8, $4, $0, $A, $FF, $F3
+DATA9WL3YBYKQV_2F: dc.b $0, $3
+	dc.b $F8, $D, $0, $0, $FF, $EC
+	dc.b $F8, $1, $0, $8, $0, $C
+	dc.b $8, $4, $0, $A, $FF, $F4
+DATA9WL3YBYKQV_30: dc.b $0, $3
+	dc.b $F8, $D, $0, $0, $FF, $EB
+	dc.b $F8, $1, $0, $8, $0, $B
+	dc.b $8, $4, $0, $A, $FF, $F3
+DATA9WL3YBYKQV_31: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F1
+DATA9WL3YBYKQV_32: dc.b $0, $2
+	dc.b $EC, $B, $0, $0, $FF, $F1
+	dc.b $C, $4, $0, $C, $FF, $F1
+DATA9WL3YBYKQV_33: dc.b $0, $1
+	dc.b $ED, $B, $0, $0, $FF, $F3
+DATA9WL3YBYKQV_34: dc.b $0, $1
+	dc.b $F8, $A, $0, $0, $FF, $F3
+DATA9WL3YBYKQV_35: dc.b $0, $2
+	dc.b $F3, $A, $0, $0, $FF, $F3
+	dc.b $B, $0, $0, $9, $0, $3
+DATA9WL3YBYKQV_36: dc.b $0, $2
+	dc.b $EF, $4, $0, $0, $FF, $F2
+	dc.b $F7, $A, $0, $2, $FF, $F2
+DATA9WL3YBYKQV_37: dc.b $0, $2
+	dc.b $F2, $4, $0, $0, $FF, $F2
+	dc.b $FA, $A, $0, $2, $FF, $F2
+DATA9WL3YBYKQV_38: dc.b $0, $2
+	dc.b $F0, $4, $0, $0, $FF, $F4
+	dc.b $F8, $A, $0, $2, $FF, $F4
+DATA9WL3YBYKQV_39: dc.b $0, $2
+	dc.b $EE, $4, $0, $0, $FF, $F4
+	dc.b $F6, $A, $0, $2, $FF, $F4
+DATA9WL3YBYKQV_3A: dc.b $0, $2
+	dc.b $F4, $9, $0, $0, $FF, $F1
+	dc.b $4, $4, $0, $6, $FF, $F9
+DATA9WL3YBYKQV_3B: dc.b $0, $2
+	dc.b $F4, $A, $0, $0, $FF, $F1
+	dc.b $C, $0, $0, $9, $FF, $F1
+DATA9WL3YBYKQV_3C: dc.b $0, $2
+	dc.b $F1, $9, $0, $0, $FF, $F4
+	dc.b $1, $5, $0, $6, $FF, $F4
+DATA9WL3YBYKQV_3D: dc.b $0, $2
+	dc.b $F1, $A, $0, $0, $FF, $F2
+	dc.b $9, $4, $0, $9, $FF, $FA
+DATA9WL3YBYKQV_3E: dc.b $0, $2
+	dc.b $ED, $0, $0, $0, $0, $1
+	dc.b $F5, $A, $0, $1, $FF, $F1
+DATA9WL3YBYKQV_3F: dc.b $0, $1
+	dc.b $F3, $A, $0, $0, $FF, $F3
+DATA9WL3YBYKQV_40: dc.b $0, $3
+	dc.b $EE, $4, $0, $0, $FF, $F2
+	dc.b $F6, $9, $0, $2, $FF, $F2
+	dc.b $6, $4, $0, $8, $FF, $FA
+DATA9WL3YBYKQV_41: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F1
+DATA9WL3YBYKQV_42: dc.b $0, $1
+	dc.b $F1, $B, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_43: dc.b $0, $3
+	dc.b $F0, $8, $0, $0, $FF, $F4
+	dc.b $F8, $4, $0, $3, $FF, $F4
+	dc.b $0, $9, $0, $5, $FF, $F4
+DATA9WL3YBYKQV_44: dc.b $0, $2
+	dc.b $EC, $0, $0, $0, $FF, $F9
+	dc.b $F4, $A, $0, $1, $FF, $F1
+DATA9WL3YBYKQV_45: dc.b $0, $2
+	dc.b $F4, $9, $0, $0, $FF, $F1
+	dc.b $4, $0, $0, $6, $FF, $F1
+DATA9WL3YBYKQV_46: dc.b $0, $2
+	dc.b $F2, $4, $0, $0, $FF, $F7
+	dc.b $FA, $9, $0, $2, $FF, $EF
+DATA9WL3YBYKQV_47: dc.b $0, $3
+	dc.b $ED, $4, $0, $0, $FF, $F5
+	dc.b $F5, $9, $0, $2, $FF, $F5
+	dc.b $5, $4, $0, $8, $FF, $F5
+DATA9WL3YBYKQV_48: dc.b $0, $2
+	dc.b $EF, $A, $0, $0, $FF, $F1
+	dc.b $7, $4, $0, $9, $FF, $F9
+DATA9WL3YBYKQV_49: dc.b $0, $3
+	dc.b $F2, $8, $0, $0, $FF, $F5
+	dc.b $FA, $D, $0, $3, $FF, $ED
+	dc.b $FA, $0, $0, $B, $0, $D
+DATA9WL3YBYKQV_4A: dc.b $0, $2
+	dc.b $F2, $8, $0, $0, $FF, $F8
+	dc.b $FA, $D, $0, $3, $FF, $F0
+DATA9WL3YBYKQV_4B: dc.b $0, $3
+	dc.b $F2, $4, $0, $0, $FF, $F7
+	dc.b $FA, $8, $0, $2, $FF, $F7
+	dc.b $2, $C, $0, $5, $FF, $EF
+DATA9WL3YBYKQV_4C: dc.b $0, $2
+	dc.b $F0, $4, $0, $0, $FF, $FC
+	dc.b $F8, $A, $0, $2, $FF, $F4
+DATA9WL3YBYKQV_4D: dc.b $0, $3
+	dc.b $F0, $4, $0, $0, $FF, $FC
+	dc.b $F8, $9, $0, $2, $FF, $F4
+	dc.b $8, $4, $0, $8, $FF, $F4
+DATA9WL3YBYKQV_4E: dc.b $0, $4
+	dc.b $EA, $0, $0, $0, $0, $0
+	dc.b $F2, $4, $0, $1, $0, $0
+	dc.b $FA, $C, $0, $3, $FF, $F0
+	dc.b $2, $9, $0, $7, $FF, $F0
+DATA9WL3YBYKQV_4F: dc.b $0, $4
+	dc.b $ED, $4, $0, $0, $0, $0
+	dc.b $F5, $C, $0, $2, $FF, $F0
+	dc.b $FD, $9, $0, $6, $FF, $F0
+	dc.b $D, $4, $0, $C, $FF, $F8
+DATA9WL3YBYKQV_50: dc.b $0, $4
+	dc.b $EB, $4, $0, $0, $FF, $F9
+	dc.b $F3, $C, $0, $2, $FF, $F1
+	dc.b $FB, $9, $0, $6, $FF, $F1
+	dc.b $B, $0, $0, $C, $FF, $F9
+DATA9WL3YBYKQV_51: dc.b $0, $3
+	dc.b $EF, $4, $0, $0, $FF, $FA
+	dc.b $F7, $9, $0, $2, $FF, $F2
+	dc.b $7, $4, $0, $8, $FF, $FA
+DATA9WL3YBYKQV_52: dc.b $0, $3
+	dc.b $F4, $4, $0, $0, $FF, $F8
+	dc.b $FC, $C, $0, $2, $FF, $F0
+	dc.b $4, $4, $0, $6, $FF, $F8
+DATA9WL3YBYKQV_53: dc.b $0, $2
+	dc.b $F4, $D, $0, $0, $FF, $F0
+	dc.b $4, $8, $0, $8, $FF, $F0
+DATA9WL3YBYKQV_54: dc.b $0, $2
+	dc.b $F3, $8, $0, $0, $FF, $F6
+	dc.b $FB, $D, $0, $3, $FF, $EE
+DATA9WL3YBYKQV_55: dc.b $0, $3
+	dc.b $F0, $8, $0, $0, $FF, $F8
+	dc.b $F8, $C, $0, $3, $FF, $F0
+	dc.b $0, $9, $0, $7, $FF, $F0
+DATA9WL3YBYKQV_56: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F3
+DATA9WL3YBYKQV_57: dc.b $0, $3
+	dc.b $F0, $8, $0, $0, $FF, $F7
+	dc.b $F8, $5, $0, $3, $FF, $F7
+	dc.b $8, $8, $0, $7, $FF, $F7
+DATA9WL3YBYKQV_58: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F3
+DATA9WL3YBYKQV_59: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F3
+DATA9WL3YBYKQV_5A: dc.b $0, $3
+	dc.b $F0, $4, $0, $0, $FF, $F7
+	dc.b $F8, $9, $0, $2, $FF, $F7
+	dc.b $8, $4, $0, $8, $FF, $F7
+DATA9WL3YBYKQV_5B: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_5C: dc.b $0, $4
+	dc.b $F4, $8, $0, $0, $FF, $F0
+	dc.b $F4, $4, $0, $3, $0, $10
+	dc.b $FC, $D, $0, $5, $FF, $F0
+	dc.b $FC, $5, $0, $D, $0, $10
+DATA9WL3YBYKQV_5D: dc.b $0, $1
+	dc.b $F4, $E, $0, $0, $FF, $FD
+DATA9WL3YBYKQV_5E: dc.b $0, $3
+	dc.b $F4, $E, $0, $0, $FF, $F1
+	dc.b $F4, $0, $0, $C, $FF, $E9
+	dc.b $4, $0, $0, $D, $FF, $E9
+DATA9WL3YBYKQV_5F: dc.b $0, $2
+	dc.b $F4, $E, $0, $0, $FF, $F1
+	dc.b $F4, $6, $0, $C, $FF, $E1
+DATA9WL3YBYKQV_60: dc.b $0, $1
+	dc.b $F4, $E, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_61: dc.b $0, $1
+	dc.b $F4, $E, $0, $0, $FF, $E6
+DATA9WL3YBYKQV_62: dc.b $0, $3
+	dc.b $F4, $8, $0, $0, $FF, $F4
+	dc.b $FC, $D, $0, $3, $FF, $EC
+	dc.b $FC, $1, $0, $B, $0, $C
+DATA9WL3YBYKQV_63: dc.b $0, $4
+	dc.b $E8, $A, $0, $0, $FF, $F5
+	dc.b $0, $4, $0, $9, $FF, $F5
+	dc.b $8, $8, $0, $B, $FF, $F5
+	dc.b $10, $8, $0, $E, $FF, $F5
+DATA9WL3YBYKQV_64: dc.b $0, $1
+	dc.b $F1, $B, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_65: dc.b $0, $2
+	dc.b $E9, $B, $0, $0, $FF, $F4
+	dc.b $9, $8, $0, $C, $FF, $F4
+DATA9WL3YBYKQV_66: dc.b $0, $2
+	dc.b $E7, $B, $0, $0, $FF, $F4
+	dc.b $7, $9, $0, $C, $FF, $F4
+DATA9WL3YBYKQV_67: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_68: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_69: dc.b $0, $3
+	dc.b $EF, $8, $0, $0, $FF, $F7
+	dc.b $F7, $E, $0, $3, $FF, $EF
+	dc.b $7, $0, $0, $F, $0, $F
+DATA9WL3YBYKQV_6A: dc.b $0, $3
+	dc.b $EE, $4, $0, $0, $FF, $F7
+	dc.b $F6, $D, $0, $2, $FF, $EF
+	dc.b $6, $8, $0, $A, $FF, $F7
+DATA9WL3YBYKQV_6B: dc.b $0, $2
+	dc.b $EE, $4, $0, $0, $FF, $F3
+	dc.b $F6, $A, $0, $2, $FF, $F3
+DATA9WL3YBYKQV_6C: dc.b $0, $2
+	dc.b $F1, $8, $0, $0, $FF, $EE
+	dc.b $F9, $D, $0, $3, $FF, $EE
+DATA9WL3YBYKQV_6D: dc.b $0, $2
+	dc.b $F3, $8, $0, $0, $FF, $EF
+	dc.b $FB, $D, $0, $3, $FF, $EF
+DATA9WL3YBYKQV_6E: dc.b $0, $2
+	dc.b $F8, $D, $0, $0, $FF, $F1
+	dc.b $8, $8, $0, $8, $FF, $F9
+DATA9WL3YBYKQV_6F: dc.b $0, $2
+	dc.b $F6, $9, $0, $0, $FF, $F4
+	dc.b $6, $4, $0, $6, $FF, $FC
+DATA9WL3YBYKQV_70: dc.b $0, $2
+	dc.b $F6, $9, $0, $0, $FF, $F4
+	dc.b $6, $C, $0, $6, $FF, $EC
+DATA9WL3YBYKQV_71: dc.b $0, $2
+	dc.b $F7, $D, $0, $0, $FF, $EF
+	dc.b $7, $8, $0, $8, $FF, $EF
+DATA9WL3YBYKQV_72: dc.b $0, $1
+	dc.b $F6, $E, $0, $0, $FF, $EF
+DATA9WL3YBYKQV_73: dc.b $0, $2
+	dc.b $F6, $E, $0, $0, $FF, $F7
+	dc.b $FE, $1, $0, $C, $FF, $EF
+DATA9WL3YBYKQV_74: dc.b $0, $1
+	dc.b $F5, $E, $0, $0, $FF, $F2
+DATA9WL3YBYKQV_75: dc.b $0, $1
+	dc.b $F7, $A, $0, $0, $FF, $F2
+DATA9WL3YBYKQV_76: dc.b $0, $2
+	dc.b $F4, $8, $0, $0, $FF, $F2
+	dc.b $FC, $D, $0, $3, $FF, $F2
+DATA9WL3YBYKQV_77: dc.b $0, $2
+	dc.b $F3, $8, $0, $0, $FF, $F0
+	dc.b $FB, $D, $0, $3, $FF, $F0
+DATA9WL3YBYKQV_78: dc.b $0, $4
+	dc.b $E6, $C, $0, $0, $FF, $F2
+	dc.b $EE, $9, $0, $4, $FF, $F2
+	dc.b $FE, $C, $0, $A, $FF, $F2
+	dc.b $6, $8, $0, $E, $FF, $FA
+DATA9WL3YBYKQV_79: dc.b $0, $4
+	dc.b $E2, $4, $0, $0, $FF, $EE
+	dc.b $EA, $9, $0, $2, $FF, $E6
+	dc.b $F2, $1, $0, $8, $0, $6
+	dc.b $FA, $9, $0, $A, $FF, $EE
+DATA9WL3YBYKQV_7A: dc.b $0, $4
+	dc.b $EE, $0, $0, $0, $FF, $E4
+	dc.b $EE, $6, $0, $1, $FF, $FC
+	dc.b $F6, $9, $0, $7, $FF, $E4
+	dc.b $6, $C, $0, $D, $FF, $E4
+DATA9WL3YBYKQV_7B: dc.b $0, $4
+	dc.b $F4, $4, $0, $0, $FF, $F1
+	dc.b $FC, $6, $0, $2, $FF, $F9
+	dc.b $4, $9, $0, $8, $FF, $E1
+	dc.b $14, $4, $0, $E, $FF, $E9
+DATA9WL3YBYKQV_7C: dc.b $0, $4
+	dc.b $14, $C, $18, $0, $FF, $EE
+	dc.b $4, $9, $18, $4, $FF, $F6
+	dc.b $FC, $C, $18, $A, $FF, $EE
+	dc.b $F4, $8, $18, $E, $FF, $EE
+DATA9WL3YBYKQV_7D: dc.b $0, $4
+	dc.b $16, $4, $18, $0, $0, $3
+	dc.b $6, $9, $18, $2, $0, $3
+	dc.b $FE, $1, $18, $8, $FF, $F3
+	dc.b $F6, $9, $18, $A, $FF, $FB
+DATA9WL3YBYKQV_7E: dc.b $0, $4
+	dc.b $A, $0, $18, $0, $0, $15
+	dc.b $FA, $6, $18, $1, $FF, $F5
+	dc.b $FA, $9, $0, $7, $0, $5
+	dc.b $F2, $C, $18, $D, $FF, $FD
+DATA9WL3YBYKQV_7F: dc.b $0, $4
+	dc.b $5, $4, $18, $0, $0, $1
+	dc.b $ED, $6, $18, $2, $FF, $F9
+	dc.b $ED, $9, $18, $8, $0, $9
+	dc.b $E5, $4, $18, $E, $0, $9
+DATA9WL3YBYKQV_80: dc.b $0, $2
+	dc.b $E8, $D, $0, $0, $FF, $EF
+	dc.b $F8, $A, $0, $8, $FF, $EF
+DATA9WL3YBYKQV_81: dc.b $0, $4
+	dc.b $E9, $C, $0, $0, $FF, $EE
+	dc.b $F1, $8, $0, $4, $FF, $EE
+	dc.b $F9, $E, $0, $7, $FF, $E6
+	dc.b $11, $4, $0, $13, $FF, $EE
+DATA9WL3YBYKQV_82: dc.b $0, $4
+	dc.b $E9, $A, $0, $0, $FF, $F6
+	dc.b $F9, $4, $0, $9, $FF, $E6
+	dc.b $1, $C, $0, $B, $FF, $E6
+	dc.b $9, $5, $0, $F, $FF, $F6
+DATA9WL3YBYKQV_83: dc.b $0, $3
+	dc.b $E8, $F, $0, $0, $FF, $EC
+	dc.b $E8, $0, $0, $10, $0, $C
+	dc.b $8, $8, $0, $11, $FF, $F4
+DATA9WL3YBYKQV_84: dc.b $0, $3
+	dc.b $E9, $9, $0, $0, $FF, $F6
+	dc.b $F9, $D, $0, $6, $FF, $E6
+	dc.b $9, $5, $0, $E, $FF, $F6
+DATA9WL3YBYKQV_85: dc.b $0, $4
+	dc.b $E9, $9, $0, $0, $FF, $F5
+	dc.b $F9, $C, $0, $6, $FF, $ED
+	dc.b $1, $8, $0, $A, $FF, $ED
+	dc.b $9, $5, $0, $D, $FF, $F5
+DATA9WL3YBYKQV_86: dc.b $0, $2
+	dc.b $F8, $C, $0, $0, $FF, $F8
+	dc.b $0, $9, $0, $4, $FF, $F8
+DATA9WL3YBYKQV_87: dc.b $0, $2
+	dc.b $F8, $D, $0, $0, $FF, $F8
+	dc.b $8, $8, $0, $8, $FF, $F8
+DATA9WL3YBYKQV_88: dc.b $0, $2
+	dc.b $F8, $C, $0, $0, $FF, $F8
+	dc.b $0, $9, $0, $4, $FF, $F8
+DATA9WL3YBYKQV_89: dc.b $0, $1
+	dc.b $F0, $F, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_8A: dc.b $0, $1
+	dc.b $F0, $F, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_8B: dc.b $0, $2
+	dc.b $E9, $5, $0, $0, $FF, $F9
+	dc.b $F9, $B, $0, $4, $FF, $F1
+DATA9WL3YBYKQV_8C: dc.b $0, $2
+	dc.b $E9, $5, $0, $0, $FF, $F9
+	dc.b $F9, $B, $0, $4, $FF, $F1
+DATA9WL3YBYKQV_8D: dc.b $0, $2
+	dc.b $EE, $4, $0, $0, $FF, $F6
+	dc.b $F6, $E, $0, $2, $FF, $EE
+DATA9WL3YBYKQV_8E: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F0
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $8, $0, $A, $FF, $F8
+DATA9WL3YBYKQV_8F: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F0
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $8, $0, $A, $FF, $F8
+DATA9WL3YBYKQV_90: dc.b $0, $2
+	dc.b $E9, $B, $0, $0, $FF, $F5
+	dc.b $7, $4, $0, $C, $FF, $FD
+DATA9WL3YBYKQV_91: dc.b $0, $2
+	dc.b $E9, $9, $0, $0, $FF, $F5
+	dc.b $F9, $D, $0, $6, $FF, $F5
+DATA9WL3YBYKQV_92: dc.b $0, $2
+	dc.b $E9, $9, $0, $0, $FF, $F5
+	dc.b $F9, $D, $0, $6, $FF, $F5
+DATA9WL3YBYKQV_93: dc.b $0, $1
+	dc.b $E9, $A, $0, $0, $FF, $F5
+DATA9WL3YBYKQV_94: dc.b $0, $3
+	dc.b $E9, $D, $0, $0, $FF, $F1
+	dc.b $EC, $B, $0, $8, $FF, $F4
+	dc.b $C, $8, $0, $14, $FF, $F4
+DATA9WL3YBYKQV_95: dc.b $0, $3
+	dc.b $E8, $9, $0, $0, $FF, $F5
+	dc.b $EC, $B, $0, $6, $FF, $F4
+	dc.b $C, $8, $0, $12, $FF, $F4
+DATA9WL3YBYKQV_96: dc.b $0, $1
+	dc.b $F0, $F, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_97: dc.b $0, $1
+	dc.b $F0, $F, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_98: dc.b $0, $1
+	dc.b $F0, $F, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_99: dc.b $0, $1
+	dc.b $F8, $A, $0, $0, $FF, $FA
+DATA9WL3YBYKQV_9A: dc.b $0, $3
+	dc.b $F0, $8, $0, $0, $FF, $F2
+	dc.b $F8, $D, $0, $3, $FF, $EA
+	dc.b $8, $4, $0, $B, $FF, $F2
+DATA9WL3YBYKQV_9B: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F1
+	dc.b $0, $C, $0, $6, $FF, $E9
+	dc.b $8, $8, $0, $A, $FF, $E9
+DATA9WL3YBYKQV_9C: dc.b $0, $1
+	dc.b $F0, $F, $0, $0, $FF, $F1
+DATA9WL3YBYKQV_9D: dc.b $0, $2
+	dc.b $EE, $7, $0, $0, $FF, $E6
+	dc.b $F6, $A, $0, $8, $FF, $F6
+DATA9WL3YBYKQV_9E: dc.b $0, $3
+	dc.b $EE, $4, $0, $0, $FF, $EE
+	dc.b $F6, $E, $0, $2, $FF, $E6
+	dc.b $F6, $2, $0, $E, $0, $6
+DATA9WL3YBYKQV_9F: dc.b $0, $3
+	dc.b $F1, $8, $0, $0, $FF, $F6
+	dc.b $F9, $D, $0, $3, $FF, $EE
+	dc.b $9, $8, $0, $B, $FF, $EE
+DATA9WL3YBYKQV_A0: dc.b $0, $2
+	dc.b $ED, $8, $0, $0, $FF, $F3
+	dc.b $F5, $E, $0, $3, $FF, $EB
+DATA9WL3YBYKQV_A1: dc.b $0, $2
+	dc.b $ED, $8, $0, $0, $FF, $F3
+	dc.b $F5, $E, $0, $3, $FF, $EB
+DATA9WL3YBYKQV_A2: dc.b $0, $2
+	dc.b $ED, $8, $0, $0, $FF, $F3
+	dc.b $F5, $E, $0, $3, $FF, $EB
+DATA9WL3YBYKQV_A3: dc.b $0, $2
+	dc.b $ED, $8, $0, $0, $FF, $F3
+	dc.b $F5, $E, $0, $3, $FF, $EB
+DATA9WL3YBYKQV_A4: dc.b $0, $2
+	dc.b $ED, $8, $0, $0, $FF, $F3
+	dc.b $F5, $E, $0, $3, $FF, $EB
+DATA9WL3YBYKQV_A5: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_A6: dc.b $0, $4
+	dc.b $E8, $0, $0, $0, $FF, $FE
+	dc.b $F0, $D, $0, $1, $FF, $EE
+	dc.b $0, $D, $0, $9, $FF, $E6
+	dc.b $8, $0, $0, $11, $0, $6
+DATA9WL3YBYKQV_A7: dc.b $0, $2
+	dc.b $ED, $D, $0, $0, $FF, $F2
+	dc.b $FD, $A, $0, $8, $FF, $F2
+DATA9WL3YBYKQV_A8: dc.b $0, $3
+	dc.b $ED, $8, $0, $0, $FF, $F2
+	dc.b $F5, $D, $0, $3, $FF, $F2
+	dc.b $5, $9, $0, $B, $FF, $F2
+DATA9WL3YBYKQV_A9: dc.b $0, $2
+	dc.b $F0, $A, $0, $0, $FF, $F6
+	dc.b $8, $C, $0, $9, $FF, $EE
+DATA9WL3YBYKQV_AA: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F6
+DATA9WL3YBYKQV_AB: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F6
+DATA9WL3YBYKQV_AC: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F6
+DATA9WL3YBYKQV_AD: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_AE: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_AF: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_B0: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_B1: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_B2: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_B3: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_B4: dc.b $0, $1
+	dc.b $F0, $B, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_B5: dc.b $0, $3
+	dc.b $F0, $0, $0, $0, $0, $0
+	dc.b $F8, $D, $0, $1, $FF, $E8
+	dc.b $F8, $5, $0, $9, $0, $8
+DATA9WL3YBYKQV_B6: dc.b $0, $2
+	dc.b $F0, $A, $0, $0, $FF, $FC
+	dc.b $F8, $5, $0, $9, $FF, $EC
+DATA9WL3YBYKQV_B7: dc.b $0, $1
+	dc.b $F0, $E, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_B8: dc.b $0, $2
+	dc.b $F0, $A, $8, $0, $FF, $EC
+	dc.b $F8, $5, $8, $9, $0, $4
+DATA9WL3YBYKQV_B9: dc.b $0, $3
+	dc.b $F0, $0, $8, $0, $FF, $F8
+	dc.b $F8, $D, $8, $1, $FF, $F8
+	dc.b $F8, $5, $8, $9, $FF, $E8
+DATA9WL3YBYKQV_BA: dc.b $0, $3
+	dc.b $F0, $4, $0, $0, $FF, $F4
+	dc.b $F8, $D, $0, $2, $FF, $EC
+	dc.b $F8, $1, $0, $A, $0, $C
+DATA9WL3YBYKQV_BB: dc.b $0, $2
+	dc.b $F0, $9, $0, $0, $FF, $F0
+	dc.b $0, $C, $0, $6, $FF, $F0
+DATA9WL3YBYKQV_BC: dc.b $0, $3
+	dc.b $F0, $4, $8, $0, $FF, $FC
+	dc.b $F8, $D, $8, $2, $FF, $F4
+	dc.b $F8, $1, $8, $A, $FF, $EC
+DATA9WL3YBYKQV_BD: dc.b $0, $3
+	dc.b $F2, $1, $0, $0, $FF, $EA
+	dc.b $F2, $E, $0, $2, $FF, $F2
+	dc.b $A, $8, $0, $E, $FF, $F2
+DATA9WL3YBYKQV_BE: dc.b $0, $3
+	dc.b $F2, $E, $0, $0, $FF, $F4
+	dc.b $F2, $1, $0, $C, $FF, $EC
+	dc.b $A, $8, $0, $E, $FF, $F4
+DATA9WL3YBYKQV_BF: dc.b $0, $2
+	dc.b $F2, $F, $0, $0, $FF, $EE
+	dc.b $2, $0, $0, $10, $0, $E
+DATA9WL3YBYKQV_C0: dc.b $0, $4
+	dc.b $F2, $D, $0, $0, $FF, $F2
+	dc.b $F2, $0, $0, $8, $FF, $EA
+	dc.b $2, $D, $0, $9, $FF, $EA
+	dc.b $2, $0, $0, $11, $0, $A
+DATA9WL3YBYKQV_C1: dc.b $0, $2
+	dc.b $F2, $F, $0, $0, $FF, $ED
+	dc.b $F2, $1, $0, $10, $0, $D
+DATA9WL3YBYKQV_C2: dc.b $0, $3
+	dc.b $F5, $E, $0, $0, $FF, $F3
+	dc.b $F5, $2, $0, $C, $FF, $EB
+	dc.b $ED, $4, $0, $F, $FF, $EB
+DATA9WL3YBYKQV_C3: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F8
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $4, $0, $A, $FF, $F0
+DATA9WL3YBYKQV_C4: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F8
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $4, $0, $A, $FF, $F0
+DATA9WL3YBYKQV_C5: dc.b $0, $3
+	dc.b $EC, $4, $0, $0, $FF, $F8
+	dc.b $F4, $9, $0, $2, $FF, $F0
+	dc.b $4, $5, $0, $8, $FF, $F8
+DATA9WL3YBYKQV_C6: dc.b $0, $3
+	dc.b $EC, $4, $0, $0, $FF, $F8
+	dc.b $F4, $9, $0, $2, $FF, $F0
+	dc.b $4, $5, $0, $8, $FF, $F8
+DATA9WL3YBYKQV_C7: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F0
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $4, $0, $A, $0, $0
+DATA9WL3YBYKQV_C8: dc.b $0, $3
+	dc.b $F0, $9, $0, $0, $FF, $F0
+	dc.b $0, $C, $0, $6, $FF, $F0
+	dc.b $8, $4, $0, $A, $0, $0
+DATA9WL3YBYKQV_C9: dc.b $0, $3
+	dc.b $F8, $D, $0, $0, $FF, $EC
+	dc.b $F8, $1, $0, $8, $0, $C
+	dc.b $8, $4, $0, $A, $FF, $F4
+DATA9WL3YBYKQV_CA: dc.b $0, $3
+	dc.b $F8, $D, $0, $0, $FF, $EC
+	dc.b $F8, $1, $0, $8, $0, $C
+	dc.b $8, $4, $0, $A, $FF, $F4
+DATA9WL3YBYKQV_CB: dc.b $0, $1
+	dc.b $F8, $F, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_CC: dc.b $0, $1
+	dc.b $F8, $F, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_CD: dc.b $0, $3
+	dc.b $ED, $4, $0, $0, $FF, $EB
+	dc.b $F5, $E, $0, $2, $FF, $F3
+	dc.b $5, $0, $0, $E, $FF, $EB
+DATA9WL3YBYKQV_CE: dc.b $0, $3
+	dc.b $ED, $4, $0, $0, $FF, $F3
+	dc.b $F5, $E, $0, $2, $FF, $F3
+	dc.b $5, $0, $0, $E, $FF, $EB
+DATA9WL3YBYKQV_CF: dc.b $0, $2
+	dc.b $E6, $4, $0, $0, $FF, $F4
+	dc.b $EE, $B, $0, $2, $FF, $F4
+DATA9WL3YBYKQV_D0: dc.b $0, $2
+	dc.b $E6, $4, $0, $0, $FF, $F4
+	dc.b $EE, $B, $0, $2, $FF, $F4
+DATA9WL3YBYKQV_D1: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_D2: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_D3: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_D4: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_D5: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_D6: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_D7: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_D8: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_D9: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_DA: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_DB: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_DC: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_DD: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_DE: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_DF: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F0
+	dc.b $FC, $C, $0, $6, $FF, $F0
+	dc.b $4, $1, $0, $A, $0, $0
+DATA9WL3YBYKQV_E0: dc.b $0, $2
+	dc.b $EF, $4, $0, $0, $FF, $F4
+	dc.b $F7, $A, $0, $2, $FF, $F4
+DATA9WL3YBYKQV_E1: dc.b $0, $3
+	dc.b $EC, $4, $0, $0, $FF, $F6
+	dc.b $F4, $A, $0, $2, $FF, $F6
+	dc.b $C, $4, $0, $B, $FF, $FE
+DATA9WL3YBYKQV_E2: dc.b $0, $2
+	dc.b $EC, $B, $0, $0, $FF, $F4
+	dc.b $C, $0, $0, $C, $FF, $FC
+DATA9WL3YBYKQV_E3: dc.b $0, $4
+	dc.b $EC, $8, $0, $0, $FF, $F2
+	dc.b $F4, $D, $0, $3, $FF, $F2
+	dc.b $4, $8, $0, $B, $FF, $FA
+	dc.b $C, $0, $0, $E, $FF, $FA
+DATA9WL3YBYKQV_E4: dc.b $0, $4
+	dc.b $EC, $8, $0, $0, $FF, $F6
+	dc.b $F4, $D, $0, $3, $FF, $EE
+	dc.b $4, $8, $0, $B, $FF, $F6
+	dc.b $C, $4, $0, $E, $FF, $FE
+DATA9WL3YBYKQV_E5: dc.b $0, $3
+	dc.b $EC, $A, $0, $0, $FF, $F4
+	dc.b $4, $C, $0, $9, $FF, $F4
+	dc.b $C, $8, $0, $D, $FF, $FC
+DATA9WL3YBYKQV_E6: dc.b $0, $2
+	dc.b $EC, $A, $0, $0, $FF, $F4
+	dc.b $4, $5, $0, $9, $FF, $FC
+DATA9WL3YBYKQV_E7: dc.b $0, $3
+	dc.b $EC, $A, $0, $0, $FF, $F5
+	dc.b $4, $0, $0, $9, $FF, $FD
+	dc.b $C, $4, $0, $A, $FF, $FD
+DATA9WL3YBYKQV_E8: dc.b $0, $2
+	dc.b $EC, $B, $0, $0, $FF, $F4
+	dc.b $C, $4, $0, $C, $FF, $F4
+DATA9WL3YBYKQV_E9: dc.b $0, $3
+	dc.b $EC, $9, $0, $0, $FF, $F2
+	dc.b $FC, $5, $0, $6, $FF, $FA
+	dc.b $C, $8, $0, $A, $FF, $F2
+DATA9WL3YBYKQV_EA: dc.b $0, $3
+	dc.b $EC, $A, $0, $0, $FF, $F5
+	dc.b $4, $0, $0, $9, $FF, $FD
+	dc.b $C, $4, $0, $A, $FF, $FD
+DATA9WL3YBYKQV_EB: dc.b $0, $1
+	dc.b $F4, $A, $0, $0, $FF, $F4
+DATA9WL3YBYKQV_EC: dc.b $0, $3
+	dc.b $EC, $8, $0, $0, $FF, $F0
+	dc.b $F4, $D, $0, $3, $FF, $F0
+	dc.b $4, $9, $0, $B, $FF, $F0
+DATA9WL3YBYKQV_ED: dc.b $0, $3
+	dc.b $EC, $8, $0, $0, $FF, $F0
+	dc.b $F4, $D, $0, $3, $FF, $F0
+	dc.b $4, $9, $0, $B, $FF, $F0
+DATA9WL3YBYKQV_EE: dc.b $0, $3
+	dc.b $EC, $8, $0, $0, $FF, $F0
+	dc.b $F4, $D, $0, $3, $FF, $F0
+	dc.b $4, $9, $0, $B, $FF, $F0
+DATA9WL3YBYKQV_EF: dc.b $0, $2
+	dc.b $F0, $E, $0, $0, $FF, $F0
+	dc.b $8, $4, $0, $C, $FF, $F0
+DATA9WL3YBYKQV_F0: dc.b $0, $2
+	dc.b $F0, $E, $0, $0, $FF, $F0
+	dc.b $8, $8, $0, $C, $FF, $F0
+DATA9WL3YBYKQV_F1: dc.b $0, $2
+	dc.b $F0, $E, $0, $0, $FF, $F0
+	dc.b $8, $8, $0, $C, $FF, $F0
+DATA9WL3YBYKQV_F2: dc.b $0, $1
+	dc.b $F0, $F, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_F3: dc.b $0, $2
+	dc.b $F0, $E, $8, $0, $FF, $F0
+	dc.b $8, $8, $8, $C, $FF, $F8
+DATA9WL3YBYKQV_F4: dc.b $0, $2
+	dc.b $F0, $E, $8, $0, $FF, $F0
+	dc.b $8, $8, $8, $C, $FF, $F8
+DATA9WL3YBYKQV_F5: dc.b $0, $2
+	dc.b $F0, $E, $8, $0, $FF, $F0
+	dc.b $8, $4, $8, $C, $0, $0
+DATA9WL3YBYKQV_F6: dc.b $0, $2
+	dc.b $F0, $E, $0, $0, $FF, $F0
+	dc.b $8, $4, $0, $C, $0, $0
+DATA9WL3YBYKQV_F7: dc.b $0, $2
+	dc.b $F0, $E, $0, $0, $FF, $F0
+	dc.b $8, $8, $0, $C, $FF, $F8
+DATA9WL3YBYKQV_F8: dc.b $0, $1
+	dc.b $F0, $F, $0, $0, $FF, $F0
+DATA9WL3YBYKQV_F9: dc.b $0, $2
+	dc.b $F0, $E, $8, $0, $FF, $F0
+	dc.b $8, $8, $8, $C, $FF, $F0
+DATA9WL3YBYKQV_FA: dc.b $0, $2
+	dc.b $F0, $E, $8, $0, $FF, $F0
+	dc.b $8, $4, $8, $C, $FF, $F0
+	even
