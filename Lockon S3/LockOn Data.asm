@@ -944,7 +944,7 @@ Map_CompetitionPlayerSprite:	include "General/Competition Menu/Map - Competition
 
 ArtKos_CompetitionPlayer:	binclude "General/Competition Menu/Kosinski Art/Player Sprites.bin"
 	even
-MapEni_SaveScreen_Layout:	binclude "General/Save Menu/Enigma Map/Save Screen Layout.bin"
+MapEni_SaveScreen_Layout:	binclude "General/Save Menu/Enigma Map/Password.bin"
 	even
 MapUnc_SaveScreenNEW:		binclude "General/Save Menu/Uncompressed Map/NEW.bin"
 	even

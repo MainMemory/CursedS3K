@@ -80,6 +80,7 @@ zTrack STRUCT DOTS
 	; ---------------------------------
 	FreqHigh:			ds.b 1	; S&K: 0Eh		; For FM/PSG channels
 	VoiceSongID:		ds.b 1	; S&K: 0Fh		; For using voices from a different song
+	DACSFXPlaying:
 	Detune:				ds.b 1	; S&K: 10h/11h	; In S&K, some places used 11h instead of 10h
 						;ds.b 6	; S&K: 11h-16h	; Unused
 	VolEnv:				ds.b 1	; S&K: 17h		; Used for dynamic volume adjustments
@@ -244,6 +245,8 @@ SndID_Ring				= sfx_RingRight
 SndID_SpindashRev		= sfx_Spindash
 SndID__FirstContinuous	= sfx__FirstContinuous
 SndID__End				= sfx__End
+DACID__First			= dac_First
+DACID__End				= dac__End
 FadeID__First			= mus__FirstCmd
 FadeID__End				= Mus__EndCmd
 MusID_StopSega			= mus_StopSEGA
@@ -1414,7 +1417,16 @@ zPlaySFXByIndex:
 	endif
 		cp	SndID__End						; Is this a sound effect?
 		jp	c, zPlaySound_CheckRing			; Branch if yes
-		ret
+		cp	DACID__First
+		ret	c
+		cp	DACID__End
+		ret	nc
+		; "PlayVoice/PlayDACSFX" in ValleyBell's SMPS disassemblies
+		sub	DACID__First-1
+		ld	(zDACIndex), a
+		ld	a, 1
+		ld	(zSongDAC.DACSFXPlaying), a
+		jp	zClearNextSound
 ; End of function zPlaySFXByIndex
 
 ; =============== S U B	R O U T	I N E =======================================
@@ -2469,10 +2481,12 @@ zFadeInToPrevious:
 		ld	(zDACEnable), a					; Restore it
 		or	a
 		jr	z, .no_dac
-		ld	hl, zSongDAC.PlaybackControl
+		ld	ix, zSongDAC
+		xor	a
+		ld	(ix+zTrack.DACSFXPlaying), a
 		ld	a, 84h							; a = 'track is playing' and 'track is resting' flags
-		or	(hl)							; Add in track playback control bits
-		ld	(hl), a							; Save everything
+		or	(ix+zTrack.PlaybackControl)				; Add in track playback control bits
+		ld	(ix+zTrack.PlaybackControl), a				; Save everything
 		ld	c, 6							; Get voice control byte for FM6
 		ld	a, 28h							; Write to KEY ON/OFF port
 		call	zWriteFMI
@@ -2558,6 +2572,10 @@ zUpdateDACTrack_cont:
 
 .got_sample:
 		ld	(ix+zTrack.SavedDAC), a			; Store new DAC sample
+		ld	a, (ix+zTrack.DACSFXPlaying)
+		or	a
+		jr	nz, .get_duration
+		ld	a, (ix+zTrack.SavedDAC)
 		sub	NoteRest						; Is it a rest?
 		jp	z, .get_duration				; Branch if yes
 		bit	2, (ix+zTrack.PlaybackControl)	; Is SFX overriding DAC channel?
@@ -3875,11 +3893,15 @@ zPlayDigitalAudio:
 		ld	a, 2Bh							; DAC enable/disable register
 		ld	c, 0							; Value to disable DAC
 		call	zWriteFMI					; Send YM2612 command
-		ld	hl, zSongDAC					; Get pointer to DAC track
+		ld	hl, zSongFM6					; Get pointer to FM6 track
 		ld	a, (zDACEnable)					; Get DAC enable
 		or	a								; Is DAC supposed to be enabled?
-		jr	nz, .enabletrack				; Branch if yes
-		ld	hl, zSongFM6					; Get pointer to FM6 track
+		jr	z, .enabletrack					; Branch if yes
+		ld	hl, zSongDAC					; Get pointer to DAC track
+		; Don't allow music DAC to be re-enabled by DAC SFX ending during fading
+		ld	a, (zFadeInTimeout)				; Get fading timeout
+		or	a						; Is music being faded?
+		jr	nz, .dac_idle_loop				; Branch if yes
 
 .enabletrack:
 		res	2, (hl)							; Mark track as no longer being overridden
@@ -3973,6 +3995,7 @@ zPlayDigitalAudio:
 
 		xor	a								; a = 0
 		ld	(zDACIndex), a					; Mark DAC as being idle
+		ld	(zSongDAC.DACSFXPlaying),a
 		jp	zPlayDigitalAudio				; Loop
 ; ---------------------------------------------------------------------------
 ; ===========================================================================
@@ -5203,10 +5226,10 @@ MusData_AIZ1:			include	"Sound/Music/AIZ1.asm" ; R
 MusData_AIZ2:			include	"Sound/Music/AIZ2.asm" ; R
 MusData_HCZ1:			include	"Sound/Music/HCZ1.asm" ; R
 MusData_HCZ2:			include	"Sound/Music/HCZ2.asm" ; R
-MusData_MGZ1:			include	"Sound/Music/MGZ1.asm"
-MusData_MGZ2:			include	"Sound/Music/MGZ2.asm"
-MusData_CNZ2:			include	"Sound/Music/CNZ2.asm"
-MusData_CNZ1:			include	"Sound/Music/CNZ1.asm"
+MusData_MGZ1:			include	"Sound/Music/CHIP02.asm" ; R
+MusData_MGZ2:			include	"Sound/Music/Sonic CD (US) - Special Stage.asm" ; R
+MusData_CNZ2:			include	"Sound/Music/CNZ2.asm" ; R
+MusData_CNZ1:			include	"Sound/Music/CNZ1.asm" ; R
 MusData_Minib_SK:		include	"Sound/Music/Miniboss.asm" ; R
 
 	finishBank
@@ -5217,8 +5240,8 @@ MusData_Minib_SK:		include	"Sound/Music/Miniboss.asm" ; R
 Mus_Bank3_Start:	startBank
 	Music_Master_Table
 					include "Sound/UniBank.asm"
-MusData_ICZ2:			include	"Sound/Music/ICZ2.asm"
-MusData_ICZ1:			include	"Sound/Music/ICZ1.asm"
+MusData_ICZ2:			include	"Sound/Music/ICZ2.asm" ; R
+MusData_ICZ1:			include	"Sound/Music/ICZ1.asm" ; R
 MusData_LBZ2:			include	"Sound/Music/LBZ2.asm"
 MusData_LBZ1:			include	"Sound/Music/LBZ1.asm"
 MusData_SKCredits:		include	"Sound/Music/Credits.asm"
