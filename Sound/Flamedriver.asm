@@ -1504,13 +1504,6 @@ zSilenceStopTrack:
 ; End of function zSilenceStopTrack
 ; ---------------------------------------------------------------------------
 
-;loc_552
-zPlayMusicCredits:
-		ld	a, 32h							; Credits music is the last entry on the music table
-		push	af							; Save af
-		jp	zPlayMusic_DoFade				; Continue as music
-; ---------------------------------------------------------------------------
-
 ;loc_558
 zPlayMusic:
 		sub	MusID__First					; Remap index from 1h-32h to 0h-31h (see also credits music, above)
