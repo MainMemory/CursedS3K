@@ -1039,62 +1039,7 @@ ArtTile_DashDust_P2                   = $07F0
 ; ---------------------------------------------------------------------------
 ; Music ID's list.
 
-	phase $01
-Mus__First =			*		; ID of the first music
-mus_AIZ1			ds.b 1		; $01
-mus_AIZ2			ds.b 1		; $02
-mus_HCZ1			ds.b 1		; $03
-mus_HCZ2			ds.b 1		; $04
-mus_Chip2
-mus_MGZ1			ds.b 1		; $05
-mus_SCDSSU
-mus_MGZ2			ds.b 1		; $06
-mus_CNZ1			ds.b 1		; $07
-mus_CNZ2			ds.b 1		; $08
-mus_FBZ1			ds.b 1		; $09
-mus_FBZ2			ds.b 1		; $0A
-mus_ICZ1			ds.b 1		; $0B
-mus_ICZ2			ds.b 1		; $0C
-mus_LBZ1			ds.b 1		; $0D
-mus_LBZ2			ds.b 1		; $0E
-mus_MHZ1			ds.b 1		; $0F
-mus_MHZ2			ds.b 1		; $10
-mus_SOZ1			ds.b 1		; $11
-mus_SOZ2			ds.b 1		; $12
-mus_LRZ1			ds.b 1		; $13
-mus_HPZ				ds.b 1		; $14
-mus_SSZ				ds.b 1		; $15
-mus_DEZ1			ds.b 1		; $16
-mus_DEZ2			ds.b 1		; $17
-mus_S1SS			ds.b 1		; $18
-mus_EndBoss			ds.b 1		; $19
-mus_DDZ				ds.b 1		; $1A
-mus_MagneticOrbs		ds.b 1		; $1B
-mus_SpecialStage		ds.b 1		; $1C
-mus_SlotMachine			ds.b 1		; $1D
-mus_Gumball			ds.b 1		; $1E
-mus_Knuckles			ds.b 1		; $1F
-mus_ALZ				ds.b 1		; $20
-mus_BPZ				ds.b 1		; $21
-mus_DPZ				ds.b 1		; $22
-mus_CGZ				ds.b 1		; $23
-mus_EMZ				ds.b 1		; $24
-mus_TitleScreen			ds.b 1		; $25
-mus_Credits3			ds.b 1		; $26
-mus_GameOver			ds.b 1		; $27
-mus_Continue			ds.b 1		; $28
-mus_GotThroughAct		ds.b 1		; $29
-mus_ExtraLife			ds.b 1		; $2A
-mus_Emerald			ds.b 1		; $2B
-mus_Invincibility		ds.b 1		; $2C
-mus_CompetitionMenu		ds.b 1		; $2D
-mus_Miniboss			ds.b 1		; $2E
-mus_DataSelect			ds.b 1		; $2F
-mus_FinalBoss			ds.b 1		; $30
-mus_Drowning			ds.b 1		; $31
-mus_Ending			ds.b 1		; $32
-mus_CreditsK			ds.b 1		; $DC
-Mus__End =			*		; next ID after last music
+	include	"musicids.gen.asm"
 
 ; ---------------------------------------------------------------------------
 ; Sound effect ID's list.
@@ -1276,7 +1221,7 @@ sfx__End =			*		; next ID after the last sound effect
 ; ---------------------------------------------------------------------------
 ; DAC sound effect ID's list.
 
-dac_First =			*		; ID of the first DAC sound effect
+dac__First =			*		; ID of the first DAC sound effect
 dac__End =			*		; next ID after the last DAC sound effect
 
 ; ---------------------------------------------------------------------------

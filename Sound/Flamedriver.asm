@@ -1,8 +1,8 @@
 ; ---------------------------------------------------------------------------
 ; ===========================================================================
-; º                                                                         º
-; º	                        SONIC&K SOUND DRIVER                            º
-; º                                                                         º
+; |                                                                         |
+; |	                        SONIC&K SOUND DRIVER                            |
+; |                                                                         |
 ; ===========================================================================
 ; Disassembled by MarkeyJester
 ; Routines, pointers and stuff by Linncaki
@@ -24,19 +24,6 @@
 
 ; Used by SMPS2ASM include file.
 SonicDriverVer			= 5
-; Set the following to non-zero to use all S2 DAC samples, or to zero otherwise.
-; The S1 samples are a subset of this.
-use_s2_samples			= 1
-; Set the following to non-zero to use all S3D DAC samples, or to zero
-; otherwise. Most of the S3D samples are also present in S3/S&K, but
-; there are two samples specific to S3D.
-use_s3d_samples			= 1
-; Set the following to non-zero to use all S3 DAC samples,
-; or to zero otherwise.
-use_s3_samples			= 1
-; Set the following to non-zero to use all S&K DAC samples,
-; or to zero otherwise.
-use_sk_samples			= 1
 
 ; ---------------------------------------------------------------------------
 
@@ -229,6 +216,15 @@ zTracksSaveEnd:
 		fatal "The RAM variable declarations are too large by $\{$} bytes."
 	endif
 		dephase
+zNumMusicTracks = (zTracksEnd-zTracksStart)/zTrack.len
+zNumMusicFMorPSGTracks = (zTracksEnd-zSongFM1)/zTrack.len
+zNumMusicFMorDACTracks = (zSongPSG1-zTracksStart)/zTrack.len
+zNumMusicFMTracks = (zSongPSG1-zSongFM1)/zTrack.len
+zNumMusicFM1Tracks = (zSongFM4-zSongFM1)/zTrack.len
+zNumMusicFM2Tracks = (zSongPSG1-zSongFM4)/zTrack.len
+zNumMusicPSGTracks = (zTracksEnd-zSongPSG1)/zTrack.len
+zNumSFXTracks = (zTracksSFXEnd-zTracksSFXStart)/zTrack.len
+zNumSaveTracks = (zTracksSaveEnd-zTracksSaveStart)/zTrack.len
 ; ---------------------------------------------------------------------------
 		!org z80_SoundDriverStart
 z80_SoundDriver:
@@ -237,20 +233,209 @@ z80_SoundDriver:
 		CPU Z80
 		listing purecode
 ; ---------------------------------------------------------------------------
+	ifndef MusID__First
+		ifdef Mus__First
 MusID__First			= Mus__First
+		else
+			ifdef bgm__First
+MusID__First			= bgm__First
+			endif
+		endif
+		ifndef MusID__First
+MusID__First			= 01h
+		endif
+	endif
+
+	ifndef MusID_ExtraLife
+		ifdef mus_ExtraLife
 MusID_ExtraLife			= mus_ExtraLife
+		else
+			ifdef bgm_ExtraLife
+MusID_ExtraLife			= bgm_ExtraLife
+			endif
+		endif
+		ifndef MusID_ExtraLife
+MusID_ExtraLife			= 2Ah
+		endif
+	endif
+
+	ifndef MusID__End
+		ifdef Mus__End
 MusID__End				= Mus__End
+		else
+			ifdef bgm__Last
+MusID__End				= bgm__Last
+			endif
+		endif
+		ifndef MusID__End
+MusID__End				= 33h
+		endif
+	endif
+
+	ifdef MusID_SKCredits
+		if MusID_SKCredits>=MusID__End
+			fatal "S&K Credits music must have an ID within the music range of [$\{MusID__First}, $\{MusID__End}), but it has ID $\{MusID_SKCredits}"
+		endif
+	endif
+	ifdef mus_CreditsK
+		if mus_CreditsK>=MusID__End
+			fatal "S&K Credits music must have an ID within the music range of [$\{MusID__First}, $\{MusID__End}), but it has ID $\{mus_CreditsK}"
+		endif
+	endif
+
+	ifndef SndID__First
+		ifdef sfx_First
 SndID__First			= sfx_First
+			if sfx_First>1
+				message "You can gain more IDs for SFX by changing the the definition of the sfx_First constant to 1 (it is currently $\{sfx_First})"
+			endif
+		else
+			ifdef sfx__First
+SndID__First			= sfx__First
+				if sfx_First>1
+					message "You can gain more IDs for SFX by changing the the definition of the sfx_First constant to 1 (it is currently $\{sfx__First})"
+				endif
+			endif
+		endif
+		ifndef SndID__First
+SndID__First			= 01h
+		endif
+	elseif SndID__First>1
+		message "You can gain more IDs for SFX by changing the the definition of the SndID__First constant to 1 (it is currently $\{SndID__First})"
+	endif
+
+	ifndef SndID_Ring
+		ifdef sfx_RingRight
 SndID_Ring				= sfx_RingRight
+		else
+			ifdef sfx_Ring
+SndID_Ring				= sfx_Ring
+			endif
+		endif
+		ifndef SndID_Ring
+SndID_Ring				= SndID__First
+		endif
+	endif
+
+	ifndef SndID_RingLeft
+		ifdef sfx_RingLeft
+SndID_RingLeft			= sfx_RingLeft
+		endif
+		ifndef SndID_RingLeft
+SndID_RingLeft			= SndID_Ring+1
+		endif
+	endif
+
+	if SndID_RingLeft==SndID_Ring+1
+RingSoundsAdjacent := 1
+	else
+RingSoundsAdjacent := 0
+		warning "You should make sure SndID_RingLeft is immediately after SndID_Ring"
+	endif
+
+	ifndef SndID_SpindashRev
+		ifdef sfx_Spindash
 SndID_SpindashRev		= sfx_Spindash
-SndID__FirstContinuous	= sfx__FirstContinuous
+		else
+			ifdef sfx_Roll
+SndID_SpindashRev		= sfx_Roll
+				warning "Approximating spindash rev sound by rolling sound. Please provide an adequate equate for the ported spindash rev sound"
+			endif
+		endif
+		ifndef SndID_SpindashRev
+SndID_SpindashRev		= 0ABh-33h+SndID__First
+		endif
+	endif
+
+	ifndef SndID__End
+		ifdef sfx__End
 SndID__End				= sfx__End
-DACID__First			= dac_First
-DACID__End				= dac__End
+		else
+			ifdef sfx__Last
+SndID__End				= sfx__Last
+			endif
+		endif
+		ifndef SndID__End
+SndID__End				= 0E0h-33h+SndID__First
+		endif
+	endif
+
+	ifndef SndID__FirstContinuous
+		ifdef sfx__FirstContinuous
+SndID__FirstContinuous	= sfx__FirstContinuous
+		else
+SndID__FirstContinuous	= 0BCh-33h+SndID__First
+		endif
+	endif
+
+	ifndef SndID__FirstContinuous
+SndID__FirstContinuous	= SndID__End
+	endif
+
+	ifndef DACID__First
+		ifdef dac__First
+DACID__First	= dac__First
+		else
+DACID__First	= SndID__End
+		endif
+	endif
+
+	ifndef DACID__End
+		ifdef dac__End
+DACID__End	= dac__End
+		else
+DACID__End	= SndID__End
+		endif
+	endif
+
+	ifndef FadeID__First
+		ifdef mus__FirstCmd
 FadeID__First			= mus__FirstCmd
+		else
+			ifdef flg__First
+FadeID__First			= flg__First
+			endif
+		endif
+		ifndef FadeID__First
+FadeID__First			= 0E1h
+		endif
+	endif
+
+	ifndef FadeID__End
+		ifdef Mus__EndCmd
 FadeID__End				= Mus__EndCmd
+		else
+			ifdef flg__Last
+FadeID__End				= flg__Last
+			endif
+		endif
+		ifndef FadeID__End
+FadeID__End				= 0E6h
+		endif
+	endif
+
+	ifndef MusID_StopSega
+		ifdef mus_StopSEGA
 MusID_StopSega			= mus_StopSEGA
+		else
+			ifndef MusID_StopSega
+MusID_StopSega			= 0FEh
+			endif
+		endif
+	endif
+
+	ifndef MusID_SegaSound
+		ifdef mus_SEGA
 MusID_SegaSound			= mus_SEGA
+		else
+			ifdef sfx_Sega
+MusID_SegaSound			= sfx_Sega
+			endif
+		endif
+		ifndef MusID_SegaSound
+MusID_SegaSound			= 0FFh
+		endif
+	endif
 ; ---------------------------------------------------------------------------
 NoteRest				= 080h
 FirstCoordFlag			= 0E0h
@@ -298,6 +483,40 @@ rsttarget macro {INTLABEL}
 	if "__LABEL__"<>""
 __LABEL__ label $
 	endif
+    endm
+
+setMaxAR macro
+		or	1Fh								; Set AR to maximum
+    endm
+
+calcVolume macro
+		or	a								; Is it positive?
+		jp	p, .skip_track_vol				; Branch if yes
+		add	a, (ix+zTrack.Volume)			; Add track's volume to it
+		; TODO: Maybe turn this into a saturation add to prevent clipping?
+.skip_track_vol:
+		and	7Fh								; Strip sign bit
+    endm
+
+zFastWriteFM macro reg, data, dataMacro
+		ld	a, reg							; Get register to write to
+		add	a, c							; Add the channel bits to the register address
+		ld	(iy+0), a						; Select YM2612 register
+		ld	a, data							; a = data to send
+		if "dataMacro"<>""
+			dataMacro
+		endif
+		ld	(iy+1), a						; Send data to register
+    endm
+
+zGetFMPartPointer macro reg
+		ld	c, (ix+zTrack.VoiceControl)		; Get voice control bits for future use
+		ld	iy, zYM2612_A0					; Point to part I
+		bit	2, c							; Is this the DAC channel or FM4 or FM5 or FM6?
+		jr	z, .notFMII						; If not, write reg/data pair to part I
+		res	2, c							; Strip 'bound to part II regs' bit
+		ld	iy, zYM2612_A1					; Point to part II
+.notFMII:
     endm
 
 ; function to turn a 68k address into a word the Z80 can use to access it
@@ -531,12 +750,12 @@ zUpdateMusic:
 		call	zDoMusicFadeOut				; Check if music should be faded out and fade if needed
 		call	zDoMusicFadeIn				; Check if music should be faded in and fade if needed
 		ld	a, (zFadeToPrevFlag)			; Get fade-to-prev flag
-		cp	MusID_ExtraLife-MusID__First	; Is it still 1-Up?
+		cp	MusID_ExtraLife-1				; Is it still 1-Up?
 		jr	nz, .check_fade_in				; Branch if not
 		ld	a, (zMusicNumber)				; Get next music to play
 		cp	MusID_ExtraLife					; Is it another 1-Up?
 		jr	z, .clr_queue					; Branch if yes
-		cp	MusID__End-MusID__First			; Is it music (except credits song)?
+		cp	MusID__End-1					; Is it music?
 		jr	c, .clr_sfx						; Branch if not
 
 .clr_queue:
@@ -578,7 +797,7 @@ zUpdateMusic:
 		ld	ix, zSongDAC					; ix = DAC track RAM
 		bit	7, (ix+zTrack.PlaybackControl)	; Is DAC track playing?
 		call	nz, zUpdateDACTrack			; Branch if yes
-		ld	b, (zTracksEnd-zSongFM1)/zTrack.len	; Number of tracks
+		ld	b, zNumMusicFMorPSGTracks		; Number of FM+PSG tracks
 		ld	ix, zSongFM1					; ix = FM1 track RAM
 		jr	zTrackUpdLoop					; Play all tracks
 
@@ -591,7 +810,7 @@ zUpdateSFXTracks:
 		ld	a, zmake68kBank(SndBank)		; Get SFX bank ID
 		bankswitch							; Bank switch to SFX
 		ld	ix, zTracksSFXStart				; ix = start of SFX track RAM
-		ld	b, (zTracksSFXEnd-zTracksSFXStart)/zTrack.len	; Number of channels
+		ld	b, zNumSFXTracks				; Number of channels
 
 zTrackUpdLoop:
 		push	bc							; Save bc
@@ -1330,37 +1549,48 @@ zFMInstrumentSSGEGTable_End
 ;
 ;sub_4B9
 zSendFMInstrument:
+		bit	2, (ix+zTrack.PlaybackControl)	; Is SFX overriding this track?
+		jr	z, .active						; Is so, quit
+		ld	c, zFMInstrumentOperatorTable_End-zFMInstrumentRegTable
+		ld	b, 0
+		add	hl, bc							; Point hl to TL data
+		ld	(ix+zTrack.TLPtrLow), l			; Save low byte of pointer to (not yet uploaded) TL data
+		ld	(ix+zTrack.TLPtrHigh), h		; Save high byte of pointer to (not yet uploaded) TL data
+		ret
+; ---------------------------------------------------------------------------
+.active:
+		push	iy							; Save iy
+		zGetFMPartPointer					; Point iy to appropriate FM part
 		ld	de, zFMInstrumentRegTable		; de = pointer to register output table
-		ld	c, (ix+zTrack.AMSFMSPan)		; Send track AMS/FMS/panning
-		ld	a, 0B4h							; Select AMS/FMS/panning register
-		call	zWriteFMIorII				; Set track data
-		call	zSendFMInstrData			; Send data to register
+		zFastWriteFM 0B4h, (ix+zTrack.AMSFMSPan)
+		ld	a, (hl)							; Get current feedback/algorithm
 		ld	(ix+zTrack.FeedbackAlgo), a		; Save current feedback/algorithm
+		jp	m, .gotssgeg					; Branch if yes
+		ld	b, zFMInstrumentOperatorTable_End-zFMInstrumentRegTable	; Number of commands to issue
+		ld	a, (ix+zTrack.HaveSSGEGFlag)	; Get custom SSG-EG flag
+		or	a								; Does track have custom SSG-EG data?
+		jp	p, .sendinstrument				; Branch if yes
 
+.gotssgeg:
+		; Handle case of SSG-EG
 		; Start with detune/multiplier operators
-		ld	b, zFMInstrumentRSARTable-zFMInstrumentOperatorTable	; Number of commands to issue
-
-.loop1:
+		ld	b, zFMInstrumentRSARTable-zFMInstrumentRegTable	; Number of commands to issue
 		call	zSendFMInstrData			; Send FM instrument data
-		djnz	.loop1						; Loop
 
 		; Now for rate scaling/attack rate. The attack rate must be 1Fh if using
 		; SSG-EG, which is the reason for the split.
 		ld	b, zFMInstrumentAMD1RTable-zFMInstrumentRSARTable	; Number of commands to issue
-
-.loop2:
 		call	zSendFMInstrDataRSAR		; Send FM instrument data
-		djnz	.loop2						; Loop
 
 		; Finalize with all the other operators.
 		ld	b, zFMInstrumentOperatorTable_End-zFMInstrumentAMD1RTable	; Number of commands to issue
 
-.loop3:
+.sendinstrument:
 		call	zSendFMInstrData			; Send FM instrument data
-		djnz	.loop3						; Loop
 		ld	(ix+zTrack.TLPtrLow), l			; Save low byte of pointer to (not yet uploaded) TL data
 		ld	(ix+zTrack.TLPtrHigh), h		; Save high byte of pointer to (not yet uploaded) TL data
-		jp	zSendTL							; Send TL data
+		push	de							; Needed to balance stack
+		jp	zSendTL.got_pointers			; Send TL data
 ; End of function zSendFMInstrument
 
 ; =============== S U B	R O U T	I N E =======================================
@@ -1374,24 +1604,19 @@ zSendFMInstrument:
 ;
 ;sub_4DA
 zSendFMInstrData:
-		ld	a, (de)							; Get register output
+		zFastWriteFM (de), (hl)
 		inc	de								; Advance pointer
-		ld	c, (hl)							; Get value from instrument RAM
 		inc	hl								; Advance pointer
-		jp	zWriteFMIorII					; Write track data
+		djnz	zSendFMInstrData			; Loop
+		ret
 ; End of function zSendFMInstrData
 
 zSendFMInstrDataRSAR:
-		ld	a, (ix+zTrack.HaveSSGEGFlag)	; Get custom SSG-EG flag
-		or	a								; Does track have custom SSG-EG data?
-		jp	p, zSendFMInstrData				; Branch if not
-		ld	a, (hl)							; Get value from instrument RAM
-		inc	hl								; Advance pointer
-		or 1Fh								; Set AR to maximum
-		ld	c, a							; c = RS/AR for operator
-		ld	a, (de)							; Get register output
+		zFastWriteFM (de), (hl), setMaxAR
 		inc	de								; Advance pointer
-		jp	zWriteFMIorII					; Write track data
+		inc	hl								; Advance pointer
+		djnz	zSendFMInstrDataRSAR		; Loop
+		ret
 
 ; =============== S U B	R O U T	I N E =======================================
 ; Rotates sound queue and clears last entry. Then plays the popped sound from
@@ -1478,7 +1703,7 @@ zFadeEffects:
 ;sub_52E
 zStopSFX:
 		ld	ix, zTracksSFXStart				; ix = pointer to SFX track memory
-		ld	b, (zTracksSFXEnd-zTracksSFXStart)/zTrack.len	; Number of channels
+		ld	b, zNumSFXTracks				; Number of channels
 		ld	a, 1							; a = 1
 		ld	(zUpdatingSFX), a				; Set flag to update SFX
 
@@ -1506,7 +1731,7 @@ zSilenceStopTrack:
 
 ;loc_558
 zPlayMusic:
-		sub	MusID__First					; Remap index from 1h-32h to 0h-31h (see also credits music, above)
+		sub	MusID__First					; Remap index from 1h-33h to 0h-32h
 		ret	m								; Return if negative (id = 0)
 		push	af							; Save af
 		cp	MusID_ExtraLife-MusID__First	; Is it the 1-up music?
@@ -1527,7 +1752,7 @@ zPlayMusic:
 ; ---------------------------------------------------------------------------
 .no_fade:
 		ld	a, (zFadeToPrevFlag)			; Get fade-to-prev flag
-		cp	MusID_ExtraLife-MusID__First	; Was it triggered by the 1-up song?
+		cp	MusID_ExtraLife-1				; Was it triggered by the 1-up song?
 		jp	z, zBGMLoad						; Branch if yes
 		xor	a								; a = 0
 		ld	(zMusicNumber), a				; Clear M68K input queue...
@@ -1555,7 +1780,7 @@ zPlayMusic:
 		ldir								; while (bc-- > 0) *de++ = *hl++;
 		ld	hl, zTracksSaveStart			; hl = pointer to saved song's RAM area
 		ld	de, zTrack.len					; Spacing between tracks
-		ld	b, (zTracksSaveEnd-zTracksSaveStart)/zTrack.len	; Number of tracks
+		ld	b, zNumSaveTracks				; Number of tracks
 
 .loop:
 		ld	a, (hl)							; Get playback control byte for song
@@ -1565,7 +1790,7 @@ zPlayMusic:
 		add	hl, de							; Advance to next track
 		djnz	.loop						; Loop for all tracks
 
-		ld	a, MusID_ExtraLife-MusID__First	; a = 1-up id-1
+		ld	a, MusID_ExtraLife-1			; a = 1-up id-1
 		ld	(zFadeToPrevFlag), a			; Set fade-to-prev flag to it
 		ld	hl, (zVoiceTblPtr)				; Get voice table pointer
 		ld	(zVoiceTblPtrSave), hl			; Save it
@@ -1757,11 +1982,29 @@ zPSGInitBytes:
 ;loc_6A9
 zPlaySound_CheckRing:
 		sub	SndID__First					; Make it a 0-based index
+	if SndID_Ring==SndID__First
 		or	a								; Is it the ring sound?
+	else
+		cp	SndID_Ring-SndID__First			; Is it the ring sound?
+	endif
 		jp	nz, zPlaySound_Bankswitch		; Branch if not
+	if RingSoundsAdjacent==0
+		ld	c, a							; Save SFX ID
+	endif
 		ld	a, (zRingSpeaker)				; Get speaker on which ring sound is played
 		xor	1								; Toggle bit 0
 		ld	(zRingSpeaker), a				; Save it
+	if RingSoundsAdjacent==1
+		if SndID_Ring<>SndID__First
+			add	a, SndID_Ring-SndID__First
+		endif
+	else
+		or	a								; 0 plays left, 1 plays right
+		jr	nz, .play_right
+		ld	c, SndID_RingLeft-SndID__First	; Play on left speaker
+.play_right:
+		ld	a, c							; Get ring sound to play
+	endif
 
 ;loc_6B7
 zPlaySound_Bankswitch:
@@ -2011,7 +2254,7 @@ zPauseUnpause:
 		or	a								; Is it zero?
 		jp	nz, zMusicFade					; Stop all music if not
 		ld	ix, zSongFM1					; Start with FM1 track
-		ld	b, (zSongPSG1-zSongFM1)/zTrack.len	; Number of FM tracks
+		ld	b, zNumMusicFMTracks			; Number of FM tracks
 		ld	a, (zDACEnable)					; Get DAC enable
 		or	a								; Is it supposed to be on?
 		jr	z, .fm_loop						; Branch if not
@@ -2035,7 +2278,7 @@ zPauseUnpause:
 		djnz	.fm_loop					; Loop for all tracks
 
 		ld	ix, zTracksSFXStart				; Start at the start of SFX track data
-		ld	b, (zTracksSFXEnd-zTracksSFXStart)/zTrack.len	; Number of tracks
+		ld	b, zNumSFXTracks				; Number of tracks
 
 .psg_loop:
 		bit	7, (ix+zTrack.PlaybackControl)	; Is track playing?
@@ -2102,7 +2345,7 @@ zDoMusicFadeOut:
 		jp	z, zMusicFade					; Stop all music if it is zero
 		bankswitchToMusic
 		ld	ix, zTracksStart				; ix = pointer to track RAM
-		ld	b, (zSongPSG1-zTracksStart)/zTrack.len	; Number of FM+DAC tracks
+		ld	b, zNumMusicFMorDACTracks		; Number of FM+DAC tracks
 
 .loop:
 		inc	(ix+zTrack.Volume)				; Decrease volume
@@ -2113,10 +2356,9 @@ zDoMusicFadeOut:
 .chk_change_volume:
 		bit	7, (ix+zTrack.PlaybackControl)	; Is track still playing?
 		jr	z, .next_track					; Branch if not
-		bit	2, (ix+zTrack.PlaybackControl)	; Is SFX overriding track?
-		jr	nz, .next_track					; Branch if yes
 		push	bc							; Save bc
-		call	zSendTL						; Send new volume
+		bit	2, (ix+zTrack.PlaybackControl)	; Is SFX overriding track?
+		call	z, zSendTL.active			; Send new volume if not
 		pop	bc								; Restore bc
 
 .next_track:
@@ -2141,7 +2383,7 @@ zDoMusicFadeIn:
 		ret	nz								; Return if it is not yet zero
 		ld	a, (zFadeDelayTimeout)			; Get current fade delay timeout
 		ld	(zFadeDelay), a					; Reset to starting fade delay
-		ld	b, (zSongPSG1-zSongFM1)/zTrack.len	; Number of FM tracks
+		ld	b, zNumMusicFMTracks			; Number of FM tracks
 		ld	ix, zSongFM1					; ix = start of FM1 RAM
 		ld	de, zTrack.len					; Spacing between tracks
 
@@ -2149,7 +2391,7 @@ zDoMusicFadeIn:
 		dec	(ix+zTrack.Volume)				; Increase track volume
 		push	bc							; Save bc
 		bit	2, (ix+zTrack.PlaybackControl)	; Is 'SFX is overriding' bit set?
-		call	z, zSendTL					; Send new volume if not
+		call	z, zSendTL.active			; Send new volume if not
 		pop	bc								; Restore bc
 		add	ix, de							; Advance to next track
 		djnz	.fm_loop					; Loop for all tracks
@@ -2157,7 +2399,7 @@ zDoMusicFadeIn:
 		ld	hl, zFadeInTimeout				; Get fading timeout
 		dec	(hl)							; Decrement it
 		ret	nz								; Return if still fading
-		ld	b, (zTracksEnd-zSongPSG1)/zTrack.len	; Number of PSG tracks
+		ld	b, zNumMusicPSGTracks			; Number of PSG tracks
 		ld	ix, zSongPSG1					; ix = start of PSG RAM
 		ld	de, zTrack.len					; Spacing between tracks
 
@@ -2208,7 +2450,7 @@ zMusicFade:
 
 zMusicFadeSimple:
 		ld	ix, zFMDACInitBytes				; Initialization data for channels
-		ld	b, (zSongPSG1-zSongFM1)/zTrack.len	; Number of FM channels
+		ld	b, zNumMusicFMTracks			; Number of FM channels
 
 .loop:
 		push	bc							; Save bc for loop
@@ -2230,7 +2472,7 @@ zMusicFadeSimple:
 		djnz	.loop						; Loop while b > 0
 
 		ld	ix, zPSGInitBytes				; Initialization data for channels
-		ld	b, (zTracksEnd-zSongPSG1)/zTrack.len	; Loop 4 times: 3 PSG channels + noise channel
+		ld	b, zNumMusicPSGTracks			; Number of PSG tracks
 
 .looppsg:
 		push	bc							; Save bc for loop
@@ -2276,7 +2518,7 @@ zFMClearSSGEGOps:
 zPauseAudio:
 		push	bc							; Save bc
 		push	af							; Save af
-		ld	b, (zSongFM4-zSongFM1)/zTrack.len	; FM1/FM2/FM3
+		ld	b, zNumMusicFM1Tracks			; FM1/FM2/FM3
 		ld	a, 0B4h							; Command to select AMS/FMS/panning register (FM1)
 		ld	c, 0							; AMS=FMS=panning=0
 
@@ -2287,7 +2529,7 @@ zPauseAudio:
 		inc	a								; Advance to next channel
 		djnz	.loop1						; Loop for all channels
 
-		ld	b, (zSongPSG1-zSongFM4)/zTrack.len	; FM4/FM5/FM6
+		ld	b, zNumMusicFM2Tracks			; FM4/FM5/FM6
 		ld	a, 0B4h							; Command to select AMS/FMS/panning register
 
 .loop2:
@@ -2298,7 +2540,7 @@ zPauseAudio:
 		djnz	.loop2						; Loop for all channels
 
 		ld	c, 0							; Note off for all operators
-		ld	b, (zSongPSG1-zSongFM1)/zTrack.len+1	; FM channels + gap between FM3 and FM4
+		ld	b, zNumMusicFMTracks+1			; FM channels + gap between FM3 and FM4
 		ld	a, 28h							; Command to send note on/off
 
 .loop3:
@@ -2318,7 +2560,7 @@ zPauseAudio:
 ;sub_9BC
 zPSGSilenceAll:
 		push	bc							; Save bc
-		ld	b, (zTracksEnd-zSongPSG1)/zTrack.len+1	; Loop 4 times: 3 PSG channels + noise channel
+		ld	b, zNumMusicPSGTracks+1			; Loop 4 times: 3 PSG channels + noise channel
 		ld	a, 9Fh							; Command to silence PSG1
 
 .loop:
@@ -2344,7 +2586,7 @@ TempoWait:
 		ret	nc								; If the addition did not overflow, return
 		ld	hl, zTracksStart+zTrack.DurationTimeout	; Duration timeout of first track
 		ld	de, zTrack.len					; Spacing between tracks
-		ld	b, (zTracksEnd-zTracksStart)/zTrack.len	; Number of tracks
+		ld	b, zNumMusicTracks				; Number of tracks
 
 .loop:
 		inc	(hl)							; Delay notes another frame
@@ -2486,7 +2728,7 @@ zFadeInToPrevious:
 
 .no_dac:
 		ld	ix, zSongFM1					; ix = pointer to FM1 track RAM
-		ld	b, (zTracksEnd-zSongFM1)/zTrack.len	; Number of FM+PSG tracks
+		ld	b, zNumMusicFMorPSGTracks		; Number of FM+PSG tracks
 
 .loop:
 		ld	a, (ix+zTrack.VoiceControl)		; Get voice bits
@@ -2510,7 +2752,7 @@ zFadeInToPrevious:
 		push	bc							; Save bc
 		ld	b, a							; b = FM instrument
 		call	zGetFMInstrumentPointer		; hl = pointer to instrument data
-		call	zSendFMInstrument			; Send instrument
+		call	zSendFMInstrument.active	; Send instrument
 		pop	bc								; Restore bc
 
 .skip_track:
@@ -2814,13 +3056,13 @@ cfSetVolume:
 		srl	a
 		srl	a
 		srl	a
-		xor	0Fh								; Invert lower nibble's bits
+		cpl									; Invert bits
 		and	0Fh								; Clear out high nibble
 		jp	zStoreTrackVolume
 ; ---------------------------------------------------------------------------
 .not_psg:
-		xor	7Fh								; Invert parameter byte (except irrelevant sign bit)
-		and	7Fh								; Strip sign bit
+		cpl									; Invert parameter byte
+		and	7Fh								; Strip irrelevant sign bit
 		ld	(ix+zTrack.Volume), a			; Set as new track volume
 		jr	zSendTL							; Begin using new volume immediately
 
@@ -2866,28 +3108,28 @@ cfChangeVolume:
 ;
 ;sub_CBA
 zSendTL:
+		bit	2, (ix+zTrack.PlaybackControl)	; Is SFX overriding this track?
+		ret	nz								; Is so, quit
+
+.active:
+		push	iy							; Save iy
 		push	de							; Save de
 		ld	de, zFMInstrumentTLTable		; de = pointer to FM TL register table
+		zGetFMPartPointer					; Point iy to appropriate FM part
 		ld	l, (ix+zTrack.TLPtrLow)			; l = low byte of pointer to instrument's TL data
 		ld	h, (ix+zTrack.TLPtrHigh)		; h = high byte of pointer to instrument's TL data
+
+.got_pointers:
 		ld	b, zFMInstrumentTLTable_End-zFMInstrumentTLTable	; Number of entries
 
 .loop:
-		ld	a, (hl)							; a = register data
-		or	a								; Is it positive?
-		jp	p, .skip_track_vol				; Branch if yes
-		add	a, (ix+zTrack.Volume)			; Add track's volume to it
-
-.skip_track_vol:
-		and	7Fh								; Strip sign bit
-		ld	c, a							; c = new volume for operator
-		ld	a, (de)							; a = register write command
-		call	zWriteFMIorII				; Send it to YM2612
+		zFastWriteFM (de), (hl), calcVolume
 		inc	de								; Advance pointer
 		inc	hl								; Advance pointer
 		djnz	.loop						; Loop
 
 		pop	de								; Restore de
+		pop	iy								; Restore iy
 		ret
 ; End of function zSendTL
 
@@ -3163,7 +3405,7 @@ cfStopTrack:
 		bankswitchToMusic					; Bank switch to song bank
 		pop	hl								; Restore hl
 		call	zGetFMInstrumentOffset		; hl = pointer to instrument data
-		call	zSendFMInstrument			; Send FM instrument
+		call	zSendFMInstrument.active	; Send FM instrument
 		ld	a, zmake68kBank(SndBank)		; Get SFX bank
 		bankswitch							; Bank switch to it
 		ld	a, (ix+zTrack.HaveSSGEGFlag)	; Get custom SSG-EG flag
@@ -3539,7 +3781,7 @@ cfHaltSound:
 		push	ix							; Save ix
 		push	de							; Save de
 		ld	ix, zTracksStart				; Start of song RAM
-		ld	b, (zTracksEnd-zTracksStart)/zTrack.len	; Number of tracks
+		ld	b, zNumMusicTracks				; Number of tracks
 		ld	de, zTrack.len					; Spacing between tracks
 
 .loop1:
@@ -3555,7 +3797,7 @@ cfHaltSound:
 		push	ix							; Save ix
 		push	de							; Save de
 		ld	ix, zTracksStart				; Start of song RAM
-		ld	b, (zTracksEnd-zTracksStart)/zTrack.len	; Number of tracks
+		ld	b, zNumMusicTracks				; Number of tracks
 		ld	de, zTrack.len					; Spacing between tracks
 
 .loop2:
@@ -3599,7 +3841,7 @@ cfCopyData:
 ;
 ;loc_F8B
 cfSetTempoDivider:
-		ld	b, (zTracksEnd-zTracksStart)/zTrack.len	; Number of tracks
+		ld	b, zNumMusicTracks				; Number of tracks
 		ld	hl, zTracksStart+zTrack.TempoDivider	; Want to change tempo dividers
 
 .loop:
@@ -3889,7 +4131,7 @@ zPlayDigitalAudio:
 		ld	hl, zSongFM6					; Get pointer to FM6 track
 		ld	a, (zDACEnable)					; Get DAC enable
 		or	a								; Is DAC supposed to be enabled?
-		jr	z, .enabletrack					; Branch if yes
+		jr	z, .enabletrack					; Branch if not
 		ld	hl, zSongDAC					; Get pointer to DAC track
 		; Don't allow music DAC to be re-enabled by DAC SFX ending during fading
 		ld	a, (zFadeInTimeout)				; Get fading timeout
@@ -3918,7 +4160,13 @@ zPlayDigitalAudio:
 		dec	a								; a -= 1
 		set	7, (hl)							; Set bit 7 to indicate that DAC sample is being played
 		ld	hl, zmake68kPtr(DACPointers)	; hl = pointer to ROM window
-		rst	PointerTableOffset				; hl = pointer to DAC data
+		ld	c, a
+		ld	b, 0
+		add	hl, bc
+		add	hl, bc
+		add	hl, bc
+		add	hl, bc
+		add	hl, bc
 		ld	c, 80h							; c is an accumulator below; this initializes it to 80h
 		ld	a, (hl)							; a = DAC rate
 		ld	(.sample1_rate+1), a			; Store into following instruction (self-modifying code)
@@ -4052,116 +4300,7 @@ zPlaySEGAPCM:
 ; sample being played -- the code still results in a valid bank switch, and
 ; does not need to worry about special cases.
 DAC_Banks:
-; Set to zero to not use S3/S&K DAC samples:
-		db		zmake68kBank(DacBank1)
-	if (use_s3_samples<>0)||(use_sk_samples<>0)||(use_s3d_samples<>0)
-		db	zmake68kBank(DAC_81_Data)
-		db	zmake68kBank(DAC_82_83_84_85_Data)
-		db	zmake68kBank(DAC_82_83_84_85_Data)
-		db	zmake68kBank(DAC_82_83_84_85_Data)
-		db	zmake68kBank(DAC_82_83_84_85_Data)
-		db	zmake68kBank(DAC_86_Data)
-		db	zmake68kBank(DAC_87_Data)
-		db	zmake68kBank(DAC_88_Data)
-		db	zmake68kBank(DAC_89_Data)
-		db	zmake68kBank(DAC_8A_8B_Data)
-		db	zmake68kBank(DAC_8A_8B_Data)
-		db	zmake68kBank(DAC_8C_Data)
-		db	zmake68kBank(DAC_8D_8E_Data)
-		db	zmake68kBank(DAC_8D_8E_Data)
-		db	zmake68kBank(DAC_8F_Data)
-		db	zmake68kBank(DAC_90_91_92_93_Data)
-		db	zmake68kBank(DAC_90_91_92_93_Data)
-		db	zmake68kBank(DAC_90_91_92_93_Data)
-		db	zmake68kBank(DAC_90_91_92_93_Data)
-		db	zmake68kBank(DAC_94_95_96_97_Data)
-		db	zmake68kBank(DAC_94_95_96_97_Data)
-		db	zmake68kBank(DAC_94_95_96_97_Data)
-		db	zmake68kBank(DAC_94_95_96_97_Data)
-		db	zmake68kBank(DAC_98_99_9A_Data)
-		db	zmake68kBank(DAC_98_99_9A_Data)
-		db	zmake68kBank(DAC_98_99_9A_Data)
-		db	zmake68kBank(DAC_9B_Data)
-		db	zmake68kBank(DAC_9C_Data)
-		db	zmake68kBank(DAC_9D_Data)
-		db	zmake68kBank(DAC_9E_Data)
-	endif
-	if (use_s3_samples<>0)||(use_sk_samples<>0)
-		db	zmake68kBank(DAC_9F_Data)
-		db	zmake68kBank(DAC_A0_Data)
-		db	zmake68kBank(DAC_A1_Data)
-		db	zmake68kBank(DAC_A2_Data)
-		db	zmake68kBank(DAC_A3_Data)
-		db	zmake68kBank(DAC_A4_Data)
-		db	zmake68kBank(DAC_A5_Data)
-		db	zmake68kBank(DAC_A6_Data)
-		db	zmake68kBank(DAC_A7_Data)
-		db	zmake68kBank(DAC_A8_Data)
-		db	zmake68kBank(DAC_A9_Data)
-		db	zmake68kBank(DAC_AA_Data)
-		db	zmake68kBank(DAC_AB_Data)
-		db	zmake68kBank(DAC_AC_Data)
-		db	zmake68kBank(DAC_AD_AE_Data)
-		db	zmake68kBank(DAC_AD_AE_Data)
-		db	zmake68kBank(DAC_AF_B0_Data)
-		db	zmake68kBank(DAC_AF_B0_Data)
-		db	zmake68kBank(DAC_B1_Data)
-		db	zmake68kBank(DAC_B2_B3_Data)
-		db	zmake68kBank(DAC_B2_B3_Data)
-		db	zmake68kBank(DAC_B4_C1_C2_C3_C4_Data)
-		db	zmake68kBank(DAC_B5_Data)
-		db	zmake68kBank(DAC_B6_Data)
-		db	zmake68kBank(DAC_B7_Data)
-		db	zmake68kBank(DAC_B8_B9_Data)
-		db	zmake68kBank(DAC_B8_B9_Data)
-		db	zmake68kBank(DAC_BA_Data)
-		db	zmake68kBank(DAC_BB_Data)
-		db	zmake68kBank(DAC_BC_Data)
-		db	zmake68kBank(DAC_BD_Data)
-		db	zmake68kBank(DAC_BE_Data)
-		db	zmake68kBank(DAC_BF_Data)
-		db	zmake68kBank(DAC_C0_Data)
-		db	zmake68kBank(DAC_B4_C1_C2_C3_C4_Data)
-		db	zmake68kBank(DAC_B4_C1_C2_C3_C4_Data)
-		db	zmake68kBank(DAC_B4_C1_C2_C3_C4_Data)
-		db	zmake68kBank(DAC_B4_C1_C2_C3_C4_Data)
-	endif
-	if (use_s2_samples<>0)
-		db	zmake68kBank(DAC_C5_Data)
-		db	zmake68kBank(DAC_C6_Data)
-		db	zmake68kBank(DAC_C7_Data)
-		db	zmake68kBank(DAC_C8_Data)
-		db	zmake68kBank(DAC_C9_CC_CD_CE_CF_Data)
-		db	zmake68kBank(DAC_CA_D0_D1_D2_Data)
-		db	zmake68kBank(DAC_CB_D3_D4_D5_Data)
-		db	zmake68kBank(DAC_C9_CC_CD_CE_CF_Data)
-		db	zmake68kBank(DAC_C9_CC_CD_CE_CF_Data)
-		db	zmake68kBank(DAC_C9_CC_CD_CE_CF_Data)
-		db	zmake68kBank(DAC_C9_CC_CD_CE_CF_Data)
-		db	zmake68kBank(DAC_CA_D0_D1_D2_Data)
-		db	zmake68kBank(DAC_CA_D0_D1_D2_Data)
-		db	zmake68kBank(DAC_CA_D0_D1_D2_Data)
-		db	zmake68kBank(DAC_CB_D3_D4_D5_Data)
-		db	zmake68kBank(DAC_CB_D3_D4_D5_Data)
-		db	zmake68kBank(DAC_CB_D3_D4_D5_Data)
-	endif
-	if (use_s3d_samples<>0)
-		db	zmake68kBank(DAC_D6_Data)
-		db	zmake68kBank(DAC_D7_Data)
-	endif
-	if (use_s3_samples<>0)
-		db	zmake68kBank(DAC_D8_D9_Data)
-		db	zmake68kBank(DAC_D8_D9_Data)
-	endif
-; ---------------------------------------------------------------------------
-
-	if $ > 1300h
-		fatal "Your Z80 code won't fit before its tables. It's \{$-1300h}h bytes past the start of music data \{1300h}h"
-	elseif MOMPASS=2
-		message "Z80 free space before 1300h: \{1300h-$}h bytes"
-	endif
-; ---------------------------------------------------------------------------
-		org	1300h							; z80 Align, handled by the build process
+	include	"dacbanks.gen.asm"
 ; ---------------------------------------------------------------------------
 ; ===========================================================================
 ; Pointers
@@ -4302,57 +4441,7 @@ VolEnv_33:	db	0Eh, 0Dh, 0Ch, 0Bh, 0Ah,   9,   8,   7,   6,   5,   4,   3,   2,  
 ; MUSIC BANKS
 ; ===========================================================================
 z80_MusicBanks:
-	db zmake68kBank(MusData_AIZ1)
-	db zmake68kBank(MusData_AIZ2)
-	db zmake68kBank(MusData_HCZ1)
-	db zmake68kBank(MusData_HCZ2)
-	db zmake68kBank(MusData_MGZ1)
-	db zmake68kBank(MusData_MGZ2)
-	db zmake68kBank(MusData_CNZ1)
-	db zmake68kBank(MusData_CNZ2)
-	db zmake68kBank(MusData_FBZ1)
-	db zmake68kBank(MusData_FBZ2)
-	db zmake68kBank(MusData_ICZ1)
-	db zmake68kBank(MusData_ICZ2)
-	db zmake68kBank(MusData_LBZ1)
-	db zmake68kBank(MusData_LBZ2)
-	db zmake68kBank(MusData_MHZ1)
-	db zmake68kBank(MusData_MHZ2)
-	db zmake68kBank(MusData_SOZ1)
-	db zmake68kBank(MusData_SOZ2)
-	db zmake68kBank(MusData_LRZ1)
-	db zmake68kBank(MusData_LRZ2)
-	db zmake68kBank(MusData_SSZ)
-	db zmake68kBank(MusData_DEZ1)
-	db zmake68kBank(MusData_DEZ2)
-	db zmake68kBank(MusData_SpecialS2)
-	db zmake68kBank(MusData_Boss)
-	db zmake68kBank(MusData_DDZ)
-	db zmake68kBank(MusData_PachBonus)
-	db zmake68kBank(MusData_SpecialS)
-	db zmake68kBank(MusData_SlotBonus)
-	db zmake68kBank(MusData_GumBonus)
-	db zmake68kBank(MusData_Knux)
-	db zmake68kBank(MusData_ALZ)
-	db zmake68kBank(MusData_BPZ)
-	db zmake68kBank(MusData_DPZ)
-	db zmake68kBank(MusData_CGZ)
-	db zmake68kBank(MusData_EMZ)
-	db zmake68kBank(MusData_Title)
-	db zmake68kBank(MusData_S3Credits)
-	db zmake68kBank(MusData_GameOver)
-	db zmake68kBank(MusData_Continue)
-	db zmake68kBank(MusData_Results)
-	db zmake68kBank(MusData_1UP)
-	db zmake68kBank(MusData_Emerald)
-	db zmake68kBank(MusData_Invic)
-	db zmake68kBank(MusData_2PMenu)
-	db zmake68kBank(MusData_Minib_SK)
-	db zmake68kBank(MusData_Menu)
-	db zmake68kBank(MusData_FinalBoss)
-	db zmake68kBank(MusData_Drown)
-	db zmake68kBank(MusData_PresSega)
-	db zmake68kBank(MusData_SKCredits)
+	include	"musicbanks.gen.asm"
 ; ---------------------------------------------------------------------------
 	if $ > z80_stack_top
 		fatal "Your Z80 tables won't fit before the z80 stack. It's \{$-z80_stack_top}h bytes past the start of the bottom of the stack, at \{z80_stack_top}h"
@@ -4417,220 +4506,7 @@ DAC_Setup macro rate,dacptr
     endm
 
 ; Macro for printing the DAC master table
-DAC_Master_Table macro
-	ifndef DACPointers
-DACPointers label *
-	elseif (DACPointers&$7FFF)<>((*)&$7FFF)
-		fatal "Inconsistent placement of DAC_Master_Table macro on bank \{soundBankName}"
-	endif
-	if (use_s3_samples<>0)||(use_sk_samples<>0)||(use_s3d_samples<>0)
-		offsetBankTableEntry.w	DAC_81_Setup
-		offsetBankTableEntry.w	DAC_82_Setup
-		offsetBankTableEntry.w	DAC_83_Setup
-		offsetBankTableEntry.w	DAC_84_Setup
-		offsetBankTableEntry.w	DAC_85_Setup
-		offsetBankTableEntry.w	DAC_86_Setup
-		offsetBankTableEntry.w	DAC_87_Setup
-		offsetBankTableEntry.w	DAC_88_Setup
-		offsetBankTableEntry.w	DAC_89_Setup
-		offsetBankTableEntry.w	DAC_8A_Setup
-		offsetBankTableEntry.w	DAC_8B_Setup
-		offsetBankTableEntry.w	DAC_8C_Setup
-		offsetBankTableEntry.w	DAC_8D_Setup
-		offsetBankTableEntry.w	DAC_8E_Setup
-		offsetBankTableEntry.w	DAC_8F_Setup
-
-		offsetBankTableEntry.w	DAC_90_Setup
-		offsetBankTableEntry.w	DAC_91_Setup
-		offsetBankTableEntry.w	DAC_92_Setup
-		offsetBankTableEntry.w	DAC_93_Setup
-		offsetBankTableEntry.w	DAC_94_Setup
-		offsetBankTableEntry.w	DAC_95_Setup
-		offsetBankTableEntry.w	DAC_96_Setup
-		offsetBankTableEntry.w	DAC_97_Setup
-		offsetBankTableEntry.w	DAC_98_Setup
-		offsetBankTableEntry.w	DAC_99_Setup
-		offsetBankTableEntry.w	DAC_9A_Setup
-		offsetBankTableEntry.w	DAC_9B_Setup
-		offsetBankTableEntry.w	DAC_9C_Setup
-		offsetBankTableEntry.w	DAC_9D_Setup
-		offsetBankTableEntry.w	DAC_9E_Setup
-	endif
-	if (use_s3_samples<>0)||(use_sk_samples<>0)
-		offsetBankTableEntry.w	DAC_9F_Setup
-
-		offsetBankTableEntry.w	DAC_A0_Setup
-		offsetBankTableEntry.w	DAC_A1_Setup
-		offsetBankTableEntry.w	DAC_A2_Setup
-		offsetBankTableEntry.w	DAC_A3_Setup
-		offsetBankTableEntry.w	DAC_A4_Setup
-		offsetBankTableEntry.w	DAC_A5_Setup
-		offsetBankTableEntry.w	DAC_A6_Setup
-		offsetBankTableEntry.w	DAC_A7_Setup
-		offsetBankTableEntry.w	DAC_A8_Setup
-		offsetBankTableEntry.w	DAC_A9_Setup
-		offsetBankTableEntry.w	DAC_AA_Setup
-		offsetBankTableEntry.w	DAC_AB_Setup
-		offsetBankTableEntry.w	DAC_AC_Setup
-		offsetBankTableEntry.w	DAC_AD_Setup
-		offsetBankTableEntry.w	DAC_AE_Setup
-		offsetBankTableEntry.w	DAC_AF_Setup
-
-		offsetBankTableEntry.w	DAC_B0_Setup
-		offsetBankTableEntry.w	DAC_B1_Setup
-		offsetBankTableEntry.w	DAC_B2_Setup
-		offsetBankTableEntry.w	DAC_B3_Setup
-		offsetBankTableEntry.w	DAC_B4_Setup
-		offsetBankTableEntry.w	DAC_B5_Setup
-		offsetBankTableEntry.w	DAC_B6_Setup
-		offsetBankTableEntry.w	DAC_B7_Setup
-		offsetBankTableEntry.w	DAC_B8_B9_Setup
-		offsetBankTableEntry.w	DAC_B8_B9_Setup
-		offsetBankTableEntry.w	DAC_BA_Setup
-		offsetBankTableEntry.w	DAC_BB_Setup
-		offsetBankTableEntry.w	DAC_BC_Setup
-		offsetBankTableEntry.w	DAC_BD_Setup
-		offsetBankTableEntry.w	DAC_BE_Setup
-		offsetBankTableEntry.w	DAC_BF_Setup
-
-		offsetBankTableEntry.w	DAC_C0_Setup
-		offsetBankTableEntry.w	DAC_C1_Setup
-		offsetBankTableEntry.w	DAC_C2_Setup
-		offsetBankTableEntry.w	DAC_C3_Setup
-		offsetBankTableEntry.w	DAC_C4_Setup
-	endif
-	if (use_s2_samples<>0)
-		offsetBankTableEntry.w	DAC_C5_Setup
-		offsetBankTableEntry.w	DAC_C6_Setup
-		offsetBankTableEntry.w	DAC_C7_Setup
-		offsetBankTableEntry.w	DAC_C8_Setup
-		offsetBankTableEntry.w	DAC_C9_Setup
-		offsetBankTableEntry.w	DAC_CA_Setup
-		offsetBankTableEntry.w	DAC_CB_Setup
-		offsetBankTableEntry.w	DAC_CC_Setup
-		offsetBankTableEntry.w	DAC_CD_Setup
-		offsetBankTableEntry.w	DAC_CE_Setup
-		offsetBankTableEntry.w	DAC_CF_Setup
-
-		offsetBankTableEntry.w	DAC_D0_Setup
-		offsetBankTableEntry.w	DAC_D1_Setup
-		offsetBankTableEntry.w	DAC_D2_Setup
-		offsetBankTableEntry.w	DAC_D3_Setup
-		offsetBankTableEntry.w	DAC_D4_Setup
-		offsetBankTableEntry.w	DAC_D5_Setup
-	endif
-	if (use_s3d_samples<>0)
-		offsetBankTableEntry.w	DAC_D6_Setup
-		offsetBankTableEntry.w	DAC_D7_Setup
-	endif
-	if (use_s3_samples<>0)
-		offsetBankTableEntry.w	DAC_D8_Setup
-		offsetBankTableEntry.w	DAC_D9_Setup
-	endif
-
-	if (use_s3_samples<>0)||(use_sk_samples<>0)||(use_s3d_samples<>0)
-DAC_81_Setup:			DAC_Setup $04,DAC_81_Data
-DAC_82_Setup:			DAC_Setup $0E,DAC_82_83_84_85_Data
-DAC_83_Setup:			DAC_Setup $14,DAC_82_83_84_85_Data
-DAC_84_Setup:			DAC_Setup $1A,DAC_82_83_84_85_Data
-DAC_85_Setup:			DAC_Setup $20,DAC_82_83_84_85_Data
-DAC_86_Setup:			DAC_Setup $04,DAC_86_Data
-DAC_87_Setup:			DAC_Setup $04,DAC_87_Data
-DAC_88_Setup:			DAC_Setup $06,DAC_88_Data
-DAC_89_Setup:			DAC_Setup $0A,DAC_89_Data
-DAC_8A_Setup:			DAC_Setup $14,DAC_8A_8B_Data
-DAC_8B_Setup:			DAC_Setup $1B,DAC_8A_8B_Data
-DAC_8C_Setup:			DAC_Setup $08,DAC_8C_Data
-DAC_8D_Setup:			DAC_Setup $0B,DAC_8D_8E_Data
-DAC_8E_Setup:			DAC_Setup $11,DAC_8D_8E_Data
-DAC_8F_Setup:			DAC_Setup $08,DAC_8F_Data
-DAC_90_Setup:			DAC_Setup $03,DAC_90_91_92_93_Data
-DAC_91_Setup:			DAC_Setup $07,DAC_90_91_92_93_Data
-DAC_92_Setup:			DAC_Setup $0A,DAC_90_91_92_93_Data
-DAC_93_Setup:			DAC_Setup $0E,DAC_90_91_92_93_Data
-DAC_94_Setup:			DAC_Setup $06,DAC_94_95_96_97_Data
-DAC_95_Setup:			DAC_Setup $0A,DAC_94_95_96_97_Data
-DAC_96_Setup:			DAC_Setup $0D,DAC_94_95_96_97_Data
-DAC_97_Setup:			DAC_Setup $12,DAC_94_95_96_97_Data
-DAC_98_Setup:			DAC_Setup $0B,DAC_98_99_9A_Data
-DAC_99_Setup:			DAC_Setup $13,DAC_98_99_9A_Data
-DAC_9A_Setup:			DAC_Setup $16,DAC_98_99_9A_Data
-DAC_9B_Setup:			DAC_Setup $0C,DAC_9B_Data
-	endif
-	if (use_s3_samples<>0)||(use_sk_samples<>0)
-DAC_A2_Setup:			DAC_Setup $0A,DAC_A2_Data
-DAC_A3_Setup:			DAC_Setup $18,DAC_A3_Data
-DAC_A4_Setup:			DAC_Setup $18,DAC_A4_Data
-DAC_A5_Setup:			DAC_Setup $0C,DAC_A5_Data
-DAC_A6_Setup:			DAC_Setup $09,DAC_A6_Data
-DAC_A7_Setup:			DAC_Setup $18,DAC_A7_Data
-DAC_A8_Setup:			DAC_Setup $18,DAC_A8_Data
-DAC_A9_Setup:			DAC_Setup $0C,DAC_A9_Data
-DAC_AA_Setup:			DAC_Setup $0A,DAC_AA_Data
-DAC_AB_Setup:			DAC_Setup $0D,DAC_AB_Data
-DAC_AC_Setup:			DAC_Setup $06,DAC_AC_Data
-DAC_AD_Setup:			DAC_Setup $10,DAC_AD_AE_Data
-DAC_AE_Setup:			DAC_Setup $18,DAC_AD_AE_Data
-DAC_AF_Setup:			DAC_Setup $09,DAC_AF_B0_Data
-DAC_B0_Setup:			DAC_Setup $12,DAC_AF_B0_Data
-DAC_B1_Setup:			DAC_Setup $18,DAC_B1_Data
-DAC_B2_Setup:			DAC_Setup $16,DAC_B2_B3_Data
-DAC_B3_Setup:			DAC_Setup $20,DAC_B2_B3_Data
-DAC_B4_Setup:			DAC_Setup $0C,DAC_B4_C1_C2_C3_C4_Data
-DAC_B5_Setup:			DAC_Setup $0C,DAC_B5_Data
-DAC_B6_Setup:			DAC_Setup $0C,DAC_B6_Data
-DAC_B7_Setup:			DAC_Setup $18,DAC_B7_Data
-DAC_B8_B9_Setup:		DAC_Setup $0C,DAC_B8_B9_Data
-DAC_BA_Setup:			DAC_Setup $18,DAC_BA_Data
-DAC_BB_Setup:			DAC_Setup $18,DAC_BB_Data
-DAC_BC_Setup:			DAC_Setup $18,DAC_BC_Data
-DAC_BD_Setup:			DAC_Setup $0C,DAC_BD_Data
-DAC_BE_Setup:			DAC_Setup $0C,DAC_BE_Data
-DAC_BF_Setup:			DAC_Setup $1C,DAC_BF_Data
-DAC_C0_Setup:			DAC_Setup $0B,DAC_C0_Data
-DAC_C1_Setup:			DAC_Setup $0F,DAC_B4_C1_C2_C3_C4_Data
-DAC_C2_Setup:			DAC_Setup $11,DAC_B4_C1_C2_C3_C4_Data
-DAC_C3_Setup:			DAC_Setup $12,DAC_B4_C1_C2_C3_C4_Data
-DAC_C4_Setup:			DAC_Setup $0B,DAC_B4_C1_C2_C3_C4_Data
-	endif
-	if (use_s3_samples<>0)||(use_sk_samples<>0)||(use_s3d_samples<>0)
-DAC_9C_Setup:			DAC_Setup $0A,DAC_9C_Data
-DAC_9D_Setup:			DAC_Setup $18,DAC_9D_Data
-DAC_9E_Setup:			DAC_Setup $18,DAC_9E_Data
-	endif
-	if (use_s3_samples<>0)||(use_sk_samples<>0)
-DAC_9F_Setup:			DAC_Setup $0C,DAC_9F_Data
-DAC_A0_Setup:			DAC_Setup $0C,DAC_A0_Data
-DAC_A1_Setup:			DAC_Setup $0A,DAC_A1_Data
-	endif
-	if (use_s2_samples<>0)
-DAC_C5_Setup:			DAC_Setup $17,DAC_C5_Data
-DAC_C6_Setup:			DAC_Setup $01,DAC_C6_Data
-DAC_C7_Setup:			DAC_Setup $06,DAC_C7_Data
-DAC_C8_Setup:			DAC_Setup $08,DAC_C8_Data
-DAC_C9_Setup:			DAC_Setup $1B,DAC_C9_CC_CD_CE_CF_Data
-DAC_CA_Setup:			DAC_Setup $0A,DAC_CA_D0_D1_D2_Data
-DAC_CB_Setup:			DAC_Setup $1B,DAC_CB_D3_D4_D5_Data
-DAC_CC_Setup:			DAC_Setup $12,DAC_C9_CC_CD_CE_CF_Data
-DAC_CD_Setup:			DAC_Setup $15,DAC_C9_CC_CD_CE_CF_Data
-DAC_CE_Setup:			DAC_Setup $1C,DAC_C9_CC_CD_CE_CF_Data
-DAC_CF_Setup:			DAC_Setup $1D,DAC_C9_CC_CD_CE_CF_Data
-DAC_D0_Setup:			DAC_Setup $02,DAC_CA_D0_D1_D2_Data
-DAC_D1_Setup:			DAC_Setup $05,DAC_CA_D0_D1_D2_Data
-DAC_D2_Setup:			DAC_Setup $08,DAC_CA_D0_D1_D2_Data
-DAC_D3_Setup:			DAC_Setup $08,DAC_CB_D3_D4_D5_Data
-DAC_D4_Setup:			DAC_Setup $0B,DAC_CB_D3_D4_D5_Data
-DAC_D5_Setup:			DAC_Setup $12,DAC_CB_D3_D4_D5_Data
-	endif
-	if (use_s3d_samples<>0)
-DAC_D6_Setup:			DAC_Setup $01,DAC_D6_Data
-DAC_D7_Setup:			DAC_Setup $12,DAC_D7_Data
-	endif
-	if (use_s3_samples<>0)
-DAC_D8_Setup:			DAC_Setup $16,DAC_D8_D9_Data
-DAC_D9_Setup:			DAC_Setup $20,DAC_D8_D9_Data
-	endif
-	endm
+	include	"dacinfo.gen.asm"
 
 declsong macro song
 	ifndef song_Ptr
@@ -4639,67 +4515,7 @@ song_Ptr	label *
 	dc.w	k68z80Pointer(song)
 	endm
 
-Music_Master_Table macro
-	ifndef MusicPointers
-MusicPointers label *
-	elseif (MusicPointers&$7FFF)<>((*)&$7FFF)
-		fatal "Inconsistent placement of Music_Master_Table macro on bank"
-	endif
-	declsong MusData_AIZ1
-	declsong MusData_AIZ2
-	declsong MusData_HCZ1
-	declsong MusData_HCZ2
-	declsong MusData_MGZ1
-	declsong MusData_MGZ2
-	declsong MusData_CNZ1
-	declsong MusData_CNZ2
-	declsong MusData_FBZ1
-	declsong MusData_FBZ2
-	declsong MusData_ICZ1
-	declsong MusData_ICZ2
-	declsong MusData_LBZ1
-	declsong MusData_LBZ2
-	declsong MusData_MHZ1
-	declsong MusData_MHZ2
-	declsong MusData_SOZ1
-	declsong MusData_SOZ2
-	declsong MusData_LRZ1
-	declsong MusData_LRZ2
-	declsong MusData_SSZ
-	declsong MusData_DEZ1
-	declsong MusData_DEZ2
-	declsong MusData_SpecialS2
-	declsong MusData_Boss
-	declsong MusData_DDZ
-	declsong MusData_PachBonus
-	declsong MusData_SpecialS
-	declsong MusData_SlotBonus
-	declsong MusData_GumBonus
-	declsong MusData_Knux
-	declsong MusData_ALZ
-	declsong MusData_BPZ
-	declsong MusData_DPZ
-	declsong MusData_CGZ
-	declsong MusData_EMZ
-	declsong MusData_Title
-	declsong MusData_S3Credits
-	declsong MusData_GameOver
-	declsong MusData_Continue
-	declsong MusData_Results
-	declsong MusData_1UP
-	declsong MusData_Emerald
-	declsong MusData_Invic
-	declsong MusData_2PMenu
-	declsong MusData_Minib_SK
-	declsong MusData_Menu
-	declsong MusData_FinalBoss
-	declsong MusData_Drown
-	declsong MusData_PresSega
-	declsong MusData_SKCredits
-	ifndef zMusIDPtr__End
-zMusIDPtr__End label *
-	endif
-	endm
+	include	"musicinfo.gen.asm"
 ; ---------------------------------------------------------------------------
 
 ; ---------------------------------------------------------------------------
@@ -4707,117 +4523,7 @@ zMusIDPtr__End label *
 ; DAC Banks
 ; ===========================================================================
 
-	if (use_s3_samples<>0)||(use_sk_samples<>0)||(use_s3d_samples<>0)
-; ---------------------------------------------------------------------------
-; DAC Bank 1
-; ---------------------------------------------------------------------------
-DacBank1:			startBank
-	DAC_Master_Table
-
-DAC_86_Data:			DACBINCLUDE "Sound/DAC/86.bin"
-DAC_81_Data:			DACBINCLUDE "Sound/DAC/81.bin"
-DAC_82_83_84_85_Data:	DACBINCLUDE "Sound/DAC/82-85.bin"
-DAC_94_95_96_97_Data:	DACBINCLUDE "Sound/DAC/94-97.bin"
-DAC_90_91_92_93_Data:	DACBINCLUDE "Sound/DAC/90-93.bin"
-DAC_88_Data:			DACBINCLUDE "Sound/DAC/88.bin"
-DAC_8A_8B_Data:			DACBINCLUDE "Sound/DAC/8A-8B.bin"
-DAC_8C_Data:			DACBINCLUDE "Sound/DAC/8C.bin"
-DAC_8D_8E_Data:			DACBINCLUDE "Sound/DAC/8D-8E.bin"
-DAC_87_Data:			DACBINCLUDE "Sound/DAC/87.bin"
-DAC_8F_Data:			DACBINCLUDE "Sound/DAC/8F.bin"
-DAC_89_Data:			DACBINCLUDE "Sound/DAC/89.bin"
-DAC_98_99_9A_Data:		DACBINCLUDE "Sound/DAC/98-9A.bin"
-DAC_9B_Data:			DACBINCLUDE "Sound/DAC/9B.bin"
-	endif
-
-	if (use_s3_samples<>0)||(use_sk_samples<>0)
-DAC_B2_B3_Data:			DACBINCLUDE "Sound/DAC/B2-B3.bin"
-
-	if (use_s3_samples<>0)
-DAC_D8_D9_Data:			DACBINCLUDE "Sound/DAC/D8-D9.bin"
-	endif
-
-	finishBank
-
-; ---------------------------------------------------------------------------
-; Dac Bank 2
-; ---------------------------------------------------------------------------
-DacBank2:			startBank
-	DAC_Master_Table
-	endif
-
-	if (use_s3_samples<>0)||(use_sk_samples<>0)||(use_s3d_samples<>0)
-DAC_9C_Data:			DACBINCLUDE "Sound/DAC/9C.bin"
-DAC_9D_Data:			DACBINCLUDE "Sound/DAC/9D.bin"
-DAC_9E_Data:			DACBINCLUDE "Sound/DAC/9E.bin"
-	endif
-
-	if (use_s3_samples<>0)||(use_sk_samples<>0)
-DAC_9F_Data:			DACBINCLUDE "Sound/DAC/9F.bin"
-DAC_A0_Data:			DACBINCLUDE "Sound/DAC/A0.bin"
-DAC_A1_Data:			DACBINCLUDE "Sound/DAC/A1.bin"
-DAC_A2_Data:			DACBINCLUDE "Sound/DAC/A2.bin"
-DAC_A3_Data:			DACBINCLUDE "Sound/DAC/A3.bin"
-DAC_A4_Data:			DACBINCLUDE "Sound/DAC/A4.bin"
-DAC_A5_Data:			DACBINCLUDE "Sound/DAC/A5.bin"
-DAC_A6_Data:			DACBINCLUDE "Sound/DAC/A6.bin"
-DAC_A7_Data:			DACBINCLUDE "Sound/DAC/A7.bin"
-DAC_A8_Data:			DACBINCLUDE "Sound/DAC/A8.bin"
-DAC_A9_Data:			DACBINCLUDE "Sound/DAC/A9.bin"
-DAC_AA_Data:			DACBINCLUDE "Sound/DAC/AA.bin"
-
-	finishBank
-
-; ---------------------------------------------------------------------------
-; Dac Bank 3
-; ---------------------------------------------------------------------------
-DacBank3:			startBank
-	DAC_Master_Table
-
-DAC_AB_Data:			DACBINCLUDE "Sound/DAC/AB.bin"
-DAC_AC_Data:			DACBINCLUDE "Sound/DAC/AC.bin"
-DAC_AD_AE_Data:			DACBINCLUDE "Sound/DAC/AD-AE.bin"
-DAC_AF_B0_Data:			DACBINCLUDE "Sound/DAC/AF-B0.bin"
-DAC_B1_Data:			DACBINCLUDE "Sound/DAC/B1.bin"
-DAC_B4_C1_C2_C3_C4_Data:DACBINCLUDE "Sound/DAC/B4C1-C4.bin"
-DAC_B5_Data:			DACBINCLUDE "Sound/DAC/B5.bin"
-DAC_B6_Data:			DACBINCLUDE "Sound/DAC/B6.bin"
-DAC_B7_Data:			DACBINCLUDE "Sound/DAC/B7.bin"
-DAC_B8_B9_Data:			DACBINCLUDE "Sound/DAC/B8-B9.bin"
-DAC_BA_Data:			DACBINCLUDE "Sound/DAC/BA.bin"
-DAC_BB_Data:			DACBINCLUDE "Sound/DAC/BB.bin"
-DAC_BC_Data:			DACBINCLUDE "Sound/DAC/BC.bin"
-DAC_BD_Data:			DACBINCLUDE "Sound/DAC/BD.bin"
-DAC_BE_Data:			DACBINCLUDE "Sound/DAC/BE.bin"
-DAC_BF_Data:			DACBINCLUDE "Sound/DAC/BF.bin"
-DAC_C0_Data:			DACBINCLUDE "Sound/DAC/C0.bin"
-
-	finishBank
-	endif
-
-	if (use_s2_samples<>0)||(use_s3d_samples<>0)
-; ---------------------------------------------------------------------------
-; Dac Bank 4
-; ---------------------------------------------------------------------------
-DacBank4:			startBank
-	DAC_Master_Table
-	if (use_s2_samples<>0)
-DAC_C5_Data:			DACBINCLUDE "Sound/DAC/C5.bin"
-DAC_C6_Data:			DACBINCLUDE "Sound/DAC/C6.bin"
-DAC_C7_Data:			DACBINCLUDE "Sound/DAC/C7.bin"
-DAC_C8_Data:			DACBINCLUDE "Sound/DAC/C8.bin"
-DAC_C9_CC_CD_CE_CF_Data:DACBINCLUDE "Sound/DAC/C9CC-CF.bin"
-DAC_CA_D0_D1_D2_Data:	DACBINCLUDE "Sound/DAC/CAD0-D2.bin"
-DAC_CB_D3_D4_D5_Data:	DACBINCLUDE "Sound/DAC/CBD3-D5.bin"
-	endif
-
-	if (use_s3d_samples<>0)
-DAC_D6_Data:			DACBINCLUDE "Sound/DAC/D6.bin"
-DAC_D7_Data:			DACBINCLUDE "Sound/DAC/D7.bin"
-	endif
-
-	finishBank
-	endif
+	include	"dacsamples.gen.asm"
 
 ; ---------------------------------------------------------------------------
 	include "Sound/_smps2asm_inc.asm"
@@ -5181,89 +4887,4 @@ Sound_DB:	include "Sound/SFX/DB.asm"
 ; ===========================================================================
 ; Music Banks
 ; ===========================================================================
-; Music Bank 1
-; ---------------------------------------------------------------------------
-Mus_Bank1_Start:	startBank
-	Music_Master_Table
-z80_UniVoiceBank:	include "Sound/UniBank.asm"
-MusData_FBZ1:			include	"Sound/Music/FBZ1.asm"
-MusData_FBZ2:			include	"Sound/Music/FBZ2.asm"
-MusData_MHZ1:			include	"Sound/Music/MHZ1.asm"
-MusData_MHZ2:			include	"Sound/Music/MHZ2.asm"
-MusData_SOZ1:			include	"Sound/Music/SOZ1.asm"
-MusData_SOZ2:			include	"Sound/Music/SOZ2.asm"
-MusData_LRZ1:			include	"Sound/Music/LRZ1.asm"
-MusData_LRZ2:			include	"Sound/Music/LRZ2.asm"
-MusData_SSZ:			include	"Sound/Music/SSZ.asm"
-MusData_DEZ1:			include	"Sound/Music/DEZ1.asm"
-MusData_DEZ2:			include	"Sound/Music/DEZ2.asm"
-MusData_Boss:			include	"Sound/Music/Zone Boss.asm" ; R
-MusData_DDZ:			include	"Sound/Music/DDZ.asm" ; R
-MusData_GumBonus:		include	"Sound/Music/Pachinko.asm" ; R
-MusData_SpecialS:		include	"Sound/Music/Special Stage.asm" ; R
-MusData_PachBonus:		include	"Sound/Music/Slots.asm" ; R
-MusData_Knux:			include	"Sound/Music/Knuckles.asm" ; R
-
-	finishBank
-
-; ---------------------------------------------------------------------------
-; Music Bank 2
-; ---------------------------------------------------------------------------
-Mus_Bank2_Start:	startBank
-	Music_Master_Table
-					include "Sound/UniBank.asm"
-MusData_Title:			include	"Sound/Music/Title.asm" ; R
-MusData_1UP:			include	"Sound/Music/1UP.asm"
-MusData_Emerald:		include	"Sound/Music/Chaos Emerald.asm"
-MusData_AIZ1:			include	"Sound/Music/AIZ1.asm" ; R
-MusData_AIZ2:			include	"Sound/Music/AIZ2.asm" ; R
-MusData_HCZ1:			include	"Sound/Music/HCZ1.asm" ; R
-MusData_HCZ2:			include	"Sound/Music/HCZ2.asm" ; R
-MusData_MGZ1:			include	"Sound/Music/CHIP02.asm" ; R
-MusData_MGZ2:			include	"Sound/Music/Sonic CD (US) - Special Stage.asm" ; R
-MusData_CNZ2:			include	"Sound/Music/CNZ2.asm" ; R
-MusData_CNZ1:			include	"Sound/Music/CNZ1.asm" ; R
-MusData_Minib_SK:		include	"Sound/Music/Miniboss.asm" ; R
-
-	finishBank
-
-; ---------------------------------------------------------------------------
-; Music Bank 3
-; ---------------------------------------------------------------------------
-Mus_Bank3_Start:	startBank
-	Music_Master_Table
-					include "Sound/UniBank.asm"
-MusData_ICZ2:			include	"Sound/Music/ICZ2.asm" ; R
-MusData_ICZ1:			include	"Sound/Music/ICZ1.asm" ; R
-MusData_LBZ2:			include	"Sound/Music/LBZ2.asm"
-MusData_LBZ1:			include	"Sound/Music/LBZ1.asm"
-MusData_SKCredits:		include	"Sound/Music/Credits.asm"
-MusData_Results:		include	"Sound/Music/Game Over.asm" ; R
-MusData_Continue:		include	"Sound/Music/Continue.asm"
-MusData_GameOver:		include	"Sound/Music/Level Outro.asm" ; R
-MusData_Invic:			include	"Sound/Music/Invincible.asm"
-MusData_Menu:			include	"Sound/Music/Menu.asm" ; R
-MusData_FinalBoss:		include	"Sound/Music/Final Boss.asm" ; R
-MusData_PresSega:		include	"Sound/Music/Game Complete.asm"
-
-	finishBank
-
-; ---------------------------------------------------------------------------
-; Music Bank 4
-; ---------------------------------------------------------------------------
-Mus_Bank4_Start:	startBank
-	Music_Master_Table
-					include "Sound/UniBank.asm"
-MusData_SlotBonus:		include	"Sound/Music/Gum Ball Machine.asm" ; R
-MusData_ALZ:			include	"Sound/Music/Azure Lake.asm"
-MusData_BPZ:			include	"Sound/Music/Balloon Park.asm"
-MusData_DPZ:			include	"Sound/Music/Desert Palace.asm"
-MusData_CGZ:			include	"Sound/Music/Chrome Gadget.asm"
-MusData_EMZ:			include	"Sound/Music/Endless Mine.asm"
-MusData_S3Credits:		include	"Sound/Music/Sonic 3 Credits.asm"
-MusData_2PMenu:			include	"Sound/Music/Competition Menu.asm"	; R
-MusData_Drown:			include	"Sound/Music/Countdown.asm"
-MusData_SpecialS2:		include	"Sound/Music/Mus89 - Special Stage.asm" ; R
-
-	finishBank
-
+	include	"musicdata.gen.asm"

@@ -2,9 +2,10 @@ Jump_Header:
 	smpsHeaderStartSong 3
 	smpsHeaderVoice     Jump_Voices
 	smpsHeaderTempoSFX  $01
-	smpsHeaderChanSFX   $01
+	smpsHeaderChanSFX   $02
 
 	smpsHeaderSFXChannel cFM3, Jump_FM1,	$EA, $09
+	smpsHeaderSFXChannel cPSG1, Sound_62_PSG1,	$00, $00
 
 ; FM1 Data
 Jump_FM1:
@@ -14,6 +15,14 @@ Jump_FM1:
 	smpsFMAlterVol      $FB
 	smpsModSet          $02, $01, $34, $FF
 	dc.b	nBb3, $15
+	smpsStop
+
+; PSG1 Data
+Sound_62_PSG1:
+	smpsPSGvoice        sTone_0D
+	dc.b	nF2, $05
+	smpsModSet          $02, $01, $F8, $65
+	dc.b	nBb2, $15
 	smpsStop
 
 Jump_Voices:

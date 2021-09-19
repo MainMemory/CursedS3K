@@ -924,6 +924,10 @@ MapEni_S3MenuBG:		binclude "General/Title/Enigma Map/S3 Menu BG.bin"
 	even
 ArtKos_S3MenuBG:		binclude "General/Save Menu/Kosinski Art/Menu BG.bin"
 	even
+MapEni_CompMenuBG:		binclude "General/Competition Menu/Enigma Map/BG.bin"
+	even
+ArtKos_CompMenuBG:		binclude "General/Competition Menu/Kosinski Art/Menu BG.bin"
+	even
 MapEni_CompetitionLevBorder:	binclude "General/Competition Menu/Enigma Map/Level Border.bin"
 	even
 MapUnc_CompetitionTimeBorder:	binclude "General/Competition Menu/Uncompressed Map/Time Border.bin"

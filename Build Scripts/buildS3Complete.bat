@@ -18,6 +18,8 @@ IF EXIST sonic3k.p goto LABLERROR1
 REM // clear the output window
 REM cls
 
+musictool.exe
+
 REM // run the assembler
 REM // -xx shows the most detailed error output
 REM // -q makes AS shut up

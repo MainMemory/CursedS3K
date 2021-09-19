@@ -18,3 +18,8 @@ Build/skbuiltOutput.txt
 Build/sonic3kBinaryOutput.txt
 Build/sonic3kErrors.txt
 Build/sonic3kOutput.txt
+obj/
+bin/
+.vs/
+*.csproj.user
+*.gen.asm
